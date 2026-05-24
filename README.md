@@ -75,13 +75,13 @@ prachi-portfolio-enur9nrif-prachipandey28s-projects.vercel.app
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/prachi-ai-portfolio.git
+git clone https://github.com/Prachipandey28/prachi_portfolio
 ```
 
 Go to project folder:
 
 ```bash
-cd prachi-ai-portfolio
+cd prachi_portfolio
 ```
 
 Install dependencies:

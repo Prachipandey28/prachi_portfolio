@@ -4,7 +4,7 @@
 
 ---
 
-## 🌌 Overview
+## Overview
 
 This is not just a portfolio website.
 
@@ -22,7 +22,7 @@ to create a premium interactive developer portfolio.
 
 ---
 
-## 🚀 Features
+## Features
 
 ✨ Cinematic Hero Section
 ✨ Smooth Framer Motion Animations
@@ -36,7 +36,7 @@ to create a premium interactive developer portfolio.
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend
 
@@ -51,7 +51,7 @@ to create a premium interactive developer portfolio.
 
 ---
 
-## ⚡ Inspiration
+## Inspiration
 
 Inspired by:
 
@@ -62,7 +62,7 @@ Inspired by:
 
 ---
 
-## 🌍 Live Demo
+## Live Demo
 
 ```bash
 prachi-portfolio-enur9nrif-prachipandey28s-projects.vercel.app
@@ -70,7 +70,7 @@ prachi-portfolio-enur9nrif-prachipandey28s-projects.vercel.app
 
 ---
 
-## 🚀 Installation
+## Installation
 
 Clone the repository:
 
@@ -98,7 +98,7 @@ npm run dev
 
 ---
 
-## 🌌 Future Improvements
+## Future Improvements
 
 * AI chatbot integration
 * 3D interactive elements
@@ -116,4 +116,4 @@ The goal of this project is to transform a traditional portfolio into an immersi
 
 ---
 
-# ✨ "Building futuristic experiences through code." ✨
+

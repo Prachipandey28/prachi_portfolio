@@ -1,113 +1,16 @@
-# ⚡ PRACHI AI PORTFOLIO
+# React + Vite
 
-> A cinematic futuristic AI portfolio experience built with React, Tailwind CSS and Framer Motion.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## Overview
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-This is not just a portfolio website.
+## React Compiler
 
-This project is designed as an immersive futuristic digital experience inspired by modern AI systems, cinematic interfaces and next-generation web design.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-The portfolio combines:
+## Expanding the ESLint configuration
 
-* cinematic animations
-* glowing neural aesthetics
-* futuristic UI
-* smooth motion effects
-* modern AI-inspired design
-
-to create a premium interactive developer portfolio.
-
----
-
-## Features
-
-✨ Cinematic Hero Section
-✨ Smooth Framer Motion Animations
-✨ Futuristic AI Theme
-✨ Glowing Neural UI
-✨ Responsive Design
-✨ Interactive Buttons
-✨ Modern Typography
-✨ Animated Background Effects
-✨ Premium User Experience
-<img width="1427" height="805" alt="Screenshot 2026-05-24 at 7 13 58 PM" src="https://github.com/user-attachments/assets/d15ffe56-44b4-4a03-8fec-50e9f1cf849d" />
-
-<img width="1428" height="738" alt="Screenshot 2026-05-24 at 7 14 11 PM" src="https://github.com/user-attachments/assets/7c536f9b-852c-4c62-8b67-f48d0c3ebc5a" />
-
-<img width="1419" height="807" alt="Screenshot 2026-05-24 at 7 14 24 PM" src="https://github.com/user-attachments/assets/8eabfa09-7ca6-464e-acfa-fb217133ddb9" />
-
-<img width="1389" height="482" alt="Screenshot 2026-05-24 at 7 14 39 PM" src="https://github.com/user-attachments/assets/8e35af70-05af-4255-9e9f-c438583fde8f" />
-
----
-
-## Tech Stack
-
-### Frontend
-
-* React
-* Vite
-* Tailwind CSS
-* Framer Motion
-
-### Deployment
-
-* Vercel
-
----
-
-## Inspiration
-
-Inspired by:
-
-* futuristic AI systems
-* sci-fi interfaces
-* modern startup websites
-* cinematic digital experiences
-
----
-
-## Live Demo
-
-```bash
-prachi-portfolio-enur9nrif-prachipandey28s-projects.vercel.app
-```
-
----
-
-## Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/Prachipandey28/prachi_portfolio
-```
-
-Go to project folder:
-
-```bash
-cd prachi_portfolio
-```
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Run development server:
-
-```bash
-npm run dev
-```
----
-
-## ⚡ Project Vision
-
-The goal of this project is to transform a traditional portfolio into an immersive AI-inspired digital experience.
-
----
-
-
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

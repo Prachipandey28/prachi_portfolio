@@ -105,11 +105,12 @@ export default function ParticleCanvas() {
         }
 
         // Draw particle node
+        const safeRadius = Math.max(0.5, currentRadius || 1);
         ctx.beginPath();
-        ctx.arc(p.x, p.y, Math.max(0.5, currentRadius), 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
+        ctx.arc(p.x, p.y, safeRadius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color || '#00f0ff';
         ctx.shadowBlur = 10;
-        ctx.shadowColor = p.color;
+        ctx.shadowColor = p.color || '#00f0ff';
         ctx.fill();
         ctx.shadowBlur = 0;
       });

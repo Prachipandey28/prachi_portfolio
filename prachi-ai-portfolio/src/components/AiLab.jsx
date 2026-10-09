@@ -247,7 +247,7 @@ export default function AiLab() {
                 {/* Learning Rate Slider */}
                 <div>
                   <div className="flex justify-between text-xs font-mono text-slate-300 mb-2">
-                    <span>Learning Rate (\(\eta\)):</span>
+                    <span>Learning Rate (&eta;):</span>
                     <span className="text-cyan-400 font-bold">{learningRate}</span>
                   </div>
                   <input 
@@ -281,7 +281,7 @@ export default function AiLab() {
                 {/* Batch Size Slider */}
                 <div>
                   <div className="flex justify-between text-xs font-mono text-slate-300 mb-2">
-                    <span>Batch Size (\(B\)):</span>
+                    <span>Batch Size (B):</span>
                     <span className="text-emerald-400 font-bold">{batchSize}</span>
                   </div>
                   <input 
@@ -298,7 +298,7 @@ export default function AiLab() {
                 {/* Temperature Slider */}
                 <div>
                   <div className="flex justify-between text-xs font-mono text-slate-300 mb-2">
-                    <span>Sampling Temperature (\(T\)):</span>
+                    <span>Sampling Temperature (T):</span>
                     <span className="text-amber-400 font-bold">{temperature}</span>
                   </div>
                   <input 

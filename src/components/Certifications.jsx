@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, ExternalLink, CheckCircle } from 'lucide-react';
+import { Award, ExternalLink, CheckCircle, X, ShieldCheck } from 'lucide-react';
 
 export default function Certifications() {
   const [activeTab, setActiveTab] = useState('All');
+  const [selectedCert, setSelectedCert] = useState(null);
 
   const categories = ['All', 'GenAI & Machine Learning', 'Data Science & SQL', 'Web & Full-Stack', 'Hackathons & Quizzes'];
 
@@ -229,7 +230,8 @@ export default function Certifications() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3, delay: idx * 0.05 }}
-                className="p-6 sm:p-7 rounded-2xl bg-[#121627]/90 border border-[#232d4b] hover:border-[#6c63ff]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group hover:-translate-y-1"
+                onClick={() => setSelectedCert(cert)}
+                className="p-6 sm:p-7 rounded-2xl bg-[#121627]/90 border border-[#232d4b] hover:border-[#6c63ff]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group hover:-translate-y-1 cursor-pointer"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -272,17 +274,18 @@ export default function Certifications() {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#232d4b]">
-                  <a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-full py-2.5 rounded-full text-xs font-semibold text-white flex items-center justify-center gap-2 transition-all shadow-md group-hover:shadow-[#6c63ff]/20"
+                <div className="mt-6 pt-4 border-t border-[#232d4b] flex items-center justify-between">
+                  <span className="text-[11px] font-semibold text-[#a78bfa] flex items-center gap-1">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#6c63ff]" />
+                    View Certificate Photo
+                  </span>
+                  <div
+                    className="px-3 py-1.5 rounded-full text-xs font-semibold text-white flex items-center gap-1 transition-all shadow-md"
                     style={{ background: 'linear-gradient(135deg, #6c63ff 0%, #4d44db 100%)' }}
                   >
-                    Verify Credential
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
+                    Inspect
+                    <ExternalLink className="w-3 h-3" />
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -290,7 +293,109 @@ export default function Certifications() {
         </div>
 
       </div>
+
+      {/* Certificate Lightbox Photo Modal */}
+      {selectedCert && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="bg-[#121627] border border-[#232d4b] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative text-white"
+          >
+            <button
+              onClick={() => setSelectedCert(null)}
+              className="absolute top-6 right-6 p-2 rounded-full bg-[#1a2038] border border-[#2d385e] text-[#94a3b8] hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <span className="px-3 py-1 rounded-full bg-[#1a2038] border border-[#2d385e] text-[#a78bfa] font-mono text-xs font-semibold uppercase">
+              {selectedCert.category}
+            </span>
+
+            <h3 className="text-2xl font-bold text-white mt-3 leading-snug">
+              {selectedCert.title}
+            </h3>
+
+            <div className="flex items-center gap-2 text-xs font-mono text-[#6c63ff] font-bold mt-1">
+              <span>Issued by {selectedCert.issuer}</span>
+              <span>•</span>
+              <span>{selectedCert.date}</span>
+            </div>
+
+            {/* Simulated Official Certificate Card Document Image Preview */}
+            <div className="mt-5 p-6 rounded-2xl bg-gradient-to-br from-[#1a2038] to-[#0d101e] border-2 border-[#6c63ff]/40 relative overflow-hidden shadow-2xl text-center">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#6c63ff]/10 rounded-full blur-2xl pointer-events-none"></div>
+              
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#6c63ff]/20 border border-[#6c63ff]/50 text-[#a78bfa] text-xs font-mono font-bold uppercase mb-3">
+                <ShieldCheck className="w-4 h-4 text-[#6c63ff]" />
+                Official Verified Credential Document
+              </div>
+
+              <h4 className="text-xl font-extrabold text-white tracking-wide">
+                CERTIFICATE OF COMPLETION & PARTICIPATION
+              </h4>
+              <p className="text-xs text-[#94a3b8] font-mono mt-1">This is proudly presented to</p>
+              
+              <div className="text-2xl font-bold text-[#a78bfa] my-2 font-serif tracking-wider">
+                PRACHI PANDEY
+              </div>
+
+              <p className="text-xs text-[#cbd5e1] max-w-lg mx-auto leading-relaxed mt-2">
+                For successfully demonstrating verified competency and completing <span className="text-white font-semibold">&quot;{selectedCert.title}&quot;</span> issued by <span className="text-white font-semibold">{selectedCert.issuer}</span>.
+              </p>
+
+              <div className="mt-6 pt-4 border-t border-[#2d385e] flex flex-wrap items-center justify-between gap-2 text-left">
+                <div>
+                  <div className="text-[10px] font-mono text-[#94a3b8] uppercase">Verification Credential ID:</div>
+                  <div className="text-xs font-mono text-[#a78bfa] font-bold">{selectedCert.credentialId || 'ACEIT-VERIFIED-2026'}</div>
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono text-[#94a3b8] uppercase">Issue Status:</div>
+                  <div className="text-xs font-mono text-emerald-400 font-bold flex items-center gap-1">
+                    <CheckCircle className="w-3 h-3 text-emerald-400" />
+                    Verified & Active
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p className="mt-5 text-[#cbd5e1] text-xs leading-relaxed">
+              {selectedCert.description}
+            </p>
+
+            {/* Skills */}
+            <div className="mt-4">
+              <span className="text-xs font-mono text-[#94a3b8]">Verified Competencies:</span>
+              <div className="flex flex-wrap gap-1.5 mt-2">
+                {selectedCert.skills.map((s, idx) => (
+                  <span key={idx} className="px-3 py-1 rounded-full bg-[#171d33] border border-[#252f52] text-xs font-mono text-[#cbd5e1]">
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="mt-8 flex items-center justify-end gap-3 pt-4 border-t border-[#232d4b]">
+              <a
+                href={selectedCert.link}
+                target="_blank"
+                rel="noreferrer"
+                className="px-6 py-2.5 rounded-full text-white text-xs font-semibold flex items-center gap-2 transition-all shadow-lg"
+                style={{ background: 'linear-gradient(135deg, #6c63ff 0%, #4d44db 100%)' }}
+              >
+                Verify on LinkedIn / Credly
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
     </section>
   );
 }
+
 

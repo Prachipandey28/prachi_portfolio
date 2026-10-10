@@ -13,17 +13,17 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const categories = ['All', 'Healthcare AI', 'Machine Learning & Analytics'];
+  const categories = ['All', 'AI & NLP', 'Machine Learning & Analytics', 'Web Development'];
 
   const projects = [
     {
       id: 'bone-cancer-detection',
       title: 'AI-Based Bone Cancer Detection System',
-      subtitle: 'Computer Vision & Clinical Diagnostic Platform',
-      category: 'Healthcare AI',
+      subtitle: 'Computer Vision Diagnostic Platform',
+      category: 'AI & NLP',
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800',
       description: 'Deep learning healthcare system built to assist radiographical analysis by detecting bone cancer anomalies in digital X-ray images. Implemented YOLOv8 object detection model with OpenCV preprocessing, Flask real-time web interface, and SQL patient scan logging.',
-      architecture: 'X-Ray Scan Upload -> OpenCV Preprocessing & Resizing -> YOLOv8 Neural Network -> Bounding Box Render -> SQL Patient DB',
+      architecture: 'X-Ray Scan Upload -> OpenCV Preprocessing -> YOLOv8 Neural Network -> Bounding Box Render -> SQL Patient DB',
       bullets: [
         'Trained YOLOv8 model on annotated medical X-ray datasets, achieving >85% diagnostic accuracy.',
         'Engineered near real-time Flask web API for medical image uploading and automated lesion region highlighting.',
@@ -36,15 +36,59 @@ export default function Projects() {
         { label: 'Vision', value: 'OpenCV' }
       ],
       tags: ['Python', 'YOLOv8', 'OpenCV', 'Flask', 'SQL', 'PyTorch'],
-      github: 'https://github.com/prachipandey28'
+      github: 'https://github.com/Prachipandey28'
+    },
+    {
+      id: 'ai-resume-parser',
+      title: 'AI Resume Parser',
+      subtitle: 'Automated Information Extraction Engine',
+      category: 'AI & NLP',
+      image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=800',
+      description: 'Developed an AI-powered Resume Parser using Python and Natural Language Processing (NLP) to automatically extract candidate skills, contact details, education, and work experience from uploaded PDF resumes.',
+      architecture: 'PDF Resume Upload -> PyPDF2 / Text Extraction -> Spacy & NLTK Named Entity Recognition (NER) -> JSON Output & Candidate DB',
+      bullets: [
+        'Implemented Natural Language Processing (NLP) pipelines with entity recognition for skill & contact extraction.',
+        'Parsed unstructured PDF resume text into structured JSON format for rapid HR candidate screening.',
+        'Automated skill keyword matching against job requirements to score candidate relevance.'
+      ],
+      metrics: [
+        { label: 'Engine', value: 'NLP' },
+        { label: 'Parsing', value: 'Auto' },
+        { label: 'Format', value: 'PDF/JSON' },
+        { label: 'Stack', value: 'Python' }
+      ],
+      tags: ['Python', 'NLP', 'Spacy', 'NLTK', 'PyPDF2', 'Regex'],
+      github: 'https://github.com/Prachipandey28/AI_resume_parser'
+    },
+    {
+      id: 'swiggy-sathi-ai',
+      title: 'Swiggy Sathi AI',
+      subtitle: 'AI Food Recommendation & Smart Assistant',
+      category: 'AI & NLP',
+      image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800',
+      description: 'Built an AI-powered food recommendation assistant designed to enhance user experience by providing personalized food choices, dietary preference matching, and intelligent order recommendations.',
+      architecture: 'User Preference Query -> AI Recommender Engine -> Nutritional & Mood Matching -> Personalized Dish & Restaurant List UI',
+      bullets: [
+        'Engineered an intelligent conversational AI assistant tailored for food selection and meal recommendations.',
+        'Built content filtering algorithms matching user cravings, dietary constraints, and ratings.',
+        'Created a sleek interactive web application interface for real-time recommendations.'
+      ],
+      metrics: [
+        { label: 'AI Type', value: 'Assistant' },
+        { label: 'Rec Engine', value: 'Smart' },
+        { label: 'Domain', value: 'Food AI' },
+        { label: 'Stack', value: 'Python' }
+      ],
+      tags: ['Python', 'Recommender Systems', 'AI Assistant', 'Streamlit', 'NLP'],
+      github: 'https://github.com/Prachipandey28'
     },
     {
       id: 'student-performance-prediction',
       title: 'Student Performance Prediction System',
-      subtitle: 'Predictive Data Pipeline & Interactive Analytics Dashboard',
+      subtitle: 'Predictive Data Pipeline & Analytics Dashboard',
       category: 'Machine Learning & Analytics',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-      description: 'End-to-end data science application that analyzes student academic indicators to predict performance outcomes and flag at-risk students. Built automated feature engineering pipelines, tuned ML models with GridSearchCV, and deployed a Streamlit dashboard with Plotly charts.',
+      description: 'End-to-end data science application that analyzes student academic indicators to predict performance outcomes and flag at-risk students. Built automated feature engineering pipelines and deployed a Streamlit dashboard with Plotly charts.',
       architecture: 'Academic Dataset -> 10+ Feature Preprocessing -> GridSearchCV Hyperparameter Tuning -> Scikit-Learn Classifier -> Streamlit / Plotly UI',
       bullets: [
         'Built automated data pipeline handling 10+ student demographic and academic features with scaling & encoding.',
@@ -58,7 +102,95 @@ export default function Projects() {
         { label: 'Charts', value: 'Plotly' }
       ],
       tags: ['Python', 'Scikit-learn', 'Streamlit', 'Plotly', 'SQL', 'Pandas'],
-      github: 'https://github.com/prachipandey28'
+      github: 'https://github.com/Prachipandey28/student-performance-prediction'
+    },
+    {
+      id: 'fake-news-detection',
+      title: 'Fake News Detection System',
+      subtitle: 'NLP Text Classification Pipeline',
+      category: 'Machine Learning & Analytics',
+      image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=800',
+      description: 'Developed an AI-powered Fake News Detection System using Machine Learning and Natural Language Processing (NLP) to classify news articles as real or fake based on textual feature vectorization.',
+      architecture: 'Raw News Text -> Text Cleaning & Stopword Removal -> TF-IDF Vectorization -> Scikit-Learn Classifier -> Truth Probability Score',
+      bullets: [
+        'Processed large text datasets with TF-IDF vectorization and n-gram analysis.',
+        'Trained Machine Learning classification models achieving high precision in identifying misleading articles.',
+        'Integrated Pandas data pipeline for batch predictions and confidence analytics.'
+      ],
+      metrics: [
+        { label: 'Vector', value: 'TF-IDF' },
+        { label: 'Text NLP', value: 'Active' },
+        { label: 'Model', value: 'Scikit-ML' },
+        { label: 'Data', value: 'Pandas' }
+      ],
+      tags: ['Python', 'Pandas', 'Scikit-learn', 'NLP', 'TF-IDF', 'Machine Learning'],
+      github: 'https://github.com/Prachipandey28/Fake'
+    },
+    {
+      id: 'movie-recommendation',
+      title: 'Movie Recommendation System',
+      subtitle: 'Collaborative & Content Filtering Engine',
+      category: 'Machine Learning & Analytics',
+      image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=800',
+      description: 'Developed a Movie Recommendation System using collaborative filtering techniques. The application computes similarity metrics across movie metadata to recommend personalized titles.',
+      architecture: 'Movie Metadata & User Ratings -> Feature Matrix Construction -> Cosine Similarity Matrix -> Top-K Recommendation Engine',
+      bullets: [
+        'Calculated Cosine Similarity matrices across thousands of movie genres, tags, and rating vectors.',
+        'Designed real-time recommendation lookup serving instant movie suggestions based on user search.',
+        'Evaluated recommendation precision using historical rating metrics.'
+      ],
+      metrics: [
+        { label: 'Filter', value: 'Collab' },
+        { label: 'Sim Alg', value: 'Cosine' },
+        { label: 'Lookup', value: 'Real-time' },
+        { label: 'Stack', value: 'Python' }
+      ],
+      tags: ['Python', 'Machine Learning', 'Pandas', 'Scikit-learn', 'Streamlit'],
+      github: 'https://github.com/Prachipandey28/movie_recommendation'
+    },
+    {
+      id: 'quiz-website',
+      title: 'Quiz Website – Interactive Learning Platform',
+      subtitle: 'Responsive E-Learning Portal',
+      category: 'Web Development',
+      image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800',
+      description: 'Developed a responsive Quiz Website using HTML, CSS, and JavaScript to create an engaging learning experience with dynamic score calculation and instant answer verification.',
+      architecture: 'Question Bank JSON -> DOM Rendering -> User Input Selection -> Timer & Score State -> Interactive Results Breakdown',
+      bullets: [
+        'Built modern glassmorphic web user interface with CSS grid and responsive flexbox layouts.',
+        'Engineered dynamic JavaScript state engine tracking countdown timers, score calculation, and progress bars.',
+        'Created interactive review screens highlighting correct answers and learning tips.'
+      ],
+      metrics: [
+        { label: 'Layout', value: 'Responsive' },
+        { label: 'State', value: 'Dynamic JS' },
+        { label: 'Visuals', value: 'CSS Glass' },
+        { label: 'Stack', value: 'HTML/JS' }
+      ],
+      tags: ['HTML5', 'CSS3', 'JavaScript', 'Frontend', 'DOM Manipulation'],
+      github: 'https://github.com/Prachipandey28'
+    },
+    {
+      id: 'qr-code-generator',
+      title: 'QR Code Generator using Python',
+      subtitle: 'Custom Utility Application',
+      category: 'Web Development',
+      image: 'https://images.unsplash.com/photo-1595079672139-cee25815d082?auto=format&fit=crop&q=80&w=800',
+      description: 'Developed a QR Code Generator application using Python and Streamlit that converts text, URLs, and user-provided information into downloadable custom QR codes.',
+      architecture: 'User Input URL/Text -> Python QRCode Encoding Engine -> PNG Image Generation -> Streamlit Download Button',
+      bullets: [
+        'Implemented Python qrcode module to encode web URLs, contact vCards, and text strings.',
+        'Built clean Streamlit web frontend allowing custom color palettes and instant PNG downloads.',
+        'Designed lightweight local utility deployment with quick setup.'
+      ],
+      metrics: [
+        { label: 'Formats', value: 'URL/Text' },
+        { label: 'Speed', value: 'Instant' },
+        { label: 'UI', value: 'Streamlit' },
+        { label: 'Engine', value: 'Python' }
+      ],
+      tags: ['Python', 'Streamlit', 'QRCode', 'Web Utility'],
+      github: 'https://github.com/Prachipandey28'
     }
   ];
 
@@ -92,7 +224,7 @@ export default function Projects() {
             transition={{ delay: 0.1 }}
             className="text-[#94a3b8] text-sm sm:text-base font-medium tracking-wide uppercase mt-4"
           >
-            Empirically Proven AI & ML Codebases
+            8 Proven Software & AI Codebases from GitHub
           </motion.p>
         </div>
 
@@ -118,7 +250,7 @@ export default function Projects() {
         </div>
 
         {/* Projects Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, idx) => (
               <motion.div
@@ -127,11 +259,11 @@ export default function Projects() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className="group rounded-2xl bg-[#121627]/90 border border-[#232d4b] hover:border-[#6c63ff]/60 flex flex-col overflow-hidden transition-all duration-300 shadow-xl"
               >
                 {/* Image Header */}
-                <div className="relative h-56 overflow-hidden bg-[#0d101e]">
+                <div className="relative h-52 overflow-hidden bg-[#0d101e]">
                   <img 
                     src={project.image} 
                     alt={project.title}
@@ -312,5 +444,6 @@ export default function Projects() {
     </section>
   );
 }
+
 
 

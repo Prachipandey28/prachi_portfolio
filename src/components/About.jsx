@@ -1,40 +1,39 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Brain, Cpu, Activity, Stethoscope, Layers, ShieldCheck, Zap, Sparkles, Code, CheckCircle, Terminal } from 'lucide-react';
+import { Brain, Cpu, Activity, Layers, Sparkles, CheckCircle } from 'lucide-react';
 
 export default function About() {
   const pillars = [
     {
       icon: Brain,
-      title: "GenAI & LLM Architecture",
+      title: "Machine Learning & Data Analytics",
       color: "from-cyan-500 to-blue-600",
       textColor: "text-cyan-400",
-      description: "Building production RAG pipelines, agentic workflows, function calling, parameter-efficient fine-tuning (LoRA/QLoRA), and vector database optimizations.",
-      tags: ["DeepSeek", "Llama 3.3", "LangChain", "Qdrant", "vLLM", "RAG"]
+      description: "Developing predictive machine learning models, conducting data analytics, data modeling, and training intelligent algorithms for real-world problem solving.",
+      tags: ["Python", "Machine Learning", "Data Analytics", "Data Modeling", "Scikit-Learn"]
     },
     {
       icon: Activity,
-      title: "Healthcare AI & Diagnostics",
+      title: "AI-Powered Web Development",
       color: "from-purple-500 to-pink-600",
       textColor: "text-purple-400",
-      description: "Architecting clinical diagnostic models, real-time ECG/EEG signal telemetry analysis, and HIPAA-compliant privacy-preserving federated AI systems.",
-      tags: ["Clinical NLP", "ECG AI", "HIPAA", "PyTorch", "Biomedical Vision"]
+      description: "Building responsive frontend interfaces and combining AI capabilities with web applications, recommendation systems, and healthcare web solutions.",
+      tags: ["React", "JavaScript", "HTML/CSS", "AI Web Apps", "Frontend Dev"]
     },
     {
       icon: Cpu,
-      title: "Computer Vision & Spatial AI",
+      title: "Software & Database Engineering",
       color: "from-emerald-500 to-teal-600",
       textColor: "text-emerald-400",
-      description: "Developing multi-modal vision transformers, Segment Anything (SAM-2), real-time video object tracking, and 3D scene understanding.",
-      tags: ["YOLOv11", "SAM-2", "OpenCV", "Vision Transformers", "3D Clouds"]
+      description: "Writing efficient object-oriented C++ code, designing structured relational SQL databases, and strengthening fundamental analytical skills.",
+      tags: ["C++", "SQL", "Relational Databases", "Data Structures", "Algorithms"]
     },
     {
       icon: Layers,
-      title: "MLOps & CUDA Acceleration",
+      title: "Salesforce & Enterprise Systems",
       color: "from-amber-500 to-orange-600",
       textColor: "text-amber-400",
-      description: "Scaling high-performance inference servers with TensorRT, Triton Server, Ray Distributed, Docker, Kubernetes, and C++ CUDA kernel optimization.",
-      tags: ["TensorRT", "CUDA", "Triton", "Ray", "MLflow", "Docker"]
+      description: "Hands-on experience with Salesforce CRM architecture, cloud technologies, workflow automation, and enterprise application concepts.",
+      tags: ["Salesforce", "CRM Solutions", "Cloud Tech", "Workflow Automation", "VS Code"]
     }
   ];
 
@@ -55,7 +54,7 @@ export default function About() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono tracking-wider uppercase mb-4"
           >
             <Brain className="w-3.5 h-3.5" />
-            Neural System Architecture
+            Background & Technical Focus
           </motion.div>
 
           <motion.h2 
@@ -65,7 +64,7 @@ export default function About() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl font-orbitron font-extrabold text-white tracking-tight"
           >
-            Engineering <span className="gradient-text-cyan">Intelligent Systems</span> For Tomorrow
+            Building <span className="gradient-text-cyan">Intelligent AI Solutions</span> For Real-World Impact
           </motion.h2>
 
           <motion.p 
@@ -75,7 +74,7 @@ export default function About() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-base sm:text-lg text-slate-400 leading-relaxed"
           >
-            Driven by a commitment to push the boundary between theoretical machine learning research and high-scale production systems.
+            I am a B.Tech student specializing in Artificial Intelligence and Data Science at Arya College of Engineering & IT, Jaipur. Passionate about creating AI applications that solve real-world problems.
           </motion.p>
         </div>
 
@@ -96,7 +95,7 @@ export default function About() {
                   <div className={`p-4 rounded-2xl bg-slate-900 border border-slate-800 ${pillar.textColor} shadow-lg group-hover:scale-110 transition-transform`}>
                     <Icon className="w-8 h-8" />
                   </div>
-                  <span className="text-xs font-mono text-slate-500">PILLAR // 0{idx + 1}</span>
+                  <span className="text-xs font-mono text-slate-500">FOCUS // 0{idx + 1}</span>
                 </div>
 
                 <h3 className="text-xl font-orbitron font-bold text-white mt-6 group-hover:text-cyan-400 transition-colors">
@@ -133,28 +132,28 @@ export default function About() {
             <div className="lg:col-span-8">
               <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-widest">
                 <Sparkles className="w-4 h-4" />
-                Engineering Philosophy
+                Career Goal & Vision
               </div>
               <h3 className="text-2xl sm:text-3xl font-orbitron font-bold text-white mt-2">
-                Accuracy, Scalability & Safety At Every Layer
+                Seeking AI/ML, Data Science & Web Internships
               </h3>
               <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-                Whether deploying zero-latency LLM microservices or developing deep vision models for healthcare, my focus is on robustness, measurable benchmark superiority, and seamless human-AI alignment.
+                Currently seeking internship opportunities in AI, Machine Learning, Data Science, and Software Development where I can apply my skills, learn from industry professionals, and contribute to impactful projects.
               </p>
             </div>
 
             <div className="lg:col-span-4 flex flex-col gap-3">
               <div className="p-4 rounded-2xl bg-black/50 border border-cyan-500/20 flex items-center gap-3">
                 <CheckCircle className="w-5 h-5 text-cyan-400 shrink-0" />
-                <span className="text-xs font-mono text-slate-200">Sub-50ms Global Query Latency</span>
+                <span className="text-xs font-mono text-slate-200">Arya College of Engg & IT</span>
               </div>
               <div className="p-4 rounded-2xl bg-black/50 border border-purple-500/20 flex items-center gap-3">
                 <CheckCircle className="w-5 h-5 text-purple-400 shrink-0" />
-                <span className="text-xs font-mono text-slate-200">Production vLLM Cluster Orchestration</span>
+                <span className="text-xs font-mono text-slate-200">Multiple Industry Internships</span>
               </div>
               <div className="p-4 rounded-2xl bg-black/50 border border-emerald-500/20 flex items-center gap-3">
                 <CheckCircle className="w-5 h-5 text-emerald-400 shrink-0" />
-                <span className="text-xs font-mono text-slate-200">Peer-Reviewed AI Benchmarks</span>
+                <span className="text-xs font-mono text-slate-200">National Award Winner</span>
               </div>
             </div>
           </div>

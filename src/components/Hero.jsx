@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Bot, Cpu, Sparkles, Terminal, FileText, CheckCircle2, ShieldCheck, Zap, Code, ExternalLink, Activity } from 'lucide-react';
+import { ArrowRight, Bot, Cpu, Sparkles, Terminal, FileText, ShieldCheck, Activity } from 'lucide-react';
+import prachiPhoto from '../assets/prachi.jpeg';
+
+const TITLES = [
+  "B.Tech AI & Data Science Student",
+  "Machine Learning Intern",
+  "AI Web Developer",
+  "Data Science & Analytics Specialist"
+];
 
 export default function Hero({ onOpenResume, onOpenAiLab }) {
-  const titles = [
-    "AI Research Engineer",
-    "GenAI & LLM Architect",
-    "Multi-Modal Vision Researcher",
-    "Healthcare Intelligence Pioneer"
-  ];
 
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
@@ -16,14 +18,14 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
 
   // Quick Terminal state inside hero
   const [terminalOutput, setTerminalOutput] = useState([
-    { type: 'sys', text: '> Initializing Neural Network Kernel v4.8...' },
-    { type: 'success', text: '> Prachi AI Model loaded successfully [CUDA 12.4 enabled]' },
-    { type: 'info', text: '> Type or click: "help" | "skills" | "metrics" | "contact"' }
+    { type: 'sys', text: '> Initializing Prachi Pandey Neural Kernel...' },
+    { type: 'success', text: '> Arya College of Engineering & IT [AI & DS Dept]' },
+    { type: 'info', text: '> Status: Seeking AI/ML, Data Science & Web Internships' }
   ]);
   const [terminalInput, setTerminalInput] = useState('');
 
   useEffect(() => {
-    const targetText = titles[currentTitleIndex];
+    const targetText = TITLES[currentTitleIndex];
     const typingSpeed = isDeleting ? 40 : 80;
 
     const timeout = setTimeout(() => {
@@ -36,7 +38,7 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
         setDisplayText(targetText.substring(0, displayText.length - 1));
         if (displayText.length === 0) {
           setIsDeleting(false);
-          setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
+          setCurrentTitleIndex((prev) => (prev + 1) % TITLES.length);
         }
       }
     }, typingSpeed);
@@ -53,27 +55,27 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
       response = [
         { type: 'cmd', text: `$ ${command}` },
         { type: 'sys', text: 'Available Commands:' },
-        { type: 'info', text: '  - skills : List core machine learning & GenAI stack' },
-        { type: 'info', text: '  - metrics : Display model performance & deployment stats' },
-        { type: 'info', text: '  - projects: Show top featured AI architectures' },
-        { type: 'info', text: '  - clear : Clear terminal logs' }
+        { type: 'info', text: '  - skills : List Python, C++, SQL, React & ML skills' },
+        { type: 'info', text: '  - education: View Arya College of Engineering & IT details' },
+        { type: 'info', text: '  - internships: Display ML & Web dev internship experience' },
+        { type: 'info', text: '  - clear : Clear terminal screen' }
       ];
     } else if (command === 'skills') {
       response = [
         { type: 'cmd', text: `$ ${command}` },
-        { type: 'success', text: 'Core Tech Stack:' },
-        { type: 'info', text: '  PyTorch | DeepSeek | Llama 3 | Transformers | CUDA | Qdrant | LangChain | vLLM' }
+        { type: 'success', text: 'Technical Skills:' },
+        { type: 'info', text: '  Python | C++ | SQL | HTML/CSS | JavaScript | React | Machine Learning | Data Modeling' }
       ];
-    } else if (command === 'metrics') {
+    } else if (command === 'education') {
       response = [
         { type: 'cmd', text: `$ ${command}` },
-        { type: 'success', text: 'System Benchmarks:' },
-        { type: 'info', text: '  • Clinical AI Accuracy: 99.4% | Avg Latency: 32ms | Active Models: 15+' }
+        { type: 'success', text: 'Arya College of Engineering & IT, Jaipur' },
+        { type: 'info', text: '  • B.Tech in Artificial Intelligence & Data Science (2023 - 2027)' }
       ];
-    } else if (command === 'projects') {
+    } else if (command === 'internships') {
       response = [
         { type: 'cmd', text: `$ ${command}` },
-        { type: 'success', text: 'Top Projects: NeuroPulse AI, Omniscribe RAG, VisionForge SAM-2' }
+        { type: 'success', text: 'SkillInfyTech (ML Intern) | InAmigos Foundation (AI Web Dev Intern) | TechForce Academy' }
       ];
     } else if (command === 'clear') {
       setTerminalOutput([]);
@@ -82,7 +84,7 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
     } else {
       response = [
         { type: 'cmd', text: `$ ${command}` },
-        { type: 'error', text: `Command not recognized: '${command}'. Type 'help' for options.` }
+        { type: 'error', text: `Command non-executable: '${command}'. Type 'help' for options.` }
       ];
     }
 
@@ -107,9 +109,9 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
           className="flex justify-center mb-6"
         >
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/80 border border-cyan-500/30 backdrop-blur-md shadow-[0_0_20px_rgba(0,240,255,0.15)]">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             <span className="text-xs font-mono text-cyan-300 tracking-wider uppercase">
-              NEXT-GEN AI ARCHITECTURE & RESEARCH • 2026
+              B.TECH AI & DATA SCIENCE • ARYA COLLEGE, JAIPUR
             </span>
             <Sparkles className="w-3.5 h-3.5 text-purple-400" />
           </div>
@@ -126,7 +128,7 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-6xl lg:text-7xl font-orbitron font-extrabold tracking-tight text-white leading-tight"
             >
-              Hi, I'm <span className="gradient-text-cyan">PRACHI</span>
+              Hi, I'm <span className="gradient-text-cyan">PRACHI PANDEY</span>
             </motion.h1>
 
             <motion.div 
@@ -145,7 +147,7 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="mt-6 text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0"
             >
-              Specialized in engineering high-throughput Multi-Modal AI systems, fine-tuning frontier Large Language Models (LLMs), RAG pipelines, and deploying clinical-grade diagnostic neural networks.
+              Passionate B.Tech student specializing in Artificial Intelligence and Data Science. Experienced in Machine Learning, Data Analytics, Python, C++, SQL, React, and building AI-driven real-world web applications.
             </motion.p>
 
             {/* CTAs */}
@@ -159,16 +161,17 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
                 href="#projects"
                 className="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 text-black font-extrabold text-sm flex items-center gap-3 transition-all duration-300 hover:scale-105 shadow-glow-cyan hover:shadow-cyan-400/50"
               >
-                <span>Explore Featured AI Work</span>
+                <span>Explore Featured Projects</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
               <a
                 href="#ai-lab"
+                onClick={onOpenAiLab}
                 className="px-7 py-3.5 rounded-2xl bg-slate-900/90 border border-purple-500/40 text-purple-300 font-semibold text-sm flex items-center gap-2.5 transition-all duration-300 hover:border-purple-400 hover:bg-purple-500/10 hover:text-white"
               >
                 <Bot className="w-4 h-4 text-purple-400" />
-                <span>Launch Interactive AI Lab</span>
+                <span>Launch Prachi AI Assistant</span>
               </a>
 
               <button
@@ -176,7 +179,7 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
                 className="px-6 py-3.5 rounded-2xl bg-slate-900/60 border border-slate-700/80 text-slate-300 font-medium text-sm flex items-center gap-2 transition-all hover:bg-slate-800 hover:text-cyan-400 hover:border-cyan-500/40"
               >
                 <FileText className="w-4 h-4 text-cyan-400" />
-                <span>Resume PDF</span>
+                <span>View Full Resume</span>
               </button>
             </motion.div>
 
@@ -188,20 +191,20 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
               className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto lg:mx-0"
             >
               <div className="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-sm">
-                <div className="text-2xl font-orbitron font-extrabold text-cyan-400">99.4%</div>
-                <div className="text-[11px] text-slate-400 font-medium mt-0.5">Clinical Accuracy</div>
+                <div className="text-2xl font-orbitron font-extrabold text-cyan-400">4+</div>
+                <div className="text-[11px] text-slate-400 font-medium mt-0.5">Internships Completed</div>
               </div>
               <div className="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-sm">
-                <div className="text-2xl font-orbitron font-extrabold text-purple-400">15+</div>
-                <div className="text-[11px] text-slate-400 font-medium mt-0.5">Deployed Models</div>
+                <div className="text-2xl font-orbitron font-extrabold text-purple-400">4+</div>
+                <div className="text-[11px] text-slate-400 font-medium mt-0.5">Honors & Awards</div>
               </div>
               <div className="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-sm">
-                <div className="text-2xl font-orbitron font-extrabold text-emerald-400">4.8M+</div>
-                <div className="text-[11px] text-slate-400 font-medium mt-0.5">Inferences / Mo</div>
+                <div className="text-2xl font-orbitron font-extrabold text-emerald-400">2027</div>
+                <div className="text-[11px] text-slate-400 font-medium mt-0.5">B.Tech AI & DS Batch</div>
               </div>
               <div className="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-sm">
-                <div className="text-2xl font-orbitron font-extrabold text-amber-400">5+</div>
-                <div className="text-[11px] text-slate-400 font-medium mt-0.5">AI Papers & Repos</div>
+                <div className="text-2xl font-orbitron font-extrabold text-amber-400">100%</div>
+                <div className="text-[11px] text-slate-400 font-medium mt-0.5">Open to AI/ML Roles</div>
               </div>
             </motion.div>
 
@@ -225,8 +228,8 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
                 <div className="relative">
                   <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-cyan-400/80 shadow-glow-cyan p-0.5 bg-gradient-to-tr from-cyan-400 to-purple-600">
                     <img 
-                      src="/prachi.jpeg" 
-                      alt="Prachi - AI Specialist" 
+                      src={prachiPhoto} 
+                      alt="Prachi Pandey - AI & Data Science" 
                       className="w-full h-full object-cover rounded-[14px]"
                       onError={(e) => {
                         e.target.onerror = null;
@@ -241,15 +244,15 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
                 </div>
 
                 <div className="flex flex-col">
-                  <span className="text-xs font-mono text-cyan-400 tracking-wider uppercase">Lead AI Engineer</span>
-                  <h3 className="text-xl font-orbitron font-bold text-white mt-1">PRACHI</h3>
+                  <span className="text-xs font-mono text-cyan-400 tracking-wider uppercase">AI & Data Science Student</span>
+                  <h3 className="text-xl font-orbitron font-bold text-white mt-1">PRACHI PANDEY</h3>
                   <p className="text-xs text-slate-400 mt-1 flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
-                    Generative AI & LLM Systems
+                    Arya College of Engg & IT
                   </p>
                   <div className="mt-3 flex items-center gap-2 text-[11px] font-mono text-slate-300 bg-slate-900/90 px-3 py-1 rounded-lg border border-slate-800">
                     <Activity className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-                    <span>CUDA GPU VRAM: 96GB Free</span>
+                    <span>Open for Internships</span>
                   </div>
                 </div>
               </div>

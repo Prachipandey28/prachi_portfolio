@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function ParticleCanvas() {
   const canvasRef = useRef(null);
@@ -7,6 +7,7 @@ export default function ParticleCanvas() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
     let animationFrameId;
 
     let width = (canvas.width = window.innerWidth);

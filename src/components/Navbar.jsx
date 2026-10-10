@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Bot, Terminal, FileText, Send, Sparkles, Menu, X, Cpu, Layers, User, Code2, Briefcase } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Bot, Terminal, FileText, Send, Sparkles, Menu, X, Cpu, Layers, User, Briefcase } from 'lucide-react';
 
 export default function Navbar({ onOpenResume, onToggleTerminal, isTerminalOpen }) {
   const [scrolled, setScrolled] = useState(false);

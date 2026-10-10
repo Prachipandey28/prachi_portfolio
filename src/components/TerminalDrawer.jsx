@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Terminal, X, Minimize2, Maximize2, Sparkles, Send } from 'lucide-react';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Terminal, X } from 'lucide-react';
 
 export default function TerminalDrawer({ isOpen, onClose }) {
   const [logs, setLogs] = useState([
     { type: 'sys', text: '===================================================' },
-    { type: 'sys', text: ' PRACHI NEURAL OS v4.8 (x86_64-cuda-linux-gnu)' },
+    { type: 'sys', text: ' PRACHI PANDEY AI TERMINAL v2026 (Arya College)' },
     { type: 'sys', text: '===================================================' },
-    { type: 'info', text: 'Type "help" to view all executable commands.' }
+    { type: 'info', text: 'Type "help" to view executable commands.' }
   ]);
   const [inputVal, setInputVal] = useState('');
 
@@ -21,25 +21,26 @@ export default function TerminalDrawer({ isOpen, onClose }) {
 
     if (cmd === 'help') {
       newLogs.push(
-        { type: 'info', text: '  bio        : View executive AI profile summary' },
-        { type: 'info', text: '  projects   : List top featured AI architectures' },
-        { type: 'info', text: '  stack      : Display deep learning framework proficiencies' },
-        { type: 'info', text: '  contact    : Display contact channels' },
+        { type: 'info', text: '  bio        : View Prachi Pandey summary' },
+        { type: 'info', text: '  projects   : List AI, ML & Web projects' },
+        { type: 'info', text: '  stack      : Display Python, C++, SQL, React stack' },
+        { type: 'info', text: '  contact    : Display email & profile links' },
         { type: 'info', text: '  clear      : Clear screen output' },
-        { type: 'info', text: '  exit       : Close neural CLI drawer' }
+        { type: 'info', text: '  exit       : Close terminal drawer' }
       );
     } else if (cmd === 'bio') {
-      newLogs.push({ type: 'success', text: 'PRACHI - Senior AI Engineer & GenAI Specialist with 4+ yrs scaling LLMs, RAG, PyTorch & CUDA.' });
+      newLogs.push({ type: 'success', text: 'PRACHI PANDEY - B.Tech AI & Data Science Student at Arya College of Engineering & IT, Jaipur. Experienced in Machine Learning, Data Analytics, Python, C++, SQL & React.' });
     } else if (cmd === 'projects') {
       newLogs.push(
-        { type: 'success', text: '1. NeuroPulse AI (Clinical Cardiac Predictor - 99.4% Acc)' },
-        { type: 'success', text: '2. Omniscribe RAG (Enterprise Knowledge Engine - DeepSeek-V3)' },
-        { type: 'success', text: '3. VisionForge Spatial AI (SAM-2 3D Vision Architecture)' }
+        { type: 'success', text: '1. AI Healthcare Diagnostic Predictor (ML Medical Anomaly)' },
+        { type: 'success', text: '2. Smart ML Recommendation Engine (Data Science Analytics)' },
+        { type: 'success', text: '3. AI Web Platform & Analytics Hub (React Frontend)' },
+        { type: 'success', text: '4. Salesforce CRM & Cloud Workflow (TechForce Internship)' }
       );
     } else if (cmd === 'stack') {
-      newLogs.push({ type: 'success', text: 'PyTorch, DeepSeek, Llama 3.3, LangChain, Qdrant, vLLM, TensorRT, CUDA C++, FastAPI, Docker' });
+      newLogs.push({ type: 'success', text: 'Python, C++, SQL (Basic Certified), React, HTML, CSS, JavaScript, Machine Learning, Data Modeling, VS Code' });
     } else if (cmd === 'contact') {
-      newLogs.push({ type: 'success', text: 'Email: prachi.ai.engineer@gmail.com | Location: Silicon Valley, CA / Remote' });
+      newLogs.push({ type: 'success', text: 'Email: prachipandey1528@gmail.com | Location: Bhilwara / Jaipur | GitHub: github.com/Prachipandey28' });
     } else if (cmd === 'clear') {
       setLogs([]);
       setInputVal('');

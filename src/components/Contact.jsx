@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Send, Sparkles, CheckCircle2, MapPin, Globe, MessageSquare, Terminal } from 'lucide-react';
+import { Mail, Send, CheckCircle2, MapPin, MessageSquare } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const GithubIcon = (props) => (
@@ -43,17 +43,16 @@ export default function Contact() {
           spread: 70,
           origin: { y: 0.6 }
         });
-      } catch (err) {
+      } catch {
         console.log("Confetti triggered");
       }
     }, 1000);
   };
 
   const socialLinks = [
-    { label: 'GitHub', icon: GithubIcon, href: 'https://github.com', color: 'hover:text-cyan-400 hover:border-cyan-400' },
-    { label: 'LinkedIn', icon: LinkedinIcon, href: 'https://linkedin.com', color: 'hover:text-blue-400 hover:border-blue-400' },
-    { label: 'HuggingFace', icon: Globe, href: 'https://huggingface.co', color: 'hover:text-amber-400 hover:border-amber-400' },
-    { label: 'Email Direct', icon: Mail, href: 'mailto:prachi.ai.engineer@gmail.com', color: 'hover:text-purple-400 hover:border-purple-400' }
+    { label: 'GitHub', icon: GithubIcon, href: 'https://github.com/Prachipandey28', color: 'hover:text-cyan-400 hover:border-cyan-400' },
+    { label: 'LinkedIn', icon: LinkedinIcon, href: 'https://www.linkedin.com/in/prachi-pandey-0042a8328', color: 'hover:text-blue-400 hover:border-blue-400' },
+    { label: 'Email Direct', icon: Mail, href: 'mailto:prachipandey1528@gmail.com', color: 'hover:text-purple-400 hover:border-purple-400' }
   ];
 
   return (
@@ -83,7 +82,7 @@ export default function Contact() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl font-orbitron font-extrabold text-white tracking-tight"
           >
-            Let's Build <span className="gradient-text-cyan">Next-Gen AI</span> Together
+            Let's Build <span className="gradient-text-cyan">Intelligent AI Solutions</span> Together
           </motion.h2>
 
           <motion.p 
@@ -93,7 +92,7 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-base sm:text-lg text-slate-400"
           >
-            Open for Senior AI Engineering roles, LLM architecture consulting, healthcare AI research, and high-impact technical collaborations.
+            Open for AI, Machine Learning, Data Science, and Software Development Internships. Feel free to connect or send a direct message!
           </motion.p>
         </div>
 
@@ -112,20 +111,20 @@ export default function Contact() {
             >
               <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 uppercase tracking-widest">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-                CURRENT STATUS: AVAILABLE
+                CURRENT STATUS: AVAILABLE FOR INTERNSHIPS
               </div>
               <h3 className="text-xl font-orbitron font-bold text-white mt-2">
-                Open for Lead / Senior AI Roles
+                Seeking AI / ML & Data Science Roles
               </h3>
               <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
-                Available for full-time executive AI engineering, LLM pipeline design, or targeted research advisory.
+                Available for internships where I can apply my skills in Machine Learning, Data Analytics, Python, and Web Development.
               </p>
             </motion.div>
 
             {/* Direct Contact Cards */}
             <div className="space-y-3">
               <a 
-                href="mailto:prachi.ai.engineer@gmail.com"
+                href="mailto:prachipandey1528@gmail.com"
                 className="p-4 rounded-2xl bg-slate-900/50 border border-slate-800 flex items-center gap-4 hover:border-cyan-500/40 hover:bg-slate-900 transition-all group"
               >
                 <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 group-hover:scale-110 transition-transform">
@@ -133,7 +132,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-[11px] font-mono text-slate-500 uppercase">Direct Email</div>
-                  <div className="text-sm font-semibold text-white group-hover:text-cyan-400">prachi.ai.engineer@gmail.com</div>
+                  <div className="text-sm font-semibold text-white group-hover:text-cyan-400">prachipandey1528@gmail.com</div>
                 </div>
               </a>
 
@@ -143,14 +142,14 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-[11px] font-mono text-slate-500 uppercase">Location</div>
-                  <div className="text-sm font-semibold text-white">Silicon Valley, CA / Remote Worldwide</div>
+                  <div className="text-sm font-semibold text-white">Bhilwara / Greater Jaipur Area, Rajasthan, India</div>
                 </div>
               </div>
             </div>
 
             {/* Social Channels */}
             <div>
-              <div className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-3">Neural Profiles</div>
+              <div className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-3">Official Profiles</div>
               <div className="grid grid-cols-2 gap-3">
                 {socialLinks.map((social, idx) => {
                   const Icon = social.icon;

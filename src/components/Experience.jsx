@@ -1,58 +1,84 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, Award, BookOpen, Calendar, MapPin, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Briefcase, GraduationCap, Award, Calendar, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export default function Experience() {
   const experiences = [
     {
-      role: 'Senior AI Research Engineer & LLM Architect',
-      company: 'Neural Systems Lab',
-      period: '2024 - Present',
-      location: 'Silicon Valley, CA (Hybrid)',
-      description: 'Leading frontier Generative AI engineering, fine-tuning open-weights LLMs (Llama 3.3, DeepSeek-V3), and building enterprise-grade agentic microservices.',
+      role: 'Machine Learning Intern',
+      company: 'SkillInfyTech IT Solutions Private Limited',
+      period: 'May 2026 - July 2026',
+      location: 'India',
+      description: 'Worked on Machine Learning concepts, data analysis, model development, and industry-oriented projects while gaining practical experience through mentorship and hands-on training.',
       highlights: [
-        'Architected vLLM inference cluster handling 4.8M+ monthly API calls with sub-45ms latency.',
-        'Pioneered hybrid vector search indexing in Qdrant, boosting RAG retrieval accuracy by 34%.',
-        'Managed a team of 6 AI engineers & MLOps specialists.'
+        'Developed predictive ML models and performed exploratory data analysis (EDA).',
+        'Contributed to technical tasks and strengthened analytical problem-solving skills.',
+        'Collaborated on real-world data science workflows under direct mentorship.'
       ]
     },
     {
-      role: 'Machine Learning Engineer',
-      company: 'HealthTech AI Solutions',
-      period: '2023 - 2024',
-      location: 'Boston, MA (Remote)',
-      description: 'Specialized in biomedical signal processing, multi-modal cardiac telemetry analysis, and HIPAA-compliant model deployments.',
+      role: 'AI Web Development Intern',
+      company: 'InAmigos Foundation (IAF)',
+      period: 'May 2026 - July 2026',
+      location: 'Internshala Selection',
+      description: 'Selected for an AI Web Development Internship to work on AI-powered web solutions, frontend development, and website enhancement.',
       highlights: [
-        'Trained 1D-CNN Transformer model on 500,000+ ECG waveforms achieving 99.4% diagnostic sensitivity.',
-        'Engineered real-time WebSocket alert stream for intensive care telemetry units.',
-        'Optimized PyTorch inference speed via C++ CUDA extensions.'
+        'Integrated AI functionalities into responsive web interfaces and user applications.',
+        'Collaborated with cross-functional teams to improve user experience and interface accessibility.',
+        'Strengthened practical web architecture skills using React, JavaScript, HTML, and CSS.'
       ]
     },
     {
-      role: 'AI & Data Science Researcher',
-      company: 'Frontier Intelligence Lab',
-      period: '2022 - 2023',
-      location: 'San Francisco, CA',
-      description: 'Researched parameter-efficient fine-tuning (PEFT), model quantization (INT8/FP16), and vision transformer architectures.',
+      role: 'Social Media Head',
+      company: 'Arya Intelverse',
+      period: 'August 2024 - July 2026',
+      location: 'Arya College of Engineering & IT',
+      description: 'Led social media activities for Arya Intelverse, managing content creation and digital outreach for events, workshops, and student initiatives.',
       highlights: [
-        'Co-authored 2 research papers on multi-modal vision-language compression.',
-        'Built automated benchmarking harness for LLM hallucination scoring.'
+        'Increased student engagement and strengthened the official AI club\'s online presence.',
+        'Coordinated event communication and promotional campaigns across technical workshops.'
+      ]
+    },
+    {
+      role: 'Salesforce Program Architect Intern',
+      company: 'TechForce Academy Australia',
+      period: 'June 2025 - August 2025',
+      location: 'Remote',
+      description: 'Completed an internship focused on Salesforce architecture, CRM solutions, cloud technologies, and workflow automation.',
+      highlights: [
+        'Gained hands-on experience with Salesforce tools, CRM platform concepts, and cloud workflows.',
+        'Developed problem-solving, team collaboration, and enterprise application skills.'
+      ]
+    },
+    {
+      role: 'Internshala Student Partner (ISP)',
+      company: 'Internshala',
+      period: 'June 2026 - July 2026',
+      location: 'Remote',
+      description: 'Represented Internshala on campus to promote skill development, internships, and career training initiatives among students.',
+      highlights: [
+        'Engaged with student communities to spread awareness about technical learning tracks.'
       ]
     }
   ];
 
   const education = [
     {
-      degree: 'Master of Science (M.S.) in Artificial Intelligence & Machine Learning',
-      institution: 'Top Tier University',
-      period: '2020 - 2022',
-      details: 'Specialization in Deep Neural Networks, Multi-Modal Systems, and Computer Vision. GPA: 3.95 / 4.0'
+      degree: 'Bachelor of Technology (B.Tech) - Artificial Intelligence & Data Science',
+      institution: 'Arya College of Engineering and IT, Jaipur',
+      period: 'August 2023 - May 2027',
+      details: 'Focus on Machine Learning, Data Analytics, Python, AI Algorithms, Database Systems, and Web Solutions.'
     },
     {
-      degree: 'Bachelor of Technology (B.Tech) in Computer Science & Engineering',
-      institution: 'Institute of Technology',
-      period: '2016 - 2020',
-      details: 'First Class Honors. Focus on Algorithms, Operating Systems, Linear Algebra, and Signal Processing.'
+      degree: 'Higher Secondary School (12th Grade) - PCM',
+      institution: 'Birla Shiksha Kendra School',
+      period: 'March 2022 - February 2023',
+      details: 'Senior Secondary Education in Physics, Chemistry, and Mathematics.'
+    },
+    {
+      degree: 'Secondary School (10th Grade) - RBSE',
+      institution: 'Sterling Academy School',
+      period: 'March 2020 - May 2021',
+      details: 'Secondary Board Education with strong academic foundation.'
     }
   ];
 
@@ -73,7 +99,7 @@ export default function Experience() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-mono tracking-wider uppercase mb-4"
           >
             <Briefcase className="w-3.5 h-3.5" />
-            Career History & Qualifications
+            Career Journey & Academic Credentials
           </motion.div>
 
           <motion.h2 
@@ -83,7 +109,7 @@ export default function Experience() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl font-orbitron font-extrabold text-white tracking-tight"
           >
-            Experience & <span className="gradient-text-cyan">Research Track</span>
+            Internship Experience & <span className="gradient-text-cyan">Education</span>
           </motion.h2>
 
           <motion.p 
@@ -93,7 +119,7 @@ export default function Experience() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-base sm:text-lg text-slate-400"
           >
-            A consistent track record of pushing the boundaries of AI research and engineering in high-impact industries.
+            Hands-on machine learning internships, AI web development, Salesforce architecture, and academic excellence at Arya College of Engineering & IT.
           </motion.p>
         </div>
 
@@ -104,7 +130,7 @@ export default function Experience() {
           <div className="lg:col-span-8 space-y-8">
             <h3 className="text-xl font-orbitron font-bold text-white flex items-center gap-2 mb-6">
               <Briefcase className="w-5 h-5 text-cyan-400" />
-              Professional Roles
+              Internship History
             </h3>
 
             <div className="relative border-l-2 border-cyan-500/30 ml-4 pl-6 space-y-10">
@@ -158,7 +184,7 @@ export default function Experience() {
           <div className="lg:col-span-4 space-y-8">
             <h3 className="text-xl font-orbitron font-bold text-white flex items-center gap-2 mb-6">
               <GraduationCap className="w-5 h-5 text-purple-400" />
-              Education & Credentials
+              Education & Honors
             </h3>
 
             <div className="space-y-6">
@@ -191,20 +217,24 @@ export default function Experience() {
               >
                 <div className="flex items-center gap-2 text-xs font-mono text-purple-300 uppercase tracking-widest">
                   <Award className="w-4 h-4 text-purple-400" />
-                  Recognitions & Awards
+                  Honors & Awards
                 </div>
                 <ul className="mt-4 space-y-2 text-xs text-slate-300">
                   <li className="flex items-start gap-2">
                     <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
-                    <span>Best Healthcare AI Solution Award (2024)</span>
+                    <span>Certificate of Appreciation — India Is Innovating 2K25</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
-                    <span>Global GenAI Hackathon 1st Place Winner</span>
+                    <span>2nd Position — Scintillations 2024 (Elements Event)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
-                    <span>Hugging Face Top Open-Source Contributor</span>
+                    <span>3rd Position — Victory-24 Cultural Fest (Don-De-Mode)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Sparkles className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                    <span>Consolation Prize — National Project Expo</span>
                   </li>
                 </ul>
               </motion.div>

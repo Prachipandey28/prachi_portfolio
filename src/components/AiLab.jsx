@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Bot, Cpu, Sparkles, Send, RefreshCw, Sliders, Zap, CheckCircle2, Terminal, User, MessageSquare } from 'lucide-react';
+import { Bot, Cpu, Sparkles, Send, RefreshCw, Sliders, Zap, User } from 'lucide-react';
 
 export default function AiLab() {
   const [activeTab, setActiveTab] = useState('assistant');
@@ -9,17 +9,17 @@ export default function AiLab() {
   const [messages, setMessages] = useState([
     {
       sender: 'bot',
-      text: "Hello! I am Prachi-AI Assistant. Ask me anything about Prachi's research, engineering stack, AI projects, or availability!"
+      text: "Hello! I am Prachi-AI Assistant. Ask me anything about Prachi Pandey's B.Tech at Arya College, Machine Learning internships, technical skills, or availability!"
     }
   ]);
   const [inputPrompt, setInputPrompt] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 
   const samplePrompts = [
-    "Tell me about Prachi's RAG Architecture",
-    "What is the accuracy of NeuroPulse AI?",
-    "Which AI & ML frameworks does Prachi use?",
-    "Is Prachi open for AI Lead / Senior roles?"
+    "Tell me about Prachi's Education",
+    "Where did Prachi do her Internships?",
+    "What programming languages & ML tools does Prachi use?",
+    "Is Prachi open for AI/ML Internships?"
   ];
 
   // Hyperparameter Visualizer State
@@ -45,19 +45,19 @@ export default function AiLab() {
 
     // Generate intelligent response based on prompt keyword
     setTimeout(() => {
-      let botResponse = "Prachi specializes in Deep Learning, Large Language Models, Multi-Modal Vision Transformers, and production MLOps.";
+      let botResponse = "Prachi Pandey is a B.Tech AI & Data Science student at Arya College of Engineering & IT, Jaipur, specializing in Machine Learning, Data Analytics, Python, and Web Development.";
       const query = textToSend.toLowerCase();
 
-      if (query.includes('rag') || query.includes('omniscribe')) {
-        botResponse = "Prachi built the Omniscribe RAG Engine using DeepSeek-V3/Llama 3.3, Qdrant hybrid vector search, and vLLM. It achieves sub-45ms latency across 100k+ enterprise documents with 98.9% faithfulness.";
-      } else if (query.includes('accuracy') || query.includes('neuropulse') || query.includes('health')) {
-        botResponse = "NeuroPulse AI is Prachi's clinical cardiac anomaly predictor. It processes 500,000+ ECG waveforms with 99.4% diagnostic accuracy and 18ms real-time inference latency under HIPAA compliance.";
-      } else if (query.includes('framework') || query.includes('stack') || query.includes('technologies')) {
-        botResponse = "Prachi's neural stack includes PyTorch, TensorFlow, DeepSeek, Llama 3.3, CUDA, LangChain, Qdrant, TensorRT, FastAPI, Docker, and C++.";
-      } else if (query.includes('role') || query.includes('hire') || query.includes('available')) {
-        botResponse = "Yes! Prachi is actively available for Senior/Lead AI Engineer, LLM Architect, and AI Research Scientist roles (Remote or Hybrid). You can reach out directly via the Contact section!";
+      if (query.includes('education') || query.includes('college') || query.includes('degree') || query.includes('arya')) {
+        botResponse = "Prachi is pursuing her B.Tech in Artificial Intelligence & Data Science (2023 - 2027) at Arya College of Engineering & IT, Jaipur. She completed Higher Secondary (PCM) at Birla Shiksha Kendra School.";
+      } else if (query.includes('intern') || query.includes('experience') || query.includes('skillinfy') || query.includes('inamigos')) {
+        botResponse = "Prachi completed Machine Learning Internship at SkillInfyTech IT Solutions, AI Web Development Internship at InAmigos Foundation, Salesforce Program Architect Internship at TechForce Academy, and served as Social Media Head at Arya Intelverse.";
+      } else if (query.includes('framework') || query.includes('stack') || query.includes('technologies') || query.includes('language') || query.includes('skill')) {
+        botResponse = "Prachi's tech stack includes Python, C++, SQL (Basic Certified), HTML, CSS, JavaScript, React, Machine Learning (Scikit-Learn, Pandas, NumPy), Data Analytics, and Data Modeling.";
+      } else if (query.includes('role') || query.includes('hire') || query.includes('available') || query.includes('internship')) {
+        botResponse = "Yes! Prachi is actively seeking internship opportunities in AI, Machine Learning, Data Science, and Software Development. You can reach out directly via prachipandey1528@gmail.com!";
       } else if (query.includes('hello') || query.includes('hi')) {
-        botResponse = "Greetings! Feel free to query my neural knowledge base or adjust hyper-parameters in the Neural Visualizer tab!";
+        botResponse = "Greetings! Feel free to query my knowledge base about Prachi's AI/ML background or try the Neural Network visualizer tab!";
       }
 
       setMessages(prev => [...prev, { sender: 'bot', text: botResponse }]);

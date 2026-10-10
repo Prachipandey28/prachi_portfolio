@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Sparkles, ArrowUp, Terminal, ShieldCheck, Heart } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Sparkles, ArrowUp } from 'lucide-react';
 
 export default function Footer() {
   const [time, setTime] = useState('');
@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
           <div>
             <span className="font-orbitron font-extrabold text-white text-sm">PRACHI<span className="text-cyan-400">.AI</span></span>
-            <p className="text-[10px] text-slate-500">© 2026 PRACHI. ALL RIGHTS RESERVED.</p>
+            <p className="text-[10px] text-slate-500">© 2026 PRACHI PANDEY. ALL RIGHTS RESERVED.</p>
           </div>
         </div>
 

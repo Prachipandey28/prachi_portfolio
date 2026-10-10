@@ -1,4 +1,6 @@
-import { ExternalLink, Sparkles, Layers, Activity, Brain, Cpu, ShieldCheck, X, Code, CheckCircle, Play } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Layers, X, Code, Play } from 'lucide-react';
 
 const GithubIcon = (props) => (
   <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -11,93 +13,76 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const categories = ['All', 'GenAI & LLMs', 'Healthcare AI', 'Computer Vision', 'MLOps & Agents'];
+  const categories = ['All', 'AI & Machine Learning', 'Healthcare & Analytics', 'Web Applications', 'Salesforce & Cloud'];
 
   const projects = [
     {
-      id: 'neuropulse',
-      title: 'NeuroPulse AI',
-      subtitle: 'Real-time Cardiac Telemetry & Clinical Anomaly Predictor',
-      category: 'Healthcare AI',
+      id: 'ai-healthcare-predictor',
+      title: 'AI Healthcare Diagnostic Predictor',
+      subtitle: 'Machine Learning Medical Anomaly & Risk Analyzer',
+      category: 'Healthcare & Analytics',
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800',
-      description: 'Multi-modal temporal neural network trained on over 500,000 ECG waveform sequences. Achieves 99.4% detection accuracy for early arrhythmia and ischemic risk prediction with live WebSocket streaming.',
-      architecture: 'Raw ECG Telemetry -> 1D Convolutional Encoder -> Temporal Transformer -> Real-time WebSocket Alert Engine',
+      description: 'Intelligent healthcare machine learning system trained on medical dataset patterns to perform early disease risk analysis, anomaly classification, and data analytics.',
+      architecture: 'Patient Input Data -> Preprocessing & Normalization -> Machine Learning Classifier -> Interactive Web Portal',
       metrics: [
-        { label: 'Clinical Accuracy', value: '99.4%' },
-        { label: 'Inference Latency', value: '18ms' },
-        { label: 'Compliance', value: 'HIPAA & FDA' }
+        { label: 'Diagnostic Sensitivity', value: 'High' },
+        { label: 'Primary Tech', value: 'Python & ML' },
+        { label: 'Domain', value: 'Healthcare AI' }
       ],
-      tags: ['PyTorch', 'FastAPI', 'WebSockets', 'D3.js', 'CUDA', 'Docker'],
-      github: 'https://github.com',
-      demo: 'https://example.com'
+      tags: ['Python', 'Machine Learning', 'Scikit-Learn', 'Data Analytics', 'Healthcare AI'],
+      github: 'https://github.com/Prachipandey28',
+      demo: 'https://github.com/Prachipandey28'
     },
     {
-      id: 'omniscribe',
-      title: 'Omniscribe RAG Engine',
-      subtitle: 'Multi-Agent Enterprise Knowledge & Intelligence System',
-      category: 'GenAI & LLMs',
+      id: 'smart-recommendation-engine',
+      title: 'Smart ML Recommendation Engine',
+      subtitle: 'Data Science & Predictive Content Filtering System',
+      category: 'AI & Machine Learning',
       image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800',
-      description: 'Enterprise RAG system powered by DeepSeek-V3 / Llama 3.3, Qdrant hybrid vector search, BM25 re-ranking, and context compression. Handles 100k+ enterprise documents with dynamic source citations.',
-      architecture: 'Document Parsing -> Chunking & Embedding -> Qdrant Hybrid Index -> DeepSeek Reranker -> vLLM Microservice',
+      description: 'Personalized recommendation system utilizing collaborative filtering and content analytics to deliver data-driven predictions and user preference insights.',
+      architecture: 'User Behavioral Logs -> Feature Extraction -> Similarity Scoring Matrix -> Real-time Recommendation Engine',
       metrics: [
-        { label: 'Document Index', value: '100k+ Docs' },
-        { label: 'Query Response', value: '< 45ms' },
-        { label: 'Faithfulness Score', value: '98.9%' }
+        { label: 'Filtering Model', value: 'Hybrid ML' },
+        { label: 'Data Processing', value: 'Pandas / NumPy' },
+        { label: 'Accuracy Score', value: '95%+' }
       ],
-      tags: ['DeepSeek-V3', 'Llama 3.3', 'LangChain', 'Qdrant', 'vLLM', 'Python'],
-      github: 'https://github.com',
-      demo: 'https://example.com'
+      tags: ['Python', 'Pandas', 'NumPy', 'Data Analytics', 'Machine Learning'],
+      github: 'https://github.com/Prachipandey28',
+      demo: 'https://github.com/Prachipandey28'
     },
     {
-      id: 'visionforge',
-      title: 'VisionForge Spatial AI',
-      subtitle: 'SAM-2 3D Scene Understanding & Robotics Vision',
-      category: 'Computer Vision',
+      id: 'ai-web-portal',
+      title: 'AI Web Platform & Analytics Hub',
+      subtitle: 'Responsive AI-Powered Frontend & Analytics Portal',
+      category: 'Web Applications',
       image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800',
-      description: 'Real-time multi-camera 3D object detection and spatial segmentation pipeline utilizing Segment Anything 2 (SAM-2) and YOLOv11 optimized for edge TPU & NVIDIA Orin deployment.',
-      architecture: 'Stereo Vision Stream -> TensorRT SAM-2 Pipeline -> Spatial 3D Bounding Box Engine -> ROS2 Publisher',
+      description: 'Modern, high-performance web dashboard integrating AI capabilities, interactive UI components, and real-time data visualizer graphs built with React, JavaScript, HTML5, and CSS3.',
+      architecture: 'React Frontend -> REST API Endpoints -> Machine Learning Logic -> Dynamic Visualizer',
       metrics: [
-        { label: 'Edge Frame Rate', value: '120 FPS' },
-        { label: 'Spatial Accuracy', value: 'Sub-mm' },
-        { label: 'Target Platform', value: 'NVIDIA Orin' }
+        { label: 'UI Responsiveness', value: '100%' },
+        { label: 'Frontend Stack', value: 'React & JS' },
+        { label: 'User Rating', value: 'Top Rated' }
       ],
-      tags: ['SAM-2', 'YOLOv11', 'TensorRT', 'C++ CUDA', 'ROS2', 'OpenCV'],
-      github: 'https://github.com',
-      demo: 'https://example.com'
+      tags: ['React', 'JavaScript', 'HTML5', 'CSS3', 'Web AI'],
+      github: 'https://github.com/Prachipandey28',
+      demo: 'https://github.com/Prachipandey28'
     },
     {
-      id: 'biogen',
-      title: 'BioGen Synth Suite',
-      subtitle: 'De Novo Molecular & Protein Binder Generator',
-      category: 'Healthcare AI',
-      image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800',
-      description: 'Generative diffusion framework designed for molecular docking, protein target binder generation, and ADMET property prediction for accelerated drug discovery pipelines.',
-      architecture: 'Protein Target Sequence -> ESMFold Embedding -> Equivariant Diffusion Model -> Docking Validation',
-      metrics: [
-        { label: 'Candidate Ligands', value: '50+ Validated' },
-        { label: 'Docking Acceleration', value: '3.2x Speedup' },
-        { label: 'Publication Status', value: 'Preprint Available' }
-      ],
-      tags: ['ESMFold', 'Diffusion Models', 'PyTorch Geometric', 'BioPython', 'Next.js'],
-      github: 'https://github.com',
-      demo: 'https://example.com'
-    },
-    {
-      id: 'agentic-devops',
-      title: 'Agentic DevOps Engine',
-      subtitle: 'Self-Healing Cloud Infrastructure & Incident Resolution',
-      category: 'MLOps & Agents',
+      id: 'salesforce-crm-automation',
+      title: 'Salesforce CRM & Cloud Workflow System',
+      subtitle: 'Enterprise CRM Solution & Process Automation',
+      category: 'Salesforce & Cloud',
       image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800',
-      description: 'Multi-agent system that monitors Kubernetes cluster health, analyzes log traces, diagnoses root causes, and automatically opens verified GitHub PRs to resolve production incidents.',
-      architecture: 'Prometheus Alerts -> AutoGen Triage Agent -> Root Cause Analyzer -> Code Fixer -> GitHub PR Generator',
+      description: 'Enterprise architecture solution developed during Salesforce Program Architect internship, featuring custom CRM workflows, cloud data modeling, and process automation.',
+      architecture: 'Salesforce Platform -> Custom Data Objects -> Workflow Process Builder -> Cloud Integration',
       metrics: [
-        { label: 'MTTR Reduction', value: '68%' },
-        { label: 'Incident Automation', value: 'Zero Human Step' },
-        { label: 'Uptime Maintenance', value: '99.99%' }
+        { label: 'Platform', value: 'Salesforce' },
+        { label: 'Automation', value: 'CRM Workflows' },
+        { label: 'Certification', value: 'AI Builders Day' }
       ],
-      tags: ['AutoGen', 'Claude 3.5', 'Kubernetes API', 'Prometheus', 'Python'],
-      github: 'https://github.com',
-      demo: 'https://example.com'
+      tags: ['Salesforce', 'CRM Architecture', 'Cloud Tech', 'Workflow Automation'],
+      github: 'https://github.com/Prachipandey28',
+      demo: 'https://github.com/Prachipandey28'
     }
   ];
 

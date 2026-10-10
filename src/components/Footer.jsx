@@ -5,30 +5,56 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const navLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Certifications', href: '#certifications' },
+    { name: 'Achievements', href: '#achievements' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
   return (
-    <footer className="py-10 bg-slate-950 border-t border-slate-900 text-slate-400 text-xs relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer className="py-12 bg-[#080a14] border-t border-[#1b2238] text-[#94a3b8] text-xs relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
         
-        {/* Left Brand */}
-        <div className="flex items-center gap-3">
-          <div>
-            <span className="font-bold text-white text-sm">Prachi Pandey</span>
-            <span className="text-slate-600 mx-2">•</span>
-            <span className="text-slate-400 text-xs">B.Tech AI & Data Science</span>
-            <p className="text-[11px] text-slate-500 mt-0.5">© {new Date().getFullYear()} Prachi Pandey. All rights reserved.</p>
+        {/* Brand */}
+        <div className="text-center md:text-left">
+          <div className="font-bold text-white text-lg tracking-wider">
+            PRACHI<span style={{ color: '#6c63ff' }}>.AI</span>
           </div>
+          <p className="text-xs text-[#94a3b8] mt-1 font-medium">
+            AI Enthusiast & Problem Solver • B.Tech AI & Data Science
+          </p>
+          <p className="text-[11px] text-[#64748b] mt-1">
+            © {new Date().getFullYear()} Prachi Pandey. All Rights Reserved.
+          </p>
         </div>
 
-        {/* Right Action */}
-        <div className="flex items-center gap-4">
-          <span className="text-xs text-slate-500 font-mono">Jaipur, Rajasthan, India</span>
+        {/* Quick Links */}
+        <div className="flex flex-wrap justify-center gap-4 text-xs font-semibold">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-[#94a3b8] hover:text-[#6c63ff] transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+
+        {/* Back to top button */}
+        <div>
           <button
             onClick={scrollToTop}
-            className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition-all group"
+            className="p-3 rounded-full text-white transition-all shadow-lg hover:scale-110 active:scale-95 group"
+            style={{ background: 'linear-gradient(135deg, #6c63ff 0%, #4d44db 100%)' }}
             title="Scroll to Top"
             aria-label="Scroll to top"
           >
-            <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
+            <ArrowUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
           </button>
         </div>
 
@@ -36,4 +62,5 @@ export default function Footer() {
     </footer>
   );
 }
+
 

@@ -60,65 +60,57 @@ export default function TechMatrix() {
     : skillGroups.filter(g => g.category === activeTab);
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden bg-slate-950/80 border-t border-slate-900">
-      
-      {/* Background glow */}
-      <div className="absolute top-1/3 left-0 w-96 h-96 bg-sky-500/5 blur-[170px] rounded-full pointer-events-none"></div>
+    <section id="skills" className="py-24 relative overflow-hidden bg-[#0a0d18] border-t border-[#1b2238]">
+      {/* Background radial glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[#6c63ff]/10 blur-[160px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-sky-400 text-xs font-mono tracking-wider uppercase mb-4"
-          >
-            <Cpu className="w-3.5 h-3.5" />
-            <span>Technical Skills & Proficiency</span>
-          </motion.div>
-
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-bold text-white tracking-tight"
+            className="section-title text-white"
           >
-            Verified Skill <span className="gradient-text-sky">Stack</span>
+            My <span style={{ color: '#6c63ff' }}>Skills</span>
           </motion.h2>
-
+          
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-4 text-base text-slate-400"
+            transition={{ delay: 0.1 }}
+            className="text-[#94a3b8] text-sm sm:text-base font-medium tracking-wide uppercase mt-4"
           >
-            Core technical proficiencies in Python, SQL, C++, Machine Learning, Deep Learning (YOLOv8), Data Analytics, and Database Systems.
+            Technical Expertise & Proficiency
           </motion.p>
         </div>
 
-        {/* Tabs Filter */}
-        <div className="mt-10 flex justify-center flex-wrap gap-2">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveTab(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-medium transition-all ${
-                activeTab === cat
-                  ? 'bg-sky-500 text-slate-950 font-semibold shadow-md shadow-sky-500/20'
-                  : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+        {/* Category Tabs */}
+        <div className="flex justify-center flex-wrap gap-2.5 mb-12">
+          {categories.map((cat) => {
+            const isActive = activeTab === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setActiveTab(cat)}
+                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 ${
+                  isActive
+                    ? 'text-white shadow-lg shadow-[#6c63ff]/30 scale-105'
+                    : 'bg-[#151a2e] text-[#94a3b8] hover:text-white hover:bg-[#1f2642] border border-[#232d4b]'
+                }`}
+                style={isActive ? { background: 'linear-gradient(135deg, #6c63ff 0%, #4d44db 100%)' } : {}}
+              >
+                {cat}
+              </button>
+            );
+          })}
         </div>
 
-        {/* Skill Groups Grid */}
-        <div className="mt-12 space-y-8">
+        {/* Skill Cards Grid */}
+        <div className="space-y-8">
           {filteredGroups.map((group, gIdx) => {
             const GroupIcon = group.icon;
             return (
@@ -128,42 +120,46 @@ export default function TechMatrix() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: gIdx * 0.08 }}
-                className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800/90"
+                className="p-6 sm:p-8 rounded-2xl bg-[#121627]/90 border border-[#232d4b] hover:border-[#6c63ff]/40 transition-all duration-300 shadow-xl"
               >
-                <div className="flex items-center gap-3 border-b border-slate-800 pb-4 mb-6">
-                  <div className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-sky-400">
+                <div className="flex items-center gap-3 border-b border-[#232d4b] pb-4 mb-6">
+                  <div className="p-2.5 rounded-xl bg-[#1a2038] text-[#6c63ff] border border-[#2d385e]">
                     <GroupIcon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-lg font-bold text-white tracking-wide">
+                  <h3 className="text-lg sm:text-xl font-bold text-white tracking-wide">
                     {group.category}
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                   {group.skills.map((skill, sIdx) => (
                     <div 
                       key={sIdx}
-                      className="p-4 rounded-xl bg-slate-950 border border-slate-800/90 hover:border-slate-700 transition-colors flex flex-col justify-between"
+                      className="p-5 rounded-xl bg-[#171d33] border border-[#252f52] hover:border-[#6c63ff]/50 transition-all duration-300 flex flex-col justify-between group"
                     >
                       <div>
-                        <div className="flex justify-between items-center mb-2">
-                          <span className="text-sm font-semibold text-slate-200 flex items-center gap-2">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-sky-400" />
+                        <div className="flex justify-between items-center mb-2.5">
+                          <span className="text-sm font-semibold text-white flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-[#6c63ff]" />
                             {skill.name}
                           </span>
-                          <span className="text-xs font-mono text-sky-400 font-semibold">{skill.level}%</span>
+                          <span className="text-xs font-mono font-bold text-[#a78bfa]">{skill.level}%</span>
                         </div>
 
                         {/* Progress Meter Bar */}
-                        <div className="w-full h-1.5 rounded-full bg-slate-900 overflow-hidden mb-3">
-                          <div 
-                            className="h-full rounded-full bg-sky-500 transition-all duration-1000"
-                            style={{ width: `${skill.level}%` }}
-                          ></div>
+                        <div className="w-full h-2 rounded-full bg-[#0d1120] overflow-hidden mb-3.5 p-[1px]">
+                          <motion.div 
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${skill.level}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, ease: 'easeOut' }}
+                            className="h-full rounded-full"
+                            style={{ background: 'linear-gradient(90deg, #6c63ff 0%, #9b51e0 100%)' }}
+                          ></motion.div>
                         </div>
                       </div>
 
-                      <div className="text-[11px] text-slate-400 leading-relaxed">
+                      <div className="text-xs text-[#94a3b8] leading-relaxed group-hover:text-[#cbd5e1] transition-colors">
                         {skill.detail}
                       </div>
                     </div>
@@ -178,4 +174,5 @@ export default function TechMatrix() {
     </section>
   );
 }
+
 

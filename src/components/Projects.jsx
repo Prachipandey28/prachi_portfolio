@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Layers, X, Code2, CheckCircle2 } from 'lucide-react';
+import { X, Code2, CheckCircle2 } from 'lucide-react';
 
 const GithubIcon = (props) => (
   <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -30,10 +30,10 @@ export default function Projects() {
         'Designed SQL database schema to securely log patient scan history, timestamps, and model confidence scores.'
       ],
       metrics: [
-        { label: 'Model Accuracy', value: '> 85%' },
-        { label: 'Detection Model', value: 'YOLOv8' },
-        { label: 'Web Server', value: 'Flask API' },
-        { label: 'Image Engine', value: 'OpenCV' }
+        { label: 'Accuracy', value: '> 85%' },
+        { label: 'Model', value: 'YOLOv8' },
+        { label: 'API Backend', value: 'Flask' },
+        { label: 'Vision', value: 'OpenCV' }
       ],
       tags: ['Python', 'YOLOv8', 'OpenCV', 'Flask', 'SQL', 'PyTorch'],
       github: 'https://github.com/prachipandey28'
@@ -52,10 +52,10 @@ export default function Projects() {
         'Developed interactive Streamlit web dashboard with custom Plotly charts for real-time risk visualization.'
       ],
       metrics: [
-        { label: 'F1-Score Lift', value: '~12%' },
-        { label: 'Pipeline Features', value: '10+ Features' },
-        { label: 'Dashboard Stack', value: 'Streamlit' },
-        { label: 'Visuals Engine', value: 'Plotly' }
+        { label: 'F1 Lift', value: '~12%' },
+        { label: 'Features', value: '10+' },
+        { label: 'Dashboard', value: 'Streamlit' },
+        { label: 'Charts', value: 'Plotly' }
       ],
       tags: ['Python', 'Scikit-learn', 'Streamlit', 'Plotly', 'SQL', 'Pandas'],
       github: 'https://github.com/prachipandey28'
@@ -67,65 +67,58 @@ export default function Projects() {
     : projects.filter(p => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden bg-slate-950 border-t border-slate-900">
+    <section id="projects" className="py-24 relative overflow-hidden bg-[#0c0f1d] border-t border-[#1b2238]">
       
-      {/* Background glow */}
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-indigo-500/5 blur-[170px] rounded-full pointer-events-none"></div>
+      {/* Background radial glow */}
+      <div className="absolute top-1/2 right-1/4 w-[500px] h-[300px] bg-[#6c63ff]/10 blur-[170px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-sky-400 text-xs font-mono tracking-wider uppercase mb-4"
-          >
-            <Layers className="w-3.5 h-3.5" />
-            <span>Featured Software & AI Projects</span>
-          </motion.div>
-
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-bold text-white tracking-tight"
+            className="section-title text-white"
           >
-            Empirically Proven <span className="gradient-text-sky">AI Codebases</span>
+            My <span style={{ color: '#6c63ff' }}>Projects</span>
           </motion.h2>
 
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-4 text-base text-slate-400"
+            transition={{ delay: 0.1 }}
+            className="text-[#94a3b8] text-sm sm:text-base font-medium tracking-wide uppercase mt-4"
           >
-            Real-world computer vision diagnostic tools and predictive machine learning pipelines built during B.Tech coursework and research.
+            Empirically Proven AI & ML Codebases
           </motion.p>
         </div>
 
         {/* Filter Bar */}
-        <div className="mt-10 flex items-center justify-center gap-2 sm:gap-3">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-medium transition-all duration-200 ${
-                activeCategory === cat
-                  ? 'bg-sky-500 text-slate-950 font-semibold shadow-md shadow-sky-500/20'
-                  : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+        <div className="flex justify-center flex-wrap gap-2.5 mb-12">
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 ${
+                  isActive
+                    ? 'text-white shadow-lg shadow-[#6c63ff]/30 scale-105'
+                    : 'bg-[#151a2e] text-[#94a3b8] hover:text-white hover:bg-[#1f2642] border border-[#232d4b]'
+                }`}
+                style={isActive ? { background: 'linear-gradient(135deg, #6c63ff 0%, #4d44db 100%)' } : {}}
+              >
+                {cat}
+              </button>
+            );
+          })}
         </div>
 
         {/* Projects Cards Grid */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, idx) => (
               <motion.div
@@ -135,41 +128,41 @@ export default function Projects() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="group rounded-2xl bg-slate-900/60 border border-slate-800/90 hover:border-slate-700 flex flex-col overflow-hidden transition-all duration-300 shadow-xl"
+                className="group rounded-2xl bg-[#121627]/90 border border-[#232d4b] hover:border-[#6c63ff]/60 flex flex-col overflow-hidden transition-all duration-300 shadow-xl"
               >
                 {/* Image Header */}
-                <div className="relative h-56 overflow-hidden bg-slate-950">
+                <div className="relative h-56 overflow-hidden bg-[#0d101e]">
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#121627] via-transparent to-transparent"></div>
                   
                   {/* Category Tag */}
-                  <span className="absolute top-4 left-4 px-3 py-1 rounded-md bg-slate-950/90 border border-slate-800 text-sky-400 font-mono text-[11px] font-medium backdrop-blur-md">
+                  <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#0c0f1d]/90 border border-[#2d385e] text-[#a78bfa] font-mono text-[11px] font-semibold backdrop-blur-md">
                     {project.category}
                   </span>
                 </div>
 
                 {/* Card Content */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
+                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
+                    <h3 className="text-xl font-bold text-white group-hover:text-[#a78bfa] transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-xs font-mono text-slate-400 mt-1">
+                    <p className="text-xs font-mono text-[#6c63ff] mt-1 font-semibold">
                       {project.subtitle}
                     </p>
-                    <p className="mt-3 text-slate-400 text-xs sm:text-sm leading-relaxed">
+                    <p className="mt-3 text-[#94a3b8] text-xs sm:text-sm leading-relaxed">
                       {project.description}
                     </p>
 
                     {/* Bullet Points */}
                     <div className="mt-4 space-y-2">
                       {project.bullets.map((b, bIdx) => (
-                        <div key={bIdx} className="flex items-start gap-2 text-xs text-slate-300">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
+                        <div key={bIdx} className="flex items-start gap-2 text-xs text-[#cbd5e1]">
+                          <CheckCircle2 className="w-4 h-4 text-[#6c63ff] shrink-0 mt-0.5" />
                           <span>{b}</span>
                         </div>
                       ))}
@@ -177,11 +170,11 @@ export default function Projects() {
                   </div>
 
                   {/* Metrics preview */}
-                  <div className="mt-6 grid grid-cols-4 gap-2 pt-4 border-t border-slate-800/80">
+                  <div className="mt-6 grid grid-cols-4 gap-2 pt-4 border-t border-[#232d4b]">
                     {project.metrics.map((m, mIdx) => (
-                      <div key={mIdx} className="bg-slate-950 p-2 rounded-lg border border-slate-850 text-center">
-                        <div className="text-xs font-bold text-sky-400">{m.value}</div>
-                        <div className="text-[10px] text-slate-500 mt-0.5 truncate">{m.label}</div>
+                      <div key={mIdx} className="bg-[#171d33] p-2 rounded-xl border border-[#252f52] text-center">
+                        <div className="text-xs font-bold text-[#a78bfa]">{m.value}</div>
+                        <div className="text-[10px] text-[#94a3b8] mt-0.5 truncate">{m.label}</div>
                       </div>
                     ))}
                   </div>
@@ -190,7 +183,7 @@ export default function Projects() {
                   <div className="mt-6 flex items-center justify-between pt-2">
                     <div className="flex flex-wrap gap-1.5 max-w-[65%]">
                       {project.tags.map((t, tIdx) => (
-                        <span key={tIdx} className="text-[10px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
+                        <span key={tIdx} className="text-[10px] font-mono text-[#94a3b8] bg-[#171d33] px-2 py-0.5 rounded-full border border-[#252f52]">
                           #{t}
                         </span>
                       ))}
@@ -199,7 +192,8 @@ export default function Projects() {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => setSelectedProject(project)}
-                        className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium transition-colors"
+                        className="px-4 py-2 rounded-full text-xs font-semibold text-white transition-all shadow-md"
+                        style={{ background: 'linear-gradient(135deg, #6c63ff 0%, #4d44db 100%)' }}
                       >
                         Details
                       </button>
@@ -208,7 +202,7 @@ export default function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noreferrer"
-                        className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
+                        className="p-2 rounded-full bg-[#1a2038] hover:bg-[#232d4b] text-[#cbd5e1] hover:text-white transition-colors border border-[#2d385e]"
                         aria-label="View Source Code on GitHub"
                       >
                         <GithubIcon className="w-4 h-4" />
@@ -230,46 +224,46 @@ export default function Projects() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative"
+            className="bg-[#121627] border border-[#232d4b] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative text-white"
           >
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-6 right-6 p-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-400 hover:text-white"
+              className="absolute top-6 right-6 p-2 rounded-full bg-[#1a2038] border border-[#2d385e] text-[#94a3b8] hover:text-white"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <span className="px-3 py-1 rounded-md bg-slate-950 border border-slate-800 text-sky-400 font-mono text-xs uppercase">
+            <span className="px-3 py-1 rounded-full bg-[#1a2038] border border-[#2d385e] text-[#a78bfa] font-mono text-xs font-semibold uppercase">
               {selectedProject.category}
             </span>
 
             <h3 className="text-2xl font-bold text-white mt-3">
               {selectedProject.title}
             </h3>
-            <p className="text-xs font-mono text-slate-400 mt-1">{selectedProject.subtitle}</p>
+            <p className="text-xs font-mono text-[#6c63ff] mt-1 font-semibold">{selectedProject.subtitle}</p>
 
-            <p className="mt-4 text-slate-300 text-sm leading-relaxed">
+            <p className="mt-4 text-[#cbd5e1] text-sm leading-relaxed">
               {selectedProject.description}
             </p>
 
             {/* Architecture Box */}
-            <div className="mt-5 p-4 rounded-xl bg-slate-950 border border-slate-800">
-              <span className="text-xs font-mono text-sky-400 flex items-center gap-2 mb-2">
-                <Code2 className="w-4 h-4" />
-                Pipeline & System Flow:
+            <div className="mt-5 p-4 rounded-xl bg-[#171d33] border border-[#252f52]">
+              <span className="text-xs font-mono text-[#a78bfa] flex items-center gap-2 mb-2 font-bold">
+                <Code2 className="w-4 h-4 text-[#6c63ff]" />
+                Pipeline & System Architecture:
               </span>
-              <p className="text-xs font-mono text-slate-300 leading-relaxed">
+              <p className="text-xs font-mono text-[#cbd5e1] leading-relaxed">
                 {selectedProject.architecture}
               </p>
             </div>
 
             {/* Key Accomplishments */}
             <div className="mt-5">
-              <h4 className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Key Implementation Highlights:</h4>
+              <h4 className="text-xs font-mono text-[#94a3b8] uppercase tracking-wider mb-2 font-bold">Key Implementation Highlights:</h4>
               <div className="space-y-2">
                 {selectedProject.bullets.map((b, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-300 bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <div key={idx} className="flex items-start gap-2.5 text-xs text-[#cbd5e1] bg-[#171d33] p-3 rounded-xl border border-[#252f52]">
+                    <CheckCircle2 className="w-4 h-4 text-[#6c63ff] shrink-0 mt-0.5" />
                     <span>{b}</span>
                   </div>
                 ))}
@@ -279,19 +273,19 @@ export default function Projects() {
             {/* Metrics */}
             <div className="mt-6 grid grid-cols-4 gap-2">
               {selectedProject.metrics.map((m, idx) => (
-                <div key={idx} className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
-                  <div className="text-sm font-bold text-sky-400">{m.value}</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5">{m.label}</div>
+                <div key={idx} className="p-3 rounded-xl bg-[#171d33] border border-[#252f52] text-center">
+                  <div className="text-sm font-bold text-[#a78bfa]">{m.value}</div>
+                  <div className="text-[10px] text-[#94a3b8] mt-0.5">{m.label}</div>
                 </div>
               ))}
             </div>
 
             {/* Tech Stack */}
             <div className="mt-6">
-              <span className="text-xs font-mono text-slate-400">Frameworks & Tools:</span>
+              <span className="text-xs font-mono text-[#94a3b8]">Frameworks & Tools:</span>
               <div className="flex flex-wrap gap-1.5 mt-2">
                 {selectedProject.tags.map((t, idx) => (
-                  <span key={idx} className="px-2.5 py-1 rounded-md bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">
+                  <span key={idx} className="px-3 py-1 rounded-full bg-[#171d33] border border-[#252f52] text-xs font-mono text-[#cbd5e1]">
                     {t}
                   </span>
                 ))}
@@ -299,12 +293,13 @@ export default function Projects() {
             </div>
 
             {/* Modal Actions */}
-            <div className="mt-8 flex items-center justify-end gap-3 pt-4 border-t border-slate-800">
+            <div className="mt-8 flex items-center justify-end gap-3 pt-4 border-t border-[#232d4b]">
               <a
                 href={selectedProject.github}
                 target="_blank"
                 rel="noreferrer"
-                className="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 text-xs font-semibold flex items-center gap-2 transition-colors"
+                className="px-6 py-2.5 rounded-full text-white text-xs font-semibold flex items-center gap-2 transition-all shadow-lg"
+                style={{ background: 'linear-gradient(135deg, #6c63ff 0%, #4d44db 100%)' }}
               >
                 <GithubIcon className="w-4 h-4" />
                 View GitHub Codebase
@@ -317,4 +312,5 @@ export default function Projects() {
     </section>
   );
 }
+
 

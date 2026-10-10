@@ -1,38 +1,44 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Bot, Cpu, Sparkles, Terminal, FileText, ShieldCheck, Activity } from 'lucide-react';
+import { ArrowRight, FileText, ExternalLink, MapPin, Mail, Code2 } from 'lucide-react';
 import prachiPhoto from '../assets/prachi.jpeg';
+
+const GithubIcon = (props) => (
+  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+    <path d="M9 18c-4.51 2-5-2-7-2" />
+  </svg>
+);
+
+const LinkedinIcon = (props) => (
+  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
 
 const TITLES = [
   "B.Tech AI & Data Science Student",
-  "Machine Learning Intern",
-  "AI Web Developer",
-  "Data Science & Analytics Specialist"
+  "Machine Learning & Data Analyst",
+  "Computer Vision & Deep Learning Developer",
+  "Python & SQL Specialist"
 ];
 
-export default function Hero({ onOpenResume, onOpenAiLab }) {
-
+export default function Hero({ onOpenResume }) {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
 
-  // Quick Terminal state inside hero
-  const [terminalOutput, setTerminalOutput] = useState([
-    { type: 'sys', text: '> Prachi Pandey Portfolio Terminal initialized' },
-    { type: 'success', text: '> Arya College of Engineering & IT, Jaipur' },
-    { type: 'info', text: '> Open for AI/ML, Data Science & Software Internships' }
-  ]);
-  const [terminalInput, setTerminalInput] = useState('');
-
   useEffect(() => {
     const targetText = TITLES[currentTitleIndex];
-    const typingSpeed = isDeleting ? 40 : 80;
+    const typingSpeed = isDeleting ? 35 : 70;
 
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         setDisplayText(targetText.substring(0, displayText.length + 1));
         if (displayText.length === targetText.length) {
-          setTimeout(() => setIsDeleting(true), 2000);
+          setTimeout(() => setIsDeleting(true), 2200);
         }
       } else {
         setDisplayText(targetText.substring(0, displayText.length - 1));
@@ -46,287 +52,234 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, currentTitleIndex]);
 
-  const handleCommandSubmit = (cmd) => {
-    const command = (cmd || terminalInput).toLowerCase().trim();
-    if (!command) return;
-
-    let response = [];
-    if (command === 'help') {
-      response = [
-        { type: 'cmd', text: `$ ${command}` },
-        { type: 'sys', text: 'Available Commands:' },
-        { type: 'info', text: '  - skills : List Python, C++, SQL, React & ML skills' },
-        { type: 'info', text: '  - education: View Arya College of Engineering & IT details' },
-        { type: 'info', text: '  - internships: Display ML & Web dev internship experience' },
-        { type: 'info', text: '  - clear : Clear terminal screen' }
-      ];
-    } else if (command === 'skills') {
-      response = [
-        { type: 'cmd', text: `$ ${command}` },
-        { type: 'success', text: 'Technical Skills:' },
-        { type: 'info', text: '  Python | C++ | SQL | HTML/CSS | JavaScript | React | Machine Learning | Data Modeling' }
-      ];
-    } else if (command === 'education') {
-      response = [
-        { type: 'cmd', text: `$ ${command}` },
-        { type: 'success', text: 'Arya College of Engineering & IT, Jaipur' },
-        { type: 'info', text: '  • B.Tech in Artificial Intelligence & Data Science (2023 - 2027)' }
-      ];
-    } else if (command === 'internships') {
-      response = [
-        { type: 'cmd', text: `$ ${command}` },
-        { type: 'success', text: 'SkillInfyTech (ML Intern) | InAmigos Foundation (AI Web Dev Intern) | TechForce Academy' }
-      ];
-    } else if (command === 'clear') {
-      setTerminalOutput([]);
-      setTerminalInput('');
-      return;
-    } else {
-      response = [
-        { type: 'cmd', text: `$ ${command}` },
-        { type: 'error', text: `Command non-executable: '${command}'. Type 'help' for options.` }
-      ];
-    }
-
-    setTerminalOutput(prev => [...prev, ...response]);
-    setTerminalInput('');
-  };
-
   return (
-    <section id="home" className="relative min-h-screen pt-28 pb-16 flex flex-col justify-center items-center overflow-hidden">
+    <section id="home" className="relative min-h-[90vh] pt-28 pb-16 flex flex-col justify-center items-center">
       
-      {/* Glow Orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 blur-[150px] rounded-full pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-purple-600/15 blur-[150px] rounded-full pointer-events-none"></div>
+      {/* Background Soft Gradients */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[500px] bg-sky-500/10 blur-[140px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-indigo-500/10 blur-[150px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
         
-        {/* Top Badge */}
+        {/* Top Status Pill */}
         <motion.div 
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex justify-center mb-6"
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mb-8"
         >
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/80 border border-cyan-500/30 backdrop-blur-md shadow-[0_0_20px_rgba(0,240,255,0.15)]">
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/80 border border-slate-800 backdrop-blur-md text-xs font-medium text-slate-300 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span className="text-xs font-mono text-cyan-300 tracking-wider uppercase">
-              B.TECH AI & DATA SCIENCE • ARYA COLLEGE, JAIPUR
-            </span>
-            <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+            <span>B.Tech AI & DS</span>
+            <span className="text-slate-600">•</span>
+            <span className="text-sky-400 font-semibold">CGPA: 9.3 / 10</span>
+            <span className="text-slate-600">•</span>
+            <span className="text-slate-400">Arya College of Engineering & IT</span>
           </div>
         </motion.div>
 
-        {/* Hero Grid: Left Content & Right Visual Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mt-4">
+        {/* Hero Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Heading & Bio */}
           <div className="lg:col-span-7 text-center lg:text-left">
             <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-4xl sm:text-6xl lg:text-7xl font-orbitron font-extrabold tracking-tight text-white leading-tight"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight"
             >
-              Hi, I'm <span className="gradient-text-cyan">PRACHI PANDEY</span>
+              Hi, I'm <span className="gradient-text-sky">PRACHI PANDEY</span>
             </motion.h1>
 
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="mt-4 text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-300 h-12 flex items-center justify-center lg:justify-start gap-2"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-4 text-xl sm:text-2xl font-medium text-slate-300 h-10 flex items-center justify-center lg:justify-start gap-1"
             >
-              <span className="text-cyan-400">{displayText}</span>
-              <span className="w-0.5 h-7 bg-cyan-400 animate-pulse"></span>
+              <span className="text-sky-400">{displayText}</span>
+              <span className="w-0.5 h-6 bg-sky-400 animate-pulse"></span>
             </motion.div>
 
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="mt-6 text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed mx-auto lg:mx-0"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-5 text-base sm:text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0"
             >
-              Passionate B.Tech student specializing in Artificial Intelligence and Data Science. Experienced in Machine Learning, Data Analytics, Python, C++, SQL, React, and building AI-driven real-world web applications.
+              Passionate Artificial Intelligence & Data Science undergraduate at Arya College of Engineering & IT (9.3 CGPA). 
+              Specializing in Machine Learning pipelines, Computer Vision (YOLOv8), Data Analytics, Python, SQL, and building end-to-end data-driven solutions.
             </motion.p>
 
-            {/* CTAs */}
+            {/* CTA Buttons */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-8 flex flex-wrap gap-4 justify-center lg:justify-start items-center"
             >
-              <a
-                href="#projects"
-                className="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 text-black font-extrabold text-sm flex items-center gap-3 transition-all duration-300 hover:scale-105 shadow-glow-cyan hover:shadow-cyan-400/50"
-              >
-                <span>Explore Featured Projects</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-
-              <a
-                href="#ai-lab"
-                onClick={onOpenAiLab}
-                className="px-7 py-3.5 rounded-2xl bg-slate-900/90 border border-purple-500/40 text-purple-300 font-semibold text-sm flex items-center gap-2.5 transition-all duration-300 hover:border-purple-400 hover:bg-purple-500/10 hover:text-white"
-              >
-                <Bot className="w-4 h-4 text-purple-400" />
-                <span>Launch Prachi AI Assistant</span>
-              </a>
-
               <button
                 onClick={onOpenResume}
-                className="px-6 py-3.5 rounded-2xl bg-slate-900/60 border border-slate-700/80 text-slate-300 font-medium text-sm flex items-center gap-2 transition-all hover:bg-slate-800 hover:text-cyan-400 hover:border-cyan-500/40"
+                className="px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold text-sm flex items-center gap-2 transition-all duration-200 shadow-lg shadow-sky-500/20 active:scale-95"
               >
-                <FileText className="w-4 h-4 text-cyan-400" />
-                <span>View Full Resume</span>
+                <FileText className="w-4 h-4" />
+                <span>View Resume PDF</span>
               </button>
+
+              <a
+                href="#projects"
+                className="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-medium text-sm flex items-center gap-2 transition-all duration-200"
+              >
+                <span>Explore Projects</span>
+                <ArrowRight className="w-4 h-4 text-slate-400" />
+              </a>
+
+              {/* Social Icon Links */}
+              <div className="flex items-center gap-2 pl-2">
+                <a
+                  href="https://github.com/prachipandey28"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub Profile"
+                  className="p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white transition-colors"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/prachi-pandey-0042a8328/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
+                  className="p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-sky-400 transition-colors"
+                >
+                  <LinkedinIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://leetcode.com/prachipandey"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LeetCode Profile"
+                  className="p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1 text-xs font-semibold"
+                >
+                  <Code2 className="w-4 h-4" />
+                  <span>LeetCode</span>
+                </a>
+              </div>
             </motion.div>
 
-            {/* Quick Metrics Bar */}
+            {/* Empirical Metrics Bar */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
-              className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto lg:mx-0"
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto lg:mx-0"
             >
-              <div className="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-sm">
-                <div className="text-2xl font-orbitron font-extrabold text-cyan-400">4+</div>
-                <div className="text-[11px] text-slate-400 font-medium mt-0.5">Internships Completed</div>
+              <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/90 backdrop-blur-sm">
+                <div className="text-2xl font-bold text-white">9.3 <span className="text-xs font-normal text-slate-400">/ 10</span></div>
+                <div className="text-xs text-slate-400 mt-1">B.Tech AI & DS CGPA</div>
               </div>
-              <div className="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-sm">
-                <div className="text-2xl font-orbitron font-extrabold text-purple-400">4+</div>
-                <div className="text-[11px] text-slate-400 font-medium mt-0.5">Honors & Awards</div>
+
+              <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/90 backdrop-blur-sm">
+                <div className="text-2xl font-bold text-sky-400">100+</div>
+                <div className="text-xs text-slate-400 mt-1">LeetCode Solved (Rank 1470)</div>
               </div>
-              <div className="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-sm">
-                <div className="text-2xl font-orbitron font-extrabold text-emerald-400">2027</div>
-                <div className="text-[11px] text-slate-400 font-medium mt-0.5">B.Tech AI & DS Batch</div>
+
+              <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/90 backdrop-blur-sm">
+                <div className="text-2xl font-bold text-emerald-400">&gt;85%</div>
+                <div className="text-xs text-slate-400 mt-1">YOLOv8 AI Detection Acc.</div>
               </div>
-              <div className="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-sm">
-                <div className="text-2xl font-orbitron font-extrabold text-amber-400">100%</div>
-                <div className="text-[11px] text-slate-400 font-medium mt-0.5">Open to AI/ML Roles</div>
+
+              <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/90 backdrop-blur-sm">
+                <div className="text-2xl font-bold text-amber-400">Bronze</div>
+                <div className="text-xs text-slate-400 mt-1">CodeChef Badge (100+ Solved)</div>
               </div>
             </motion.div>
 
           </div>
 
-          {/* Right Column: Cyber Avatar & Terminal Simulation */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
-            
-            {/* Avatar Profile Box */}
+          {/* Right Column: Profile Card */}
+          <div className="lg:col-span-5 flex justify-center">
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative p-6 rounded-3xl glass-panel border border-cyan-500/30 shadow-2xl overflow-hidden group"
+              transition={{ duration: 0.7 }}
+              className="w-full max-w-md p-6 rounded-2xl bg-slate-900/70 border border-slate-800/90 shadow-2xl backdrop-blur-xl relative"
             >
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Cpu className="w-32 h-32 text-cyan-400" />
-              </div>
-
-              <div className="flex items-center gap-5">
-                <div className="relative">
-                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-cyan-400/80 shadow-glow-cyan p-0.5 bg-gradient-to-tr from-cyan-400 to-purple-600">
+              <div className="flex flex-col items-center text-center">
+                {/* Profile Image */}
+                <div className="relative mb-5">
+                  <div className="w-36 h-36 rounded-2xl overflow-hidden border-2 border-slate-700 shadow-xl p-1 bg-slate-950">
                     <img 
                       src={prachiPhoto} 
-                      alt="Prachi Pandey - AI & Data Science" 
-                      className="w-full h-full object-cover rounded-[14px]"
+                      alt="Prachi Pandey" 
+                      className="w-full h-full object-cover rounded-xl"
                       onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400";
                       }}
                     />
                   </div>
-                  <span className="absolute -bottom-1 -right-1 flex h-5 w-5">
+                  <span className="absolute bottom-1 right-1 flex h-4 w-4">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-5 w-5 bg-emerald-500 border-2 border-[#050811]"></span>
+                    <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-slate-900"></span>
                   </span>
                 </div>
 
-                <div className="flex flex-col">
-                  <span className="text-xs font-mono text-cyan-400 tracking-wider uppercase">AI & Data Science Student</span>
-                  <h3 className="text-xl font-orbitron font-bold text-white mt-1">PRACHI PANDEY</h3>
-                  <p className="text-xs text-slate-400 mt-1 flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
-                    Arya College of Engg & IT
-                  </p>
-                  <div className="mt-3 flex items-center gap-2 text-[11px] font-mono text-slate-300 bg-slate-900/90 px-3 py-1 rounded-lg border border-slate-800">
-                    <Activity className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-                    <span>Open for Internships</span>
+                {/* Name & Title */}
+                <h2 className="text-2xl font-bold text-white">Prachi Pandey</h2>
+                <p className="text-xs font-mono text-sky-400 mt-1 uppercase tracking-wider">AI & Data Science Specialist</p>
+
+                <div className="mt-3 flex items-center gap-2 text-xs text-slate-400">
+                  <MapPin className="w-3.5 h-3.5 text-slate-500" />
+                  <span>Jaipur, Rajasthan, India</span>
+                </div>
+
+                <div className="mt-2 flex items-center gap-2 text-xs text-slate-400">
+                  <Mail className="w-3.5 h-3.5 text-slate-500" />
+                  <a href="mailto:prachipandey1528@gmail.com" className="hover:text-sky-400 transition-colors">
+                    prachipandey1528@gmail.com
+                  </a>
+                </div>
+
+                {/* Key Highlights */}
+                <div className="w-full mt-6 pt-5 border-t border-slate-800/80 text-left space-y-2.5 text-xs text-slate-300">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400">Education:</span>
+                    <span className="font-semibold text-slate-200">Arya College of Engg & IT</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400">Current CGPA:</span>
+                    <span className="font-semibold text-emerald-400">9.3 / 10.0</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400">Certifications:</span>
+                    <span className="font-semibold text-slate-200">HackerRank SQL Inter. & Basic</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400">Availability:</span>
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-medium border border-emerald-500/20">
+                      Open to AI/ML Roles
+                    </span>
                   </div>
                 </div>
-              </div>
 
+                {/* Quick GitHub Badge */}
+                <a
+                  href="https://github.com/prachipandey28"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full mt-5 py-2.5 px-4 rounded-xl bg-slate-950 hover:bg-slate-850 border border-slate-800 text-xs font-mono text-slate-300 flex items-center justify-between transition-colors group"
+                >
+                  <span className="flex items-center gap-2">
+                    <GithubIcon className="w-4 h-4 text-slate-400 group-hover:text-white" />
+                    <span>github.com/prachipandey28</span>
+                  </span>
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-sky-400" />
+                </a>
+
+              </div>
             </motion.div>
-
-            {/* Interactive Terminal Simulator Card */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="rounded-2xl bg-black/80 border border-cyan-500/30 overflow-hidden font-mono text-xs shadow-cyber-card"
-            >
-              {/* Terminal Titlebar */}
-              <div className="px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-                  <span className="ml-2 text-slate-400 text-[11px]">prachi@portfolio:~</span>
-                </div>
-                <div className="text-[10px] text-cyan-400/70 uppercase tracking-widest flex items-center gap-1">
-                  <Terminal className="w-3 h-3" />
-                  Terminal CLI
-                </div>
-              </div>
-
-              {/* Terminal Logs View */}
-              <div className="p-4 h-48 overflow-y-auto space-y-2 bg-[#040711]">
-                {terminalOutput.map((item, idx) => (
-                  <div key={idx} className={`leading-relaxed ${
-                    item.type === 'cmd' ? 'text-white font-bold' :
-                    item.type === 'success' ? 'text-emerald-400' :
-                    item.type === 'error' ? 'text-rose-400' :
-                    item.type === 'sys' ? 'text-cyan-400' : 'text-slate-300'
-                  }`}>
-                    {item.text}
-                  </div>
-                ))}
-              </div>
-
-              {/* Quick Click Tags */}
-              <div className="px-4 py-2 bg-slate-950 border-t border-slate-900 flex items-center gap-2 overflow-x-auto text-[10px]">
-                <span className="text-slate-500">Quick run:</span>
-                {['help', 'skills', 'education', 'internships', 'clear'].map((cmd) => (
-                  <button
-                    key={cmd}
-                    onClick={() => handleCommandSubmit(cmd)}
-                    className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-400 transition-colors"
-                  >
-                    {cmd}
-                  </button>
-                ))}
-              </div>
-
-              {/* Terminal Input Box */}
-              <form 
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleCommandSubmit();
-                }}
-                className="px-4 py-2.5 bg-slate-900/60 border-t border-slate-800 flex items-center gap-2"
-              >
-                <span className="text-cyan-400">$</span>
-                <input
-                  type="text"
-                  value={terminalInput}
-                  onChange={(e) => setTerminalInput(e.target.value)}
-                  placeholder="type command (e.g. skills)..."
-                  className="w-full bg-transparent text-white focus:outline-none placeholder:text-slate-600"
-                />
-              </form>
-            </motion.div>
-
           </div>
 
         </div>
@@ -335,3 +288,4 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
     </section>
   );
 }
+

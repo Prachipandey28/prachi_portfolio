@@ -4,8 +4,9 @@
 
 @layer base {
   body {
-    background-color: #050811;
-    color: #e2e8f0;
+    background-color: #090d16;
+    color: #f1f5f9;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     overflow-x: hidden;
   }
 }
@@ -15,56 +16,42 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #050811;
+  background: #090d16;
 }
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00f0ff;
+  background: #38bdf8;
 }
 
-/* Animated Grid Background */
-.cyber-grid {
-  background-image: 
-    linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-/* Glassmorphism Cards */
+/* Subtle Modern Glass Cards */
 .glass-panel {
-  background: rgba(13, 22, 41, 0.65);
+  background: rgba(15, 23, 42, 0.65);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 240, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-panel-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .glass-panel-hover:hover {
-  border-color: rgba(0, 240, 255, 0.4);
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
-  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.15);
+  transform: translateY(-3px);
 }
 
-/* Gradient Text */
-.gradient-text-cyan {
-  background: linear-gradient(135deg, #00f0ff 0%, #7000ff 100%);
+/* Modern Text Gradients */
+.gradient-text-sky {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.gradient-text-gold {
-  background: linear-gradient(135deg, #ffb703 0%, #f72585 100%);
+.gradient-text-emerald {
+  background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-/* Cyber Glow Lines */
-.glow-line {
-  background: linear-gradient(90deg, transparent, #00f0ff, #9d4edd, transparent);
-  height: 1px;
 }

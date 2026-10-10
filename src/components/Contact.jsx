@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Send, CheckCircle2, MapPin, MessageSquare } from 'lucide-react';
+import { Mail, Send, CheckCircle2, MapPin, Phone, Code2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const GithubIcon = (props) => (
@@ -22,7 +22,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: 'AI Collaboration / Role Inquiry',
+    subject: 'AI Internship / Collaboration Opportunity',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -36,7 +36,6 @@ export default function Contact() {
       setIsSubmitting(false);
       setSubmitted(true);
       
-      // Trigger canvas confetti celebration
       try {
         confetti({
           particleCount: 100,
@@ -44,128 +43,147 @@ export default function Contact() {
           origin: { y: 0.6 }
         });
       } catch {
-        console.log("Confetti triggered");
+        // Fallback
       }
     }, 1000);
   };
 
-  const socialLinks = [
-    { label: 'GitHub', icon: GithubIcon, href: 'https://github.com/Prachipandey28', color: 'hover:text-cyan-400 hover:border-cyan-400' },
-    { label: 'LinkedIn', icon: LinkedinIcon, href: 'https://www.linkedin.com/in/prachi-pandey-0042a8328', color: 'hover:text-blue-400 hover:border-blue-400' },
-    { label: 'Email Direct', icon: Mail, href: 'mailto:prachipandey1528@gmail.com', color: 'hover:text-purple-400 hover:border-purple-400' }
-  ];
-
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-[#050811]">
+    <section id="contact" className="py-24 relative overflow-hidden bg-slate-950 border-t border-slate-900">
       
-      {/* Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 blur-[180px] rounded-full pointer-events-none"></div>
+      {/* Glow background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] bg-sky-500/5 blur-[180px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono tracking-wider uppercase mb-4"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-sky-400 text-xs font-mono tracking-wider uppercase mb-4"
           >
             <Send className="w-3.5 h-3.5" />
-            Connect & Collaborate
+            <span>Get in Touch</span>
           </motion.div>
 
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-orbitron font-extrabold text-white tracking-tight"
+            className="text-3xl sm:text-4xl font-bold text-white tracking-tight"
           >
-            Let's Build <span className="gradient-text-cyan">Intelligent AI Solutions</span> Together
+            Let's Discuss <span className="gradient-text-sky">Opportunities & AI Projects</span>
           </motion.h2>
 
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-base sm:text-lg text-slate-400"
+            className="mt-4 text-base text-slate-400"
           >
-            Open for AI, Machine Learning, Data Science, and Software Development Internships. Feel free to connect or send a direct message!
+            Open for AI/ML, Data Science, and Software Development internships. Feel free to reach out directly or send a message below!
           </motion.p>
         </div>
 
         {/* Contact Content Grid */}
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column: Direct info & social cards */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Left Column: Direct Info Cards */}
+          <div className="lg:col-span-5 space-y-4">
             
-            {/* Availability Banner */}
+            {/* Status Pill */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-6 rounded-3xl bg-slate-900/80 border border-cyan-500/30 backdrop-blur-md"
+              className="p-5 rounded-2xl bg-slate-900/80 border border-slate-800"
             >
-              <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 uppercase tracking-widest">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-                CURRENT STATUS: AVAILABLE FOR INTERNSHIPS
+              <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 font-semibold uppercase tracking-wider">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                Status: Available for Internships
               </div>
-              <h3 className="text-xl font-orbitron font-bold text-white mt-2">
-                Seeking AI / ML & Data Science Roles
+              <h3 className="text-lg font-bold text-white mt-2">
+                Open for AI/ML & Software Roles
               </h3>
-              <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
-                Available for internships where I can apply my skills in Machine Learning, Data Analytics, Python, and Web Development.
+              <p className="mt-1.5 text-xs text-slate-400 leading-relaxed">
+                Currently seeking internship opportunities in Artificial Intelligence, Machine Learning, Data Science, and Web Engineering.
               </p>
             </motion.div>
 
-            {/* Direct Contact Cards */}
+            {/* Direct Details Cards */}
             <div className="space-y-3">
               <a 
-                href="mailto:prachipandey1528@gmail.com"
-                className="p-4 rounded-2xl bg-slate-900/50 border border-slate-800 flex items-center gap-4 hover:border-cyan-500/40 hover:bg-slate-900 transition-all group"
+                href="tel:+919352103753"
+                className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/90 flex items-center gap-4 hover:border-slate-700 transition-colors group"
               >
-                <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 group-hover:scale-110 transition-transform">
-                  <Mail className="w-5 h-5" />
+                <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 text-sky-400">
+                  <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-[11px] font-mono text-slate-500 uppercase">Direct Email</div>
-                  <div className="text-sm font-semibold text-white group-hover:text-cyan-400">prachipandey1528@gmail.com</div>
+                  <div className="text-[10px] font-mono text-slate-500 uppercase">Phone Call / WhatsApp</div>
+                  <div className="text-sm font-semibold text-white group-hover:text-sky-400 transition-colors">+91 93521 03753</div>
                 </div>
               </a>
 
-              <div className="p-4 rounded-2xl bg-slate-900/50 border border-slate-800 flex items-center gap-4">
-                <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400">
-                  <MapPin className="w-5 h-5" />
+              <a 
+                href="mailto:prachipandey1528@gmail.com"
+                className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/90 flex items-center gap-4 hover:border-slate-700 transition-colors group"
+              >
+                <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 text-sky-400">
+                  <Mail className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-[11px] font-mono text-slate-500 uppercase">Location</div>
-                  <div className="text-sm font-semibold text-white">Bhilwara / Greater Jaipur Area, Rajasthan, India</div>
+                  <div className="text-[10px] font-mono text-slate-500 uppercase">Email Address</div>
+                  <div className="text-sm font-semibold text-white group-hover:text-sky-400 transition-colors">prachipandey1528@gmail.com</div>
+                </div>
+              </a>
+
+              <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/90 flex items-center gap-4">
+                <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 text-indigo-400">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono text-slate-500 uppercase">Current Location</div>
+                  <div className="text-sm font-semibold text-white">Jaipur, Rajasthan, India</div>
                 </div>
               </div>
             </div>
 
-            {/* Social Channels */}
-            <div>
-              <div className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-3">Official Profiles</div>
-              <div className="grid grid-cols-2 gap-3">
-                {socialLinks.map((social, idx) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={idx}
-                      href={social.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={`p-3.5 rounded-2xl bg-slate-900/60 border border-slate-800 text-slate-300 text-xs font-mono flex items-center gap-2.5 transition-all ${social.color}`}
-                    >
-                      <Icon className="w-4 h-4 text-cyan-400" />
-                      <span>{social.label}</span>
-                    </a>
-                  );
-                })}
+            {/* Social Links Cards */}
+            <div className="pt-2">
+              <div className="text-xs font-mono text-slate-500 uppercase tracking-wider mb-2.5">Verified Developer Channels</div>
+              <div className="grid grid-cols-3 gap-2">
+                <a
+                  href="https://github.com/prachipandey28"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300 text-xs font-medium flex items-center justify-center gap-2 hover:border-slate-700 hover:text-white transition-colors"
+                >
+                  <GithubIcon className="w-4 h-4 text-sky-400" />
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/prachi-pandey-0042a8328/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300 text-xs font-medium flex items-center justify-center gap-2 hover:border-slate-700 hover:text-sky-400 transition-colors"
+                >
+                  <LinkedinIcon className="w-4 h-4 text-sky-400" />
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="https://leetcode.com/prachipandey"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300 text-xs font-medium flex items-center justify-center gap-2 hover:border-slate-700 hover:text-amber-400 transition-colors"
+                >
+                  <Code2 className="w-4 h-4 text-amber-400" />
+                  <span>LeetCode</span>
+                </a>
               </div>
             </div>
 
@@ -174,96 +192,95 @@ export default function Contact() {
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-8 rounded-3xl glass-panel border border-cyan-500/30 shadow-2xl relative"
+              className="p-6 sm:p-8 rounded-2xl bg-slate-900/60 border border-slate-800/90 shadow-xl relative"
             >
               {submitted ? (
-                <div className="py-12 text-center space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-cyan-500/20 border border-cyan-400 text-cyan-400 mx-auto flex items-center justify-center shadow-glow-cyan">
-                    <CheckCircle2 className="w-8 h-8" />
+                <div className="py-10 text-center space-y-3">
+                  <div className="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 mx-auto flex items-center justify-center">
+                    <CheckCircle2 className="w-7 h-7" />
                   </div>
-                  <h3 className="text-2xl font-orbitron font-bold text-white">Transmission Received!</h3>
-                  <p className="text-sm text-slate-400 max-w-md mx-auto">
-                    Thank you for reaching out. Prachi will review your message and respond within 24 hours.
+                  <h3 className="text-xl font-bold text-white">Message Sent Successfully!</h3>
+                  <p className="text-xs text-slate-400 max-w-md mx-auto">
+                    Thank you for reaching out. Prachi will get back to you shortly.
                   </p>
                   <button
                     onClick={() => {
                       setSubmitted(false);
-                      setFormData({ name: '', email: '', subject: 'AI Collaboration / Role Inquiry', message: '' });
+                      setFormData({ name: '', email: '', subject: 'AI Internship / Collaboration Opportunity', message: '' });
                     }}
-                    className="mt-4 px-6 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-cyan-400 font-mono text-xs hover:bg-slate-800"
+                    className="mt-4 px-5 py-2 rounded-xl bg-slate-950 border border-slate-800 text-sky-400 text-xs font-medium hover:bg-slate-900"
                   >
                     Send Another Message
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <h3 className="text-xl font-orbitron font-bold text-white flex items-center gap-2">
-                    <MessageSquare className="w-5 h-5 text-cyan-400" />
-                    Transmit Message
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <h3 className="text-lg font-bold text-white mb-4">
+                    Send a Direct Message
                   </h3>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-mono text-slate-400 mb-2">Your Name *</label>
+                      <label className="block text-xs font-mono text-slate-400 mb-1.5">Your Name *</label>
                       <input
                         type="text"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Dr. Alex Vance"
-                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs sm:text-sm focus:outline-none focus:border-cyan-400 placeholder:text-slate-600"
+                        placeholder="Alex Vance"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-sky-400 placeholder:text-slate-600"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-mono text-slate-400 mb-2">Your Email *</label>
+                      <label className="block text-xs font-mono text-slate-400 mb-1.5">Your Email *</label>
                       <input
                         type="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="alex@ai-innovations.com"
-                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs sm:text-sm focus:outline-none focus:border-cyan-400 placeholder:text-slate-600"
+                        placeholder="alex@company.com"
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-sky-400 placeholder:text-slate-600"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono text-slate-400 mb-2">Subject</label>
+                    <label className="block text-xs font-mono text-slate-400 mb-1.5">Subject</label>
                     <input
                       type="text"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs sm:text-sm focus:outline-none focus:border-cyan-400"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-sky-400"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono text-slate-400 mb-2">Message *</label>
+                    <label className="block text-xs font-mono text-slate-400 mb-1.5">Message *</label>
                     <textarea
                       required
-                      rows={5}
+                      rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Hi Prachi, we'd love to discuss an AI Architect opportunity at our team..."
-                      className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs sm:text-sm focus:outline-none focus:border-cyan-400 placeholder:text-slate-600 resize-none"
+                      placeholder="Hi Prachi, I reviewed your AI portfolio and would like to discuss..."
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-sky-400 placeholder:text-slate-600 resize-none"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-2xl bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 text-black font-extrabold text-sm flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-glow-cyan"
+                    className="w-full py-3 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-semibold text-xs flex items-center justify-center gap-2 transition-colors active:scale-95 shadow-md shadow-sky-500/20"
                   >
                     {isSubmitting ? (
-                      <span>Sending Signal...</span>
+                      <span>Sending...</span>
                     ) : (
                       <>
-                        <span>Submit Neural Transmission</span>
-                        <Send className="w-4 h-4" />
+                        <span>Send Message</span>
+                        <Send className="w-3.5 h-3.5" />
                       </>
                     )}
                   </button>
@@ -278,3 +295,4 @@ export default function Contact() {
     </section>
   );
 }
+

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Layers, X, Code, Play } from 'lucide-react';
+import { Layers, X, Code2, CheckCircle2 } from 'lucide-react';
 
 const GithubIcon = (props) => (
   <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -13,134 +13,110 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const categories = ['All', 'AI & Machine Learning', 'Healthcare & Analytics', 'Web Applications', 'Salesforce & Cloud'];
+  const categories = ['All', 'Healthcare AI', 'Machine Learning & Analytics'];
 
   const projects = [
     {
-      id: 'ai-healthcare-predictor',
-      title: 'AI Healthcare Diagnostic Predictor',
-      subtitle: 'Machine Learning Medical Anomaly & Risk Analyzer',
-      category: 'Healthcare & Analytics',
+      id: 'bone-cancer-detection',
+      title: 'AI-Based Bone Cancer Detection System',
+      subtitle: 'Computer Vision & Clinical Diagnostic Platform',
+      category: 'Healthcare AI',
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800',
-      description: 'Intelligent healthcare machine learning system trained on medical dataset patterns to perform early disease risk analysis, anomaly classification, and data analytics.',
-      architecture: 'Patient Input Data -> Preprocessing & Normalization -> Machine Learning Classifier -> Interactive Web Portal',
-      metrics: [
-        { label: 'Diagnostic Sensitivity', value: 'High' },
-        { label: 'Primary Tech', value: 'Python & ML' },
-        { label: 'Domain', value: 'Healthcare AI' }
+      description: 'Deep learning healthcare system built to assist radiographical analysis by detecting bone cancer anomalies in digital X-ray images. Implemented YOLOv8 object detection model with OpenCV preprocessing, Flask real-time web interface, and SQL patient scan logging.',
+      architecture: 'X-Ray Scan Upload -> OpenCV Preprocessing & Resizing -> YOLOv8 Neural Network -> Bounding Box Render -> SQL Patient DB',
+      bullets: [
+        'Trained YOLOv8 model on annotated medical X-ray datasets, achieving >85% diagnostic accuracy.',
+        'Engineered near real-time Flask web API for medical image uploading and automated lesion region highlighting.',
+        'Designed SQL database schema to securely log patient scan history, timestamps, and model confidence scores.'
       ],
-      tags: ['Python', 'Machine Learning', 'Scikit-Learn', 'Data Analytics', 'Healthcare AI'],
-      github: 'https://github.com/Prachipandey28',
-      demo: 'https://github.com/Prachipandey28'
+      metrics: [
+        { label: 'Model Accuracy', value: '> 85%' },
+        { label: 'Detection Model', value: 'YOLOv8' },
+        { label: 'Web Server', value: 'Flask API' },
+        { label: 'Image Engine', value: 'OpenCV' }
+      ],
+      tags: ['Python', 'YOLOv8', 'OpenCV', 'Flask', 'SQL', 'PyTorch'],
+      github: 'https://github.com/prachipandey28'
     },
     {
-      id: 'smart-recommendation-engine',
-      title: 'Smart ML Recommendation Engine',
-      subtitle: 'Data Science & Predictive Content Filtering System',
-      category: 'AI & Machine Learning',
-      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800',
-      description: 'Personalized recommendation system utilizing collaborative filtering and content analytics to deliver data-driven predictions and user preference insights.',
-      architecture: 'User Behavioral Logs -> Feature Extraction -> Similarity Scoring Matrix -> Real-time Recommendation Engine',
-      metrics: [
-        { label: 'Filtering Model', value: 'Hybrid ML' },
-        { label: 'Data Processing', value: 'Pandas / NumPy' },
-        { label: 'Accuracy Score', value: '95%+' }
+      id: 'student-performance-prediction',
+      title: 'Student Performance Prediction System',
+      subtitle: 'Predictive Data Pipeline & Interactive Analytics Dashboard',
+      category: 'Machine Learning & Analytics',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+      description: 'End-to-end data science application that analyzes student academic indicators to predict performance outcomes and flag at-risk students. Built automated feature engineering pipelines, tuned ML models with GridSearchCV, and deployed a Streamlit dashboard with Plotly charts.',
+      architecture: 'Academic Dataset -> 10+ Feature Preprocessing -> GridSearchCV Hyperparameter Tuning -> Scikit-Learn Classifier -> Streamlit / Plotly UI',
+      bullets: [
+        'Built automated data pipeline handling 10+ student demographic and academic features with scaling & encoding.',
+        'Optimized classification model via GridSearchCV hyperparameter tuning, achieving ~12% F1-score lift over baseline.',
+        'Developed interactive Streamlit web dashboard with custom Plotly charts for real-time risk visualization.'
       ],
-      tags: ['Python', 'Pandas', 'NumPy', 'Data Analytics', 'Machine Learning'],
-      github: 'https://github.com/Prachipandey28',
-      demo: 'https://github.com/Prachipandey28'
-    },
-    {
-      id: 'ai-web-portal',
-      title: 'AI Web Platform & Analytics Hub',
-      subtitle: 'Responsive AI-Powered Frontend & Analytics Portal',
-      category: 'Web Applications',
-      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800',
-      description: 'Modern, high-performance web dashboard integrating AI capabilities, interactive UI components, and real-time data visualizer graphs built with React, JavaScript, HTML5, and CSS3.',
-      architecture: 'React Frontend -> REST API Endpoints -> Machine Learning Logic -> Dynamic Visualizer',
       metrics: [
-        { label: 'UI Responsiveness', value: '100%' },
-        { label: 'Frontend Stack', value: 'React & JS' },
-        { label: 'User Rating', value: 'Top Rated' }
+        { label: 'F1-Score Lift', value: '~12%' },
+        { label: 'Pipeline Features', value: '10+ Features' },
+        { label: 'Dashboard Stack', value: 'Streamlit' },
+        { label: 'Visuals Engine', value: 'Plotly' }
       ],
-      tags: ['React', 'JavaScript', 'HTML5', 'CSS3', 'Web AI'],
-      github: 'https://github.com/Prachipandey28',
-      demo: 'https://github.com/Prachipandey28'
-    },
-    {
-      id: 'salesforce-crm-automation',
-      title: 'Salesforce CRM & Cloud Workflow System',
-      subtitle: 'Enterprise CRM Solution & Process Automation',
-      category: 'Salesforce & Cloud',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800',
-      description: 'Enterprise architecture solution developed during Salesforce Program Architect internship, featuring custom CRM workflows, cloud data modeling, and process automation.',
-      architecture: 'Salesforce Platform -> Custom Data Objects -> Workflow Process Builder -> Cloud Integration',
-      metrics: [
-        { label: 'Platform', value: 'Salesforce' },
-        { label: 'Automation', value: 'CRM Workflows' },
-        { label: 'Certification', value: 'AI Builders Day' }
-      ],
-      tags: ['Salesforce', 'CRM Architecture', 'Cloud Tech', 'Workflow Automation'],
-      github: 'https://github.com/Prachipandey28',
-      demo: 'https://github.com/Prachipandey28'
+      tags: ['Python', 'Scikit-learn', 'Streamlit', 'Plotly', 'SQL', 'Pandas'],
+      github: 'https://github.com/prachipandey28'
     }
   ];
 
   const filteredProjects = activeCategory === 'All' 
     ? projects 
-    : projects.filter(p => p.category === activeCategory || p.tags.includes(activeCategory));
+    : projects.filter(p => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden bg-[#050811]">
+    <section id="projects" className="py-24 relative overflow-hidden bg-slate-950 border-t border-slate-900">
       
       {/* Background glow */}
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-purple-600/10 blur-[170px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/3 right-0 w-96 h-96 bg-indigo-500/5 blur-[170px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono tracking-wider uppercase mb-4"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-sky-400 text-xs font-mono tracking-wider uppercase mb-4"
           >
             <Layers className="w-3.5 h-3.5" />
-            Featured Innovation & Codebases
+            <span>Featured Software & AI Projects</span>
           </motion.div>
 
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-orbitron font-extrabold text-white tracking-tight"
+            className="text-3xl sm:text-4xl font-bold text-white tracking-tight"
           >
-            State-Of-The-Art <span className="gradient-text-cyan">AI Projects</span>
+            Empirically Proven <span className="gradient-text-sky">AI Codebases</span>
           </motion.h2>
 
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-base sm:text-lg text-slate-400"
+            className="mt-4 text-base text-slate-400"
           >
-            Production architectures engineered for clinical diagnostics, enterprise LLM orchestration, spatial vision, and autonomous agents.
+            Real-world computer vision diagnostic tools and predictive machine learning pipelines built during B.Tech coursework and research.
           </motion.p>
         </div>
 
         {/* Filter Bar */}
-        <div className="mt-12 flex items-center justify-center flex-wrap gap-2 sm:gap-3">
+        <div className="mt-10 flex items-center justify-center gap-2 sm:gap-3">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-xs font-mono font-medium transition-all duration-300 ${
+              className={`px-4 py-2 rounded-xl text-xs font-medium transition-all duration-200 ${
                 activeCategory === cat
-                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-black font-bold shadow-glow-cyan scale-105'
-                  : 'bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                  ? 'bg-sky-500 text-slate-950 font-semibold shadow-md shadow-sky-500/20'
+                  : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'
               }`}
             >
               {cat}
@@ -149,29 +125,29 @@ export default function Projects() {
         </div>
 
         {/* Projects Cards Grid */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, idx) => (
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="group rounded-3xl glass-panel glass-panel-hover flex flex-col overflow-hidden border border-slate-800/90"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="group rounded-2xl bg-slate-900/60 border border-slate-800/90 hover:border-slate-700 flex flex-col overflow-hidden transition-all duration-300 shadow-xl"
               >
-                {/* Image & Overlay */}
-                <div className="relative h-52 overflow-hidden bg-slate-950">
+                {/* Image Header */}
+                <div className="relative h-56 overflow-hidden bg-slate-950">
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-85 group-hover:opacity-100" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
                   
                   {/* Category Tag */}
-                  <span className="absolute top-4 left-4 px-3 py-1 rounded-lg bg-black/70 border border-cyan-500/40 text-cyan-300 font-mono text-[10px] uppercase backdrop-blur-md">
+                  <span className="absolute top-4 left-4 px-3 py-1 rounded-md bg-slate-950/90 border border-slate-800 text-sky-400 font-mono text-[11px] font-medium backdrop-blur-md">
                     {project.category}
                   </span>
                 </div>
@@ -179,44 +155,65 @@ export default function Projects() {
                 {/* Card Content */}
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl font-orbitron font-bold text-white group-hover:text-cyan-400 transition-colors">
+                    <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-xs font-mono text-cyan-400/80 mt-1">
+                    <p className="text-xs font-mono text-slate-400 mt-1">
                       {project.subtitle}
                     </p>
-                    <p className="mt-3 text-slate-400 text-xs sm:text-sm line-clamp-3 leading-relaxed">
+                    <p className="mt-3 text-slate-400 text-xs sm:text-sm leading-relaxed">
                       {project.description}
                     </p>
+
+                    {/* Bullet Points */}
+                    <div className="mt-4 space-y-2">
+                      {project.bullets.map((b, bIdx) => (
+                        <div key={bIdx} className="flex items-start gap-2 text-xs text-slate-300">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
+                          <span>{b}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
                   {/* Metrics preview */}
-                  <div className="mt-5 grid grid-cols-2 gap-2 pt-4 border-t border-slate-800/80">
-                    {project.metrics.slice(0, 2).map((m, mIdx) => (
-                      <div key={mIdx} className="bg-slate-900/60 p-2 rounded-xl border border-slate-800 text-center">
-                        <div className="text-xs font-orbitron font-bold text-cyan-300">{m.value}</div>
-                        <div className="text-[10px] text-slate-500">{m.label}</div>
+                  <div className="mt-6 grid grid-cols-4 gap-2 pt-4 border-t border-slate-800/80">
+                    {project.metrics.map((m, mIdx) => (
+                      <div key={mIdx} className="bg-slate-950 p-2 rounded-lg border border-slate-850 text-center">
+                        <div className="text-xs font-bold text-sky-400">{m.value}</div>
+                        <div className="text-[10px] text-slate-500 mt-0.5 truncate">{m.label}</div>
                       </div>
                     ))}
                   </div>
 
-                  {/* Tags & Action Button */}
+                  {/* Tags & Action Buttons */}
                   <div className="mt-6 flex items-center justify-between pt-2">
                     <div className="flex flex-wrap gap-1.5 max-w-[65%]">
-                      {project.tags.slice(0, 3).map((t, tIdx) => (
-                        <span key={tIdx} className="text-[10px] font-mono text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+                      {project.tags.map((t, tIdx) => (
+                        <span key={tIdx} className="text-[10px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
                           #{t}
                         </span>
                       ))}
                     </div>
 
-                    <button
-                      onClick={() => setSelectedProject(project)}
-                      className="px-4 py-2 rounded-xl bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 font-mono text-xs hover:bg-cyan-400 hover:text-black transition-all flex items-center gap-1.5"
-                    >
-                      <span>Inspect</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => setSelectedProject(project)}
+                        className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium transition-colors"
+                      >
+                        Details
+                      </button>
+
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
+                        aria-label="View Source Code on GitHub"
+                      >
+                        <GithubIcon className="w-4 h-4" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -233,45 +230,58 @@ export default function Projects() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="bg-[#090d1c] border border-cyan-500/40 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative"
+            className="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative"
           >
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-6 right-6 p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-cyan-500"
+              className="absolute top-6 right-6 p-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-400 hover:text-white"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <span className="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-xs uppercase">
+            <span className="px-3 py-1 rounded-md bg-slate-950 border border-slate-800 text-sky-400 font-mono text-xs uppercase">
               {selectedProject.category}
             </span>
 
-            <h3 className="text-2xl sm:text-3xl font-orbitron font-bold text-white mt-3">
+            <h3 className="text-2xl font-bold text-white mt-3">
               {selectedProject.title}
             </h3>
-            <p className="text-sm font-mono text-cyan-400 mt-1">{selectedProject.subtitle}</p>
+            <p className="text-xs font-mono text-slate-400 mt-1">{selectedProject.subtitle}</p>
 
             <p className="mt-4 text-slate-300 text-sm leading-relaxed">
               {selectedProject.description}
             </p>
 
             {/* Architecture Box */}
-            <div className="mt-6 p-4 rounded-2xl bg-black/60 border border-slate-800">
-              <span className="text-xs font-mono text-cyan-400 flex items-center gap-2 mb-2">
-                <Code className="w-4 h-4" />
-                Pipeline & Architecture:
+            <div className="mt-5 p-4 rounded-xl bg-slate-950 border border-slate-800">
+              <span className="text-xs font-mono text-sky-400 flex items-center gap-2 mb-2">
+                <Code2 className="w-4 h-4" />
+                Pipeline & System Flow:
               </span>
               <p className="text-xs font-mono text-slate-300 leading-relaxed">
                 {selectedProject.architecture}
               </p>
             </div>
 
+            {/* Key Accomplishments */}
+            <div className="mt-5">
+              <h4 className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Key Implementation Highlights:</h4>
+              <div className="space-y-2">
+                {selectedProject.bullets.map((b, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-300 bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>{b}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Metrics */}
-            <div className="mt-6 grid grid-cols-3 gap-3">
+            <div className="mt-6 grid grid-cols-4 gap-2">
               {selectedProject.metrics.map((m, idx) => (
-                <div key={idx} className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
-                  <div className="text-base font-orbitron font-extrabold text-cyan-400">{m.value}</div>
-                  <div className="text-[11px] text-slate-400 mt-0.5">{m.label}</div>
+                <div key={idx} className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-center">
+                  <div className="text-sm font-bold text-sky-400">{m.value}</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">{m.label}</div>
                 </div>
               ))}
             </div>
@@ -279,9 +289,9 @@ export default function Projects() {
             {/* Tech Stack */}
             <div className="mt-6">
               <span className="text-xs font-mono text-slate-400">Frameworks & Tools:</span>
-              <div className="flex flex-wrap gap-2 mt-2">
+              <div className="flex flex-wrap gap-1.5 mt-2">
                 {selectedProject.tags.map((t, idx) => (
-                  <span key={idx} className="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-300">
+                  <span key={idx} className="px-2.5 py-1 rounded-md bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">
                     {t}
                   </span>
                 ))}
@@ -294,19 +304,10 @@ export default function Projects() {
                 href={selectedProject.github}
                 target="_blank"
                 rel="noreferrer"
-                className="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 text-xs font-mono flex items-center gap-2 hover:border-cyan-400 hover:text-cyan-400"
+                className="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 text-xs font-semibold flex items-center gap-2 transition-colors"
               >
                 <GithubIcon className="w-4 h-4" />
-                GitHub Codebase
-              </a>
-              <a
-                href={selectedProject.demo}
-                target="_blank"
-                rel="noreferrer"
-                className="px-5 py-2.5 rounded-xl bg-cyan-400 text-black text-xs font-mono font-bold flex items-center gap-2 shadow-glow-cyan hover:scale-105 transition-transform"
-              >
-                <Play className="w-4 h-4" />
-                Live Demo
+                View GitHub Codebase
               </a>
             </div>
           </motion.div>
@@ -316,3 +317,4 @@ export default function Projects() {
     </section>
   );
 }
+

@@ -1,118 +1,112 @@
 import { motion } from 'framer-motion';
-import { Brain, Cpu, Activity, Layers, Sparkles, CheckCircle } from 'lucide-react';
+import { Brain, Activity, Database, CheckCircle2, User, Globe, Heart } from 'lucide-react';
 
 export default function About() {
-  const pillars = [
+  const domains = [
     {
       icon: Brain,
-      title: "Machine Learning & Data Analytics",
-      color: "from-cyan-500 to-blue-600",
-      textColor: "text-cyan-400",
-      description: "Developing predictive machine learning models, conducting data analytics, data modeling, and training intelligent algorithms for real-world problem solving.",
-      tags: ["Python", "Machine Learning", "Data Analytics", "Data Modeling", "Scikit-Learn"]
+      title: "Healthcare AI & Computer Vision",
+      badge: "YOLOv8 & Flask",
+      description: "Developing diagnostic deep learning models with YOLOv8 & OpenCV. Achieved >85% accuracy on bone cancer X-ray scans with patient history logging.",
+      skills: ["Python", "YOLOv8", "OpenCV", "Flask", "PyTorch", "SQL"]
     },
     {
       icon: Activity,
-      title: "AI-Powered Web Development",
-      color: "from-purple-500 to-pink-600",
-      textColor: "text-purple-400",
-      description: "Building responsive frontend interfaces and combining AI capabilities with web applications, recommendation systems, and healthcare web solutions.",
-      tags: ["React", "JavaScript", "HTML/CSS", "AI Web Apps", "Frontend Dev"]
+      title: "ML Pipelines & Predictive Analytics",
+      badge: "Scikit-Learn & Streamlit",
+      description: "Building 10+ feature end-to-end data pipelines. Tuned models via GridSearchCV achieving ~12% F1-score lift and deployed Streamlit analytics dashboards.",
+      skills: ["Scikit-learn", "Pandas", "NumPy", "GridSearchCV", "Plotly", "Streamlit"]
     },
     {
-      icon: Cpu,
-      title: "Software & Database Engineering",
-      color: "from-emerald-500 to-teal-600",
-      textColor: "text-emerald-400",
-      description: "Writing efficient object-oriented C++ code, designing structured relational SQL databases, and strengthening fundamental analytical skills.",
-      tags: ["C++", "SQL", "Relational Databases", "Data Structures", "Algorithms"]
-    },
-    {
-      icon: Layers,
-      title: "Salesforce & Enterprise Systems",
-      color: "from-amber-500 to-orange-600",
-      textColor: "text-amber-400",
-      description: "Hands-on experience with Salesforce CRM architecture, cloud technologies, workflow automation, and enterprise application concepts.",
-      tags: ["Salesforce", "CRM Solutions", "Cloud Tech", "Workflow Automation", "VS Code"]
+      icon: Database,
+      title: "Core CS & Database Systems",
+      badge: "C++ & SQL",
+      description: "Solid foundation in Data Structures, Algorithms, Object-Oriented Programming, and Relational DBMS design. HackerRank SQL Intermediate certified.",
+      skills: ["C++", "SQL", "MySQL", "Data Modeling", "DSA", "OOP"]
     }
   ];
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-[#050811]/90">
+    <section id="about" className="py-24 relative overflow-hidden bg-slate-950/60 border-t border-slate-900">
       
       {/* Background Orbs */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-cyan-500/10 blur-[160px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-sky-500/5 blur-[160px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono tracking-wider uppercase mb-4"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-sky-400 text-xs font-mono tracking-wider uppercase mb-4"
           >
-            <Brain className="w-3.5 h-3.5" />
-            Background & Technical Focus
+            <User className="w-3.5 h-3.5" />
+            <span>About & Specializations</span>
           </motion.div>
 
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-5xl font-orbitron font-extrabold text-white tracking-tight"
+            className="text-3xl sm:text-4xl font-bold text-white tracking-tight"
           >
-            Building <span className="gradient-text-cyan">Intelligent AI Solutions</span> For Real-World Impact
+            Engineered For Impact in <span className="gradient-text-sky">AI & Data Science</span>
           </motion.h2>
 
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-base sm:text-lg text-slate-400 leading-relaxed"
+            className="mt-4 text-base text-slate-400 leading-relaxed"
           >
-            I am a B.Tech student specializing in Artificial Intelligence and Data Science at Arya College of Engineering & IT, Jaipur. Passionate about creating AI applications that solve real-world problems.
+            B.Tech Artificial Intelligence & Data Science undergraduate at Arya College of Engineering & IT, Jaipur (CGPA 9.3/10). 
+            Passionate about transforming raw data and complex computer vision algorithms into reliable, real-world software solutions.
           </motion.p>
         </div>
 
-        {/* 4 Pillars Grid */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {pillars.map((pillar, idx) => {
-            const Icon = pillar.icon;
+        {/* 3 Core Technical Domains */}
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {domains.map((domain, idx) => {
+            const Icon = domain.icon;
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group p-8 rounded-3xl glass-panel glass-panel-hover relative overflow-hidden"
+                className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800/90 hover:border-slate-700 transition-all flex flex-col justify-between"
               >
-                <div className="flex items-start justify-between">
-                  <div className={`p-4 rounded-2xl bg-slate-900 border border-slate-800 ${pillar.textColor} shadow-lg group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-8 h-8" />
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-sky-400">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <span className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-slate-950 border border-slate-800 text-slate-300">
+                      {domain.badge}
+                    </span>
                   </div>
-                  <span className="text-xs font-mono text-slate-500">FOCUS // 0{idx + 1}</span>
+
+                  <h3 className="text-lg font-semibold text-white">
+                    {domain.title}
+                  </h3>
+
+                  <p className="mt-3 text-slate-400 text-xs sm:text-sm leading-relaxed">
+                    {domain.description}
+                  </p>
                 </div>
 
-                <h3 className="text-xl font-orbitron font-bold text-white mt-6 group-hover:text-cyan-400 transition-colors">
-                  {pillar.title}
-                </h3>
-
-                <p className="mt-3 text-slate-400 text-sm leading-relaxed">
-                  {pillar.description}
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {pillar.tags.map((tag, tIdx) => (
+                <div className="mt-6 pt-4 border-t border-slate-800/60 flex flex-wrap gap-1.5">
+                  {domain.skills.map((skill, sIdx) => (
                     <span
-                      key={tIdx}
-                      className="px-3 py-1 rounded-lg bg-slate-900/90 border border-slate-800 text-[11px] font-mono text-slate-300 group-hover:border-cyan-500/30 transition-colors"
+                      key={sIdx}
+                      className="px-2.5 py-1 rounded-md bg-slate-950 border border-slate-800/80 text-[11px] font-mono text-slate-300"
                     >
-                      #{tag}
+                      {skill}
                     </span>
                   ))}
                 </div>
@@ -121,45 +115,103 @@ export default function About() {
           })}
         </div>
 
-        {/* Bio & Philosophy Banner */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-900/90 to-[#0c1527] border border-cyan-500/25 relative overflow-hidden"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8">
-              <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-widest">
-                <Sparkles className="w-4 h-4" />
-                Career Goal & Vision
+        {/* Info Grid: Academic Profile & Languages/Interests */}
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          {/* Academic Highlights */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-8 p-6 sm:p-8 rounded-2xl bg-slate-900/60 border border-slate-800/90"
+          >
+            <h3 className="text-xl font-bold text-white mb-2">Academic & Professional Strengths</h3>
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+              Consistently high performer maintaining a 9.3 / 10 CGPA across all engineering semesters at Arya College of Engineering & IT. Experienced in student leadership as Social Media Head at Arya Intelverse and Web Development Intern at InAmigos Foundation.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-3">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div>
+                  <span className="text-white font-medium block">Arya College of Engg & IT</span>
+                  <span className="text-slate-400 text-[11px]">B.Tech AI & DS • 9.3 CGPA</span>
+                </div>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-orbitron font-bold text-white mt-2">
-                Seeking AI/ML, Data Science & Web Internships
-              </h3>
-              <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-                Currently seeking internship opportunities in AI, Machine Learning, Data Science, and Software Development where I can apply my skills, learn from industry professionals, and contribute to impactful projects.
-              </p>
+
+              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-3">
+                <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0" />
+                <div>
+                  <span className="text-white font-medium block">LeetCode & CodeChef Active</span>
+                  <span className="text-slate-400 text-[11px]">100+ Solved, Rank 1470</span>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-3">
+                <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+                <div>
+                  <span className="text-white font-medium block">IEEE Project Expo Winner</span>
+                  <span className="text-slate-400 text-[11px]">National Level Consolation Prize</span>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-3">
+                <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0" />
+                <div>
+                  <span className="text-white font-medium block">HackerRank Certified</span>
+                  <span className="text-slate-400 text-[11px]">SQL Intermediate & SQL Basic</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Languages & Interests */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-4 p-6 rounded-2xl bg-slate-900/60 border border-slate-800/90 flex flex-col justify-between"
+          >
+            <div>
+              <div className="flex items-center gap-2 text-xs font-mono text-sky-400 mb-3">
+                <Globe className="w-4 h-4" />
+                <span>LANGUAGES</span>
+              </div>
+              <div className="flex items-center gap-2 mb-6">
+                <span className="px-3 py-1 rounded-lg bg-slate-950 border border-slate-800 text-xs font-medium text-slate-200">
+                  English (Professional)
+                </span>
+                <span className="px-3 py-1 rounded-lg bg-slate-950 border border-slate-800 text-xs font-medium text-slate-200">
+                  Hindi (Native)
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2 text-xs font-mono text-rose-400 mb-3">
+                <Heart className="w-4 h-4" />
+                <span>PERSONAL INTERESTS</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300">
+                  💃 Dancing
+                </span>
+                <span className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300">
+                  🎵 Listening to Music
+                </span>
+                <span className="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300">
+                  🧠 Competitive Problem Solving
+                </span>
+              </div>
             </div>
 
-            <div className="lg:col-span-4 flex flex-col gap-3">
-              <div className="p-4 rounded-2xl bg-black/50 border border-cyan-500/20 flex items-center gap-3">
-                <CheckCircle className="w-5 h-5 text-cyan-400 shrink-0" />
-                <span className="text-xs font-mono text-slate-200">Arya College of Engg & IT</span>
-              </div>
-              <div className="p-4 rounded-2xl bg-black/50 border border-purple-500/20 flex items-center gap-3">
-                <CheckCircle className="w-5 h-5 text-purple-400 shrink-0" />
-                <span className="text-xs font-mono text-slate-200">Multiple Industry Internships</span>
-              </div>
-              <div className="p-4 rounded-2xl bg-black/50 border border-emerald-500/20 flex items-center gap-3">
-                <CheckCircle className="w-5 h-5 text-emerald-400 shrink-0" />
-                <span className="text-xs font-mono text-slate-200">National Award Winner</span>
-              </div>
+            <div className="mt-6 pt-4 border-t border-slate-800/60 text-xs text-slate-400 text-center">
+              Open for full-time internships & project collaborations
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+        </div>
 
       </div>
     </section>
   );
 }
+

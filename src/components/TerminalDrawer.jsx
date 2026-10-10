@@ -69,7 +69,7 @@ export default function TerminalDrawer({ isOpen, onClose }) {
         <div className="p-4 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
           <div className="flex items-center gap-2 text-cyan-400">
             <Terminal className="w-4 h-4" />
-            <span className="font-orbitron font-bold text-white">NEURAL_CLI_TERMINAL</span>
+            <span className="font-orbitron font-bold text-white">PRACHI_PORTFOLIO_CLI</span>
           </div>
           <button
             onClick={onClose}

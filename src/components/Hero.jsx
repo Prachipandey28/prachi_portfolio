@@ -18,9 +18,9 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
 
   // Quick Terminal state inside hero
   const [terminalOutput, setTerminalOutput] = useState([
-    { type: 'sys', text: '> Initializing Prachi Pandey Neural Kernel...' },
-    { type: 'success', text: '> Arya College of Engineering & IT [AI & DS Dept]' },
-    { type: 'info', text: '> Status: Seeking AI/ML, Data Science & Web Internships' }
+    { type: 'sys', text: '> Prachi Pandey Portfolio Terminal initialized' },
+    { type: 'success', text: '> Arya College of Engineering & IT, Jaipur' },
+    { type: 'info', text: '> Open for AI/ML, Data Science & Software Internships' }
   ]);
   const [terminalInput, setTerminalInput] = useState('');
 
@@ -272,11 +272,11 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
                   <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-                  <span className="ml-2 text-slate-400 text-[11px]">prachi@neural-system:~</span>
+                  <span className="ml-2 text-slate-400 text-[11px]">prachi@portfolio:~</span>
                 </div>
                 <div className="text-[10px] text-cyan-400/70 uppercase tracking-widest flex items-center gap-1">
                   <Terminal className="w-3 h-3" />
-                  CLI v4.2
+                  Terminal CLI
                 </div>
               </div>
 
@@ -297,7 +297,7 @@ export default function Hero({ onOpenResume, onOpenAiLab }) {
               {/* Quick Click Tags */}
               <div className="px-4 py-2 bg-slate-950 border-t border-slate-900 flex items-center gap-2 overflow-x-auto text-[10px]">
                 <span className="text-slate-500">Quick run:</span>
-                {['help', 'skills', 'metrics', 'projects', 'clear'].map((cmd) => (
+                {['help', 'skills', 'education', 'internships', 'clear'].map((cmd) => (
                   <button
                     key={cmd}
                     onClick={() => handleCommandSubmit(cmd)}

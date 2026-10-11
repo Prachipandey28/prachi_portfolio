@@ -180,6 +180,16 @@ export default function Experience() {
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/honors/'
     },
     {
+      title: 'Certificate of Recognition — MY Bharat',
+      issuer: 'Ministry of Youth Affairs and Sports (Govt. of India)',
+      date: '2025 - 2026',
+      detail: 'Official Certificate of Recognition awarded by the Ministry of Youth Affairs and Sports for registering on MY Bharat towards Viksit Bharat.',
+      icon: Award,
+      badge: 'Govt. Recognition',
+      image: '/certificates/my-bharat-recognition.png',
+      link: 'https://mybharat.gov.in/'
+    },
+    {
       title: 'CodeChef Bronze Badge',
       issuer: 'CodeChef Platform',
       date: '2024 - Present',

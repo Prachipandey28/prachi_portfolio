@@ -360,6 +360,18 @@ export default function Certifications() {
       description: 'Certificate of participation in Unstop Quizverse 2026 national technical competition.',
       skills: ['Unstop Challenge', 'Technical Quiz', 'Problem Solving'],
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
+    },
+    {
+      title: 'Certificate of Recognition — MY Bharat',
+      issuer: 'Ministry of Youth Affairs and Sports (Govt. of India)',
+      date: '2025 - 2026',
+      credentialId: 'MERA YUVA BHARAT • VIKSIT BHARAT',
+      category: 'Hackathons & Quizzes',
+      badge: 'National Recognition',
+      image: '/certificates/my-bharat-recognition.png',
+      description: 'Official Certificate of Recognition awarded by the Ministry of Youth Affairs and Sports, Government of India, for successfully registering on MY Bharat and taking a stride towards Viksit Bharat.',
+      skills: ['National Initiative', 'Mera Yuva Bharat', 'Youth Leadership', 'Viksit Bharat'],
+      link: 'https://mybharat.gov.in/'
     }
   ];
 

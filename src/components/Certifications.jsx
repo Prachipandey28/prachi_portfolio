@@ -10,7 +10,7 @@ import {
   ZoomIn, 
   Download, 
   Eye, 
-  Sparkles,
+  Sparkles, 
   FileCheck
 } from 'lucide-react';
 
@@ -86,6 +86,18 @@ export default function Certifications() {
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
+      title: 'National Project Expo – Consolation Position',
+      issuer: 'IEEE JECRC Student Branch',
+      date: 'Feb 2025',
+      credentialId: 'IEEE JECRC • JECRC Foundation',
+      category: 'Hackathons & Quizzes',
+      badge: 'National Award',
+      image: '/certificates/ieee-national-project-expo.png',
+      description: 'Secured Consolation position at the National Project Expo held at Jaipur Engineering College and Research Centre (JECRC), Jaipur under the IEEE JECRC Student Branch.',
+      skills: ['Project Presentation', 'Engineering Innovation', 'AI Systems', 'National Expo'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/honors/'
+    },
+    {
       title: 'Generative AI & ML Workshop',
       issuer: 'Arya College & Cipher Coding Club',
       date: 'Oct 2024',
@@ -95,6 +107,54 @@ export default function Certifications() {
       image: '/certificates/arya-genai-workshop.png',
       description: 'Participated in a specialized hands-on workshop on Generative AI and Machine Learning organized by Arya College of Engineering & I.T. and Cipher Coding Club.',
       skills: ['Generative AI', 'Machine Learning', 'Prompt Engineering', 'Deep Learning'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
+    },
+    {
+      title: 'Web Development Internship Completion',
+      issuer: 'InAmigos Foundation (IAF)',
+      date: 'Jun 2026',
+      credentialId: 'CSR00083159 • ISO 9001:2015',
+      category: 'Web & Full-Stack',
+      badge: 'Internship Certificate',
+      image: '/certificates/inamigos-web-development-internship.png',
+      description: 'Successfully completed the Web Development Internship at InAmigos Foundation from 25th May 2026 to 07th June 2026, building responsive UI components and foundational portals.',
+      skills: ['Web Development', 'Frontend Engineering', 'HTML5', 'CSS3', 'JavaScript'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/experience/'
+    },
+    {
+      title: 'AI Web Development Internship Selection',
+      issuer: 'Internshala',
+      date: 'May 2026',
+      credentialId: 'idvgo3z81pf',
+      category: 'Web & Full-Stack',
+      badge: 'Internshala Selection',
+      image: '/certificates/internshala-inamigos-selection.png',
+      description: 'Official Certificate of Selection from Internshala for successfully securing the AI Web Development internship at InAmigos Foundation.',
+      skills: ['AI Web Development', 'Internshala Verified', 'Full-Stack Development'],
+      link: 'https://internshala.com/verify_certificate'
+    },
+    {
+      title: 'Code-ए-Manipal Hackathon',
+      issuer: 'Manipal University Jaipur & Geekroom',
+      date: 'Mar 2025',
+      credentialId: 'LearnIT • Manipal University',
+      category: 'Hackathons & Quizzes',
+      badge: 'Hackathon Participation',
+      image: '/certificates/code-e-manipal-hackathon.png',
+      description: 'Participated in the Code-ए-Manipal hackathon organized by LearnIT and IT Department in collaboration with Geekroom at Manipal University Jaipur.',
+      skills: ['Hackathon', 'Competitive Programming', 'Software Engineering', 'Problem Solving'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
+    },
+    {
+      title: 'Eureka Pitching Competition – Believe in Your Idea',
+      issuer: 'Arya College & E-CELL ACEIT',
+      date: 'Oct 2024',
+      credentialId: 'E-CELL ACEIT • National Entrepreneurship Challenge',
+      category: 'Hackathons & Quizzes',
+      badge: 'Pitching Competition',
+      image: '/certificates/eureka-pitching.png',
+      description: 'Participated in the Eureka Pitching Competition (Believe in Your Idea: Discover, Pitch, Thrive) organized by E-Cell ACEIT and Arya College of Engineering & IT in association with National Entrepreneurship Challenge.',
+      skills: ['Startup Pitching', 'Entrepreneurship', 'Idea Discovery', 'Presentation Skills'],
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
@@ -146,18 +206,6 @@ export default function Certifications() {
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
-      title: 'Eureka Pitching Competition – Believe in Your Idea',
-      issuer: 'Arya College & E-CELL ACEIT',
-      date: 'Oct 2024',
-      credentialId: 'E-CELL ACEIT • National Entrepreneurship Challenge',
-      category: 'Hackathons & Quizzes',
-      badge: 'Pitching Competition',
-      image: '/certificates/eureka-pitching.png',
-      description: 'Participated in the Eureka Pitching Competition (Believe in Your Idea: Discover, Pitch, Thrive) organized by E-Cell ACEIT and Arya College of Engineering & IT in association with National Entrepreneurship Challenge.',
-      skills: ['Startup Pitching', 'Entrepreneurship', 'Idea Discovery', 'Presentation Skills'],
-      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
-    },
-    {
       title: 'Internship Common Aptitude Test (1CAT)',
       issuer: '1CAT (CIT)',
       date: 'Apr 2026',
@@ -167,6 +215,30 @@ export default function Certifications() {
       image: '/certificates/1cat-aptitude-test.png',
       description: 'Earned Certificate of Participation in the nationwide Internship Common Aptitude Test (1CAT), demonstrating competitive analytical capability, problem solving, and aptitude skills.',
       skills: ['Analytical Aptitude', 'Logical Reasoning', 'Problem Solving', 'Quantitative Analysis'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
+    },
+    {
+      title: 'LeetCode 50 Days Streak Badge 2026',
+      issuer: 'LeetCode',
+      date: '2026',
+      credentialId: 'LeetCode @prachi1528',
+      category: 'Data Science & SQL',
+      badge: '50 Days Badge',
+      image: '/certificates/leetcode-50-days-badge-2026.png',
+      description: 'Achieved the LeetCode 50 Days Badge 2026 for consistent problem-solving streak across 50+ days solving Data Structures & Algorithms challenges.',
+      skills: ['Data Structures', 'Algorithms', 'LeetCode Streak', 'Problem Solving'],
+      link: 'https://leetcode.com/u/prachi1528/'
+    },
+    {
+      title: 'ISP 58 Trainings Contest',
+      issuer: 'Internshala Student Partner',
+      date: 'Jun 2026',
+      credentialId: 'ISP 58 • Internshala',
+      category: 'Web & Full-Stack',
+      badge: 'Webinar Certificate',
+      image: '/certificates/internshala-isp58-webinar.png',
+      description: 'Participated in the ISP 58 First Trainings Contest Webinar organized by the Internshala Student Partner Team.',
+      skills: ['Internshala Student Partner', 'Technical Webinar', 'Student Leadership'],
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
@@ -276,7 +348,7 @@ export default function Certifications() {
             transition={{ delay: 0.1 }}
             className="text-[#94a3b8] text-sm sm:text-base font-medium tracking-wide uppercase mt-4"
           >
-            16 Verified Industry Certifications, Workshops & Competitions
+            22 Verified Industry Certifications, Internships & Competitions
           </motion.p>
           <p className="text-xs text-[#6c63ff] font-mono mt-2">
             Click on any certificate to inspect official document photos, credential IDs & verification links
@@ -314,7 +386,7 @@ export default function Certifications() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3, delay: idx * 0.04 }}
+                transition={{ duration: 0.3, delay: idx * 0.03 }}
                 onClick={() => setSelectedCert(cert)}
                 className="p-5 sm:p-6 rounded-2xl bg-[#121627]/90 border border-[#232d4b] hover:border-[#6c63ff]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group hover:-translate-y-1 cursor-pointer relative overflow-hidden"
               >

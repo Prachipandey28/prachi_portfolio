@@ -35,8 +35,7 @@ const FALLBACK_REPOS = [
     stargazers_count: 1,
     forks_count: 0,
     updated_at: '2026-06-14T17:31:00Z',
-    topics: ['yolov8', 'opencv', 'healthcare-ai', 'flask'],
-    deployment_url: 'https://bone-cancer-detection-cogbozwme-prachipandey28s-projects.vercel.app'
+    topics: ['yolov8', 'opencv', 'healthcare-ai', 'flask']
   },
   {
     id: 2,
@@ -204,17 +203,6 @@ export default function DevDashboard() {
   ];
 
   const deployments = [
-    {
-      name: 'Bone Cancer Detection System',
-      badge: 'Flagship AI Medical Diagnostic',
-      status: 'Live & Operational',
-      statusColor: 'emerald',
-      url: 'https://bone-cancer-detection-cogbozwme-prachipandey28s-projects.vercel.app',
-      platform: 'Vercel + Flask API',
-      tech: 'YOLOv8 • OpenCV • PyTorch • Python',
-      accuracy: '> 85% Accuracy',
-      description: 'End-to-end deep learning web platform for instant lesion region bounding on uploaded radiographic X-ray scans.'
-    },
     {
       name: 'Prachi Portfolio Hub',
       badge: 'Production Systems Interface',

@@ -160,15 +160,6 @@ export default function ResumeModal({ isOpen, onClose }) {
                 <div className="flex flex-wrap justify-between items-center gap-2">
                   <div className="flex items-center gap-2">
                     <h4 className="font-bold text-white">AI-Based Bone Cancer Detection System</h4>
-                    <a 
-                      href="https://bone-cancer-detection-cogbozwme-prachipandey28s-projects.vercel.app" 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-emerald-400 hover:text-emerald-300 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30 transition-colors"
-                      title="Open Live Vercel Web App"
-                    >
-                      Live Demo ↗
-                    </a>
                   </div>
                   <span className="text-xs font-mono text-slate-400">Python, YOLOv8, OpenCV, Flask, SQL</span>
                 </div>

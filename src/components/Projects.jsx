@@ -36,8 +36,7 @@ export default function Projects() {
         { label: 'Vision', value: 'OpenCV' }
       ],
       tags: ['Python', 'YOLOv8', 'OpenCV', 'Flask', 'SQL', 'PyTorch'],
-      github: 'https://github.com/Prachipandey28',
-      liveDemo: 'https://bone-cancer-detection-cogbozwme-prachipandey28s-projects.vercel.app'
+      github: 'https://github.com/Prachipandey28'
     },
     {
       id: 'ai-resume-parser',

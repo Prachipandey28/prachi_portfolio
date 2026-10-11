@@ -210,7 +210,7 @@ export default function AiLab() {
     if (q.includes('project') || q.includes('bone cancer') || q.includes('yolo') || q.includes('resume parser') || q.includes('live') || q.includes('demo')) {
       return {
         text: "Prachi has architected several flagship AI and Deep Learning systems:",
-        highlight: "• Bone Cancer Detection System (Live App): YOLOv8 Computer Vision diagnostic network trained on digital X-ray scans with OpenCV preprocessing, Flask API, and SQL scan logging (>85% accuracy). Live Web App: https://bone-cancer-detection-cogbozwme-prachipandey28s-projects.vercel.app\n• AI Resume Parser: Python NLP extraction engine using Spacy, NLTK, and PyPDF2 parsing candidate skills and contact metadata into structured JSON.\n• Customer Churn & Analytics: Predictive modeling using Scikit-Learn with feature importance ranking.",
+        highlight: "• Bone Cancer Detection System: YOLOv8 Computer Vision diagnostic network trained on digital X-ray scans with OpenCV preprocessing, Flask API, and SQL scan logging (>85% accuracy).\n• AI Resume Parser: Python NLP extraction engine using Spacy, NLTK, and PyPDF2 parsing candidate skills and contact metadata into structured JSON.\n• Customer Churn & Analytics: Predictive modeling using Scikit-Learn with feature importance ranking.",
         actionLink: '#projects',
         actionLabel: 'Explore All Projects'
       };

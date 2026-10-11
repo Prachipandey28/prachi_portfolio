@@ -248,6 +248,7 @@ export default function Certifications() {
       credentialId: 'DF1DAAF60738',
       category: 'Data Science & SQL',
       badge: 'Proctored Skill Certificate',
+      image: '/certificates/hackerrank-sql-intermediate.png',
       description: "Passed HackerRank's proctored SQL Intermediate skill certification, demonstrating proficiency in complex SQL queries, joins, aggregations, and subqueries.",
       skills: ['SQL', 'Complex Queries', 'Joins & Aggregations'],
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
@@ -259,6 +260,7 @@ export default function Certifications() {
       credentialId: '0B09A81116B3',
       category: 'Data Science & SQL',
       badge: 'Proctored Skill Certificate',
+      image: '/certificates/hackerrank-sql-basic.png',
       description: "Passed HackerRank's proctored SQL Basic skill certification covering relational queries, filtering, and database management fundamentals.",
       skills: ['SQL', 'Relational Databases', 'Data Filtering'],
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
@@ -270,8 +272,21 @@ export default function Certifications() {
       credentialId: 'Salesforce Agentforce',
       category: 'GenAI & Machine Learning',
       badge: 'AI Builder Program',
+      image: '/certificates/salesforce-ai-builders-day.png',
       description: 'Built an AI-powered Agentforce agent using Salesforce technologies, gaining practical experience in AI-driven automation, cloud solutions, and enterprise AI.',
       skills: ['AgentForce', 'AI Automation', 'Salesforce AI'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
+    },
+    {
+      title: 'I Built My First Agent with Agentforce',
+      issuer: 'Salesforce & Agentforce',
+      date: '2026',
+      credentialId: 'Agentforce AI Agent Builder',
+      category: 'GenAI & Machine Learning',
+      badge: 'Agentforce Badge',
+      image: '/certificates/salesforce-agentforce-badge.png',
+      description: 'Official credential badge earned from Salesforce for building and deploying autonomous enterprise AI agents using Agentforce platform capabilities.',
+      skills: ['Agentforce', 'Autonomous Agents', 'Salesforce AI', 'Enterprise Automation'],
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
@@ -281,6 +296,7 @@ export default function Certifications() {
       credentialId: 'Stacks Bootcamp',
       category: 'Web & Full-Stack',
       badge: 'Bootcamp Graduate',
+      image: '/certificates/stacks-fullstack-bootcamp.png',
       description: 'Successfully graduated from the Stacks Fullstack Bootcamp conducted in association with Arya College of Engineering & IT, Jaipur.',
       skills: ['Full-Stack Development', 'Front-End Development', 'Web Engineering'],
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
@@ -292,9 +308,46 @@ export default function Certifications() {
       credentialId: 'WebForge CodeForge',
       category: 'Hackathons & Quizzes',
       badge: 'Hackathon Participation',
+      image: '/certificates/codeforge-webforge-unstop.png',
       description: "Certificate of participation in CodeForge'25 coding hackathon event showcasing web software development skills.",
       skills: ['CodeForge', 'Hackathon', 'Web Development'],
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
+    },
+    {
+      title: 'CodeForge Hackathon 2025 (Microsoft Office Gurgaon)',
+      issuer: 'Microsoft & CodeForge',
+      date: 'Feb 2025',
+      credentialId: 'Microsoft DLF Cyber City',
+      category: 'Hackathons & Quizzes',
+      badge: 'In-Person Hackathon',
+      image: '/certificates/codeforge-hackathon-microsoft.png',
+      description: 'Attended and participated in CodeForge Hackathon hosted offline at Microsoft Office, DLF Cyber City, Gurgaon, engaging in high-velocity software engineering challenges.',
+      skills: ['Hackathon', 'Microsoft DLF Cyber City', 'Collaborative Coding', 'System Design'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/honors/'
+    },
+    {
+      title: 'Machine Learning Internship',
+      issuer: 'SkillInfyTech',
+      date: '2025',
+      credentialId: 'SITS826088',
+      category: 'GenAI & Machine Learning',
+      badge: 'ML Internship',
+      image: '/certificates/skillinfytech-ml-internship.png',
+      description: 'Successfully completed the Machine Learning Internship at SkillInfyTech, working with supervised & unsupervised algorithms, feature engineering, and model evaluation metrics.',
+      skills: ['Machine Learning', 'Python', 'Feature Engineering', 'Model Evaluation'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/experience/'
+    },
+    {
+      title: 'Salesforce Programming Architect Internship',
+      issuer: 'TechForce Services (Australia)',
+      date: '2025',
+      credentialId: 'TechForce Services Australia',
+      category: 'Web & Full-Stack',
+      badge: 'Enterprise Internship',
+      image: '/certificates/techforce-salesforce-internship.png',
+      description: 'Completed Salesforce Programming Architect virtual experience and internship with TechForce Services, Australia, focusing on enterprise architecture, CRM workflows, and apex design.',
+      skills: ['Salesforce Architecture', 'Enterprise CRM', 'Cloud Systems', 'Apex Solutions'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/experience/'
     },
     {
       title: 'Unstop Quizverse 2026 – Participation',
@@ -303,6 +356,7 @@ export default function Certifications() {
       credentialId: 'Unstop Quizverse',
       category: 'Hackathons & Quizzes',
       badge: 'National Challenge',
+      image: '/certificates/unstop-quizverse-2026.png',
       description: 'Certificate of participation in Unstop Quizverse 2026 national technical competition.',
       skills: ['Unstop Challenge', 'Technical Quiz', 'Problem Solving'],
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
@@ -348,7 +402,7 @@ export default function Certifications() {
             transition={{ delay: 0.1 }}
             className="text-[#94a3b8] text-sm sm:text-base font-medium tracking-wide uppercase mt-4"
           >
-            22 Verified Industry Certifications, Internships & Competitions
+            {certifications.length} Verified Industry Certifications, Internships & Competitions
           </motion.p>
           <p className="text-xs text-[#6c63ff] font-mono mt-2">
             Click on any certificate to inspect official document photos, credential IDs & verification links

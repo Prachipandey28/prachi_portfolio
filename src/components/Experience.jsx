@@ -63,6 +63,32 @@ export default function Experience() {
       ]
     },
     {
+      role: 'Machine Learning Intern',
+      company: 'SkillInfyTech',
+      period: '2025',
+      location: 'Remote Internship',
+      description: 'Worked on applied machine learning algorithms, model training pipelines, and data preprocessing workflows.',
+      certificateImage: '/certificates/skillinfytech-ml-internship.png',
+      highlights: [
+        'Implemented end-to-end Machine Learning pipelines using Scikit-Learn, Pandas, and Python.',
+        'Conducted feature selection, exploratory data analysis, and predictive model evaluation.',
+        'Awarded Certificate of Completion with verification ID SITS826088.'
+      ]
+    },
+    {
+      role: 'Salesforce Programming Architect Trainee',
+      company: 'TechForce Services (Australia)',
+      period: '2025',
+      location: 'Australia / Remote',
+      description: 'Completed enterprise architecture and Salesforce development simulation for customer relationship systems.',
+      certificateImage: '/certificates/techforce-salesforce-internship.png',
+      highlights: [
+        'Designed workflow automations, custom data structures, and role hierarchy permissions.',
+        'Explored cloud solutions architecture and enterprise CRM customization standards.',
+        'Successfully completed program with official Certificate of Completion from TechForce Services.'
+      ]
+    },
+    {
       role: 'Web Development Intern',
       company: 'InAmigos Foundation (IAF)',
       period: 'May 2024 - July 2024',
@@ -130,6 +156,7 @@ export default function Experience() {
       detail: 'Recognized for project contribution at the national-level Project and Model Expo, India Is Innovating 2K25, in association with NIRF.',
       icon: Award,
       badge: 'National Expo',
+      image: '/certificates/india-is-innovating-2k25.png',
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/honors/'
     },
     {
@@ -139,6 +166,7 @@ export default function Experience() {
       detail: 'Secured 2nd place in Elements event at Scintillations 2024 national-level technical fest at ACEIT.',
       icon: Sparkles,
       badge: '2nd Rank',
+      image: '/certificates/scintillations-2024-medal.png',
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/honors/'
     },
     {
@@ -148,6 +176,7 @@ export default function Experience() {
       detail: 'Achieved 3rd Position in the Don-De-Mode competition at Victory-24 Cultural Fest.',
       icon: Sparkles,
       badge: '3rd Rank',
+      image: '/certificates/victory-24-3rd-position.png',
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/honors/'
     },
     {
@@ -283,11 +312,11 @@ export default function Experience() {
                       <div className="mt-5 pt-4 border-t border-[#232d4b] flex flex-wrap items-center gap-3">
                         <button
                           onClick={() => setSelectedAward({
-                            title: 'Web Development Internship Certificate',
-                            issuer: 'InAmigos Foundation (IAF)',
-                            date: 'May 2026 - June 2026',
+                            title: `${exp.role} Certificate`,
+                            issuer: exp.company,
+                            date: exp.period,
                             badge: 'Official Certificate',
-                            detail: 'Certificate of Internship completion acknowledging successful Web Development tenure at InAmigos Foundation.',
+                            detail: `${exp.description} Official certificate issued by ${exp.company}.`,
                             image: exp.certificateImage,
                             link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/experience/'
                           })}

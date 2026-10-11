@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Send, CheckCircle2, MapPin, Phone, Code2 } from 'lucide-react';
+import { Mail, Send, CheckCircle2, MapPin, Code2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const GithubIcon = (props) => (
@@ -105,19 +105,6 @@ export default function Contact() {
 
             {/* Direct Details Cards */}
             <div className="space-y-3">
-              <a 
-                href="tel:+919352103753"
-                className="p-4 sm:p-5 rounded-2xl bg-[#121627]/90 border border-[#232d4b] flex items-center gap-4 hover:border-[#6c63ff]/60 transition-all duration-300 group shadow-lg"
-              >
-                <div className="p-3 rounded-xl bg-[#1a2038] text-[#6c63ff] border border-[#2d385e] group-hover:scale-110 transition-transform">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-[10px] font-mono text-[#94a3b8] uppercase">Phone Call / WhatsApp</div>
-                  <div className="text-sm font-bold text-white group-hover:text-[#a78bfa] transition-colors">+91 93521 03753</div>
-                </div>
-              </a>
-
               <a 
                 href="mailto:prachipandey1528@gmail.com"
                 className="p-4 sm:p-5 rounded-2xl bg-[#121627]/90 border border-[#232d4b] flex items-center gap-4 hover:border-[#6c63ff]/60 transition-all duration-300 group shadow-lg"

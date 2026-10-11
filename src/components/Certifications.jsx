@@ -11,11 +11,17 @@ import {
   Download, 
   Eye, 
   Sparkles, 
-  FileCheck
+  FileCheck,
+  Search,
+  Tag,
+  RotateCcw
 } from 'lucide-react';
+import { playSound } from '../utils/soundEffects';
 
 export default function Certifications() {
   const [activeTab, setActiveTab] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeTechTag, setActiveTechTag] = useState('All');
   const [selectedCert, setSelectedCert] = useState(null);
   const [fullscreenImage, setFullscreenImage] = useState(null);
 
@@ -375,9 +381,76 @@ export default function Certifications() {
     }
   ];
 
-  const filteredCertifications = activeTab === 'All'
-    ? certifications
-    : certifications.filter(c => c.category === activeTab);
+  const techTags = [
+    'All',
+    'AI & GenAI',
+    'Machine Learning',
+    'SQL & Data',
+    'Salesforce',
+    'Web Dev',
+    'Hackathons',
+    'Govt. Recognition'
+  ];
+
+  const filteredCertifications = certifications.filter((cert) => {
+    // 1. Category Filter
+    const matchesCategory = activeTab === 'All' || cert.category === activeTab;
+
+    // 2. Tech Tag Filter
+    let matchesTag = true;
+    if (activeTechTag !== 'All') {
+      const skillsStr = (cert.skills || []).join(' ').toLowerCase();
+      const titleLower = cert.title.toLowerCase();
+      const descLower = cert.description.toLowerCase();
+      const issuerLower = cert.issuer.toLowerCase();
+      const combined = `${skillsStr} ${titleLower} ${descLower} ${issuerLower}`;
+
+      if (activeTechTag === 'AI & GenAI') {
+        matchesTag = combined.includes('ai') || combined.includes('genai') || combined.includes('agent') || combined.includes('prompt');
+      } else if (activeTechTag === 'Machine Learning') {
+        matchesTag = combined.includes('machine learning') || combined.includes('ml') || combined.includes('data analytics') || combined.includes('deloitte');
+      } else if (activeTechTag === 'SQL & Data') {
+        matchesTag = combined.includes('sql') || combined.includes('mongodb') || combined.includes('database') || combined.includes('analytics');
+      } else if (activeTechTag === 'Salesforce') {
+        matchesTag = combined.includes('salesforce') || combined.includes('agentforce') || combined.includes('techforce');
+      } else if (activeTechTag === 'Web Dev') {
+        matchesTag = combined.includes('web') || combined.includes('fullstack') || combined.includes('full-stack') || combined.includes('ui') || combined.includes('canva');
+      } else if (activeTechTag === 'Hackathons') {
+        matchesTag = combined.includes('hackathon') || combined.includes('quiz') || combined.includes('expo') || combined.includes('pitching') || combined.includes('codeforge') || combined.includes('manipal');
+      } else if (activeTechTag === 'Govt. Recognition') {
+        matchesTag = combined.includes('bharat') || combined.includes('ministry') || combined.includes('viksit') || combined.includes('nirf') || combined.includes('national');
+      }
+    }
+
+    // 3. Search Query Filter
+    let matchesSearch = true;
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      const skillsStr = (cert.skills || []).join(' ').toLowerCase();
+      const titleLower = cert.title.toLowerCase();
+      const issuerLower = cert.issuer.toLowerCase();
+      const credLower = (cert.credentialId || '').toLowerCase();
+      const descLower = cert.description.toLowerCase();
+      const badgeLower = (cert.badge || '').toLowerCase();
+
+      matchesSearch = 
+        titleLower.includes(q) || 
+        issuerLower.includes(q) || 
+        skillsStr.includes(q) || 
+        credLower.includes(q) || 
+        descLower.includes(q) || 
+        badgeLower.includes(q);
+    }
+
+    return matchesCategory && matchesTag && matchesSearch;
+  });
+
+  const handleResetFilters = () => {
+    playSound('filter');
+    setActiveTab('All');
+    setSearchQuery('');
+    setActiveTechTag('All');
+  };
 
   return (
     <section id="certifications" className="py-24 relative overflow-hidden bg-[#0a0d18] border-t border-[#1b2238]">
@@ -387,7 +460,7 @@ export default function Certifications() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -421,26 +494,119 @@ export default function Certifications() {
           </p>
         </div>
 
-        {/* Filter Bar */}
-        <div className="flex justify-center flex-wrap gap-2.5 mb-12">
-          {categories.map((cat) => {
-            const isActive = activeTab === cat;
-            return (
+        {/* Search & Filter Control Station */}
+        <div className="max-w-4xl mx-auto mb-10 space-y-4">
+          
+          {/* Real-time Search Input */}
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#6c63ff]">
+              <Search className="w-4 h-4" />
+            </div>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search 27+ certificates by skill (SQL, Python, GenAI), issuer (MongoDB, Salesforce), ID..."
+              className="w-full pl-11 pr-10 py-3.5 rounded-2xl bg-[#121627]/90 border border-[#232d4b] focus:border-[#6c63ff] focus:ring-2 focus:ring-[#6c63ff]/20 text-white placeholder-[#64748b] text-sm font-sans transition-all shadow-xl outline-none"
+            />
+            {searchQuery && (
               <button
-                key={cat}
-                onClick={() => setActiveTab(cat)}
-                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 ${
-                  isActive
-                    ? 'text-white shadow-lg shadow-[#6c63ff]/30 scale-105'
-                    : 'bg-[#151a2e] text-[#94a3b8] hover:text-white hover:bg-[#1f2642] border border-[#232d4b]'
-                }`}
-                style={isActive ? { background: 'linear-gradient(135deg, #6c63ff 0%, #4d44db 100%)' } : {}}
+                onClick={() => {
+                  playSound('click');
+                  setSearchQuery('');
+                }}
+                className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#94a3b8] hover:text-white transition-colors"
+                title="Clear search"
               >
-                {cat}
+                <X className="w-4 h-4 p-0.5 rounded-full bg-[#1e2746]" />
               </button>
-            );
-          })}
+            )}
+          </div>
+
+          {/* Category Tabs */}
+          <div className="flex justify-center flex-wrap gap-2">
+            {categories.map((cat) => {
+              const isActive = activeTab === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => {
+                    playSound('filter');
+                    setActiveTab(cat);
+                  }}
+                  className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
+                    isActive
+                      ? 'text-white shadow-lg shadow-[#6c63ff]/30 scale-105'
+                      : 'bg-[#151a2e] text-[#94a3b8] hover:text-white hover:bg-[#1f2642] border border-[#232d4b]'
+                  }`}
+                  style={isActive ? { background: 'linear-gradient(135deg, #6c63ff 0%, #4d44db 100%)' } : {}}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Quick Tech Tag Pills */}
+          <div className="flex items-center justify-center flex-wrap gap-2 pt-1">
+            <div className="text-[11px] font-mono text-[#6c63ff] flex items-center gap-1 mr-1 font-semibold uppercase">
+              <Tag className="w-3 h-3" /> Tech Tag:
+            </div>
+            {techTags.map((tag) => {
+              const isTagActive = activeTechTag === tag;
+              return (
+                <button
+                  key={tag}
+                  onClick={() => {
+                    playSound('filter');
+                    setActiveTechTag(tag);
+                  }}
+                  className={`px-3 py-1 rounded-lg text-[11px] font-mono transition-all duration-200 border ${
+                    isTagActive
+                      ? 'bg-[#6c63ff]/20 border-[#6c63ff] text-white font-bold shadow-sm'
+                      : 'bg-[#0f1424] border-[#1f2742] text-[#94a3b8] hover:text-white hover:border-[#33416b]'
+                  }`}
+                >
+                  #{tag}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Filter Summary Bar */}
+          <div className="flex items-center justify-between text-xs font-mono text-[#94a3b8] px-2 pt-1 border-t border-[#1b2238]/60">
+            <span>
+              Showing <span className="text-[#a78bfa] font-bold">{filteredCertifications.length}</span> of {certifications.length} Verified Credentials
+            </span>
+            {(searchQuery || activeTab !== 'All' || activeTechTag !== 'All') && (
+              <button
+                onClick={handleResetFilters}
+                className="flex items-center gap-1.5 text-[#a78bfa] hover:text-white transition-colors"
+              >
+                <RotateCcw className="w-3 h-3" />
+                Reset Filters
+              </button>
+            )}
+          </div>
+
         </div>
+
+        {/* Empty State when no certificates match */}
+        {filteredCertifications.length === 0 && (
+          <div className="p-12 text-center rounded-2xl bg-[#121627]/60 border border-[#232d4b] max-w-lg mx-auto my-8">
+            <Search className="w-10 h-10 text-[#6c63ff] mx-auto mb-3 opacity-60" />
+            <h4 className="text-base font-bold text-white">No Matching Certificates Found</h4>
+            <p className="text-xs text-[#94a3b8] mt-1 mb-5 leading-relaxed">
+              No credentials matched &ldquo;{searchQuery || activeTechTag}&rdquo;. Try another skill keyword or clear filters.
+            </p>
+            <button
+              onClick={handleResetFilters}
+              className="px-4 py-2 rounded-full bg-[#6c63ff] text-white text-xs font-semibold shadow-lg hover:scale-105 transition-all"
+            >
+              Reset Filters & View All
+            </button>
+          </div>
+        )}
 
         {/* Certifications Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -453,7 +619,10 @@ export default function Certifications() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3, delay: idx * 0.03 }}
-                onClick={() => setSelectedCert(cert)}
+                onClick={() => {
+                  playSound('modalOpen');
+                  setSelectedCert(cert);
+                }}
                 className="p-5 sm:p-6 rounded-2xl bg-[#121627]/90 border border-[#232d4b] hover:border-[#6c63ff]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group hover:-translate-y-1 cursor-pointer relative overflow-hidden"
               >
                 {/* Visual Certificate Photo Banner if available */}
@@ -587,7 +756,10 @@ export default function Certifications() {
             >
               {/* Close Button */}
               <button
-                onClick={() => setSelectedCert(null)}
+                onClick={() => {
+                  playSound('modalClose');
+                  setSelectedCert(null);
+                }}
                 className="absolute top-5 right-5 p-2 rounded-full bg-[#1a2038] border border-[#2d385e] text-[#94a3b8] hover:text-white hover:bg-[#232d4b] transition-all z-10"
                 aria-label="Close modal"
               >

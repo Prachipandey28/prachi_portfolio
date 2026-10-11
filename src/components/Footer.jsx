@@ -10,6 +10,7 @@ export default function Footer() {
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Activity', href: '#dashboard' },
     { name: 'Certifications', href: '#certifications' },
     { name: 'Achievements', href: '#achievements' },
     { name: 'Contact', href: '#contact' },

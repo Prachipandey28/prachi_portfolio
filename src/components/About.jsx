@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { User, Mail, Phone, MapPin, GraduationCap } from 'lucide-react';
+import { User, Mail, Sparkles, MapPin, GraduationCap } from 'lucide-react';
 import prachiPhoto from '../assets/prachi.jpeg';
 
 export default function About() {
@@ -87,13 +87,14 @@ export default function About() {
 
                 <div className="p-4 rounded-xl bg-[#151a2e] border border-slate-800 flex items-center gap-3.5">
                   <div className="w-10 h-10 rounded-lg bg-[#6c63ff]/20 border border-[#6c63ff]/40 flex items-center justify-center text-[#38bdf8] shrink-0">
-                    <Phone className="w-5 h-5" />
+                    <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-mono text-slate-400 block">Phone:</span>
-                    <a href="tel:+919352103753" className="text-sm font-semibold text-white hover:text-[#38bdf8] transition-colors">
-                      +91 93521 03753
-                    </a>
+                    <span className="text-[11px] font-mono text-slate-400 block">Status:</span>
+                    <span className="text-xs sm:text-sm font-semibold text-emerald-400 flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                      Open to Opportunities
+                    </span>
                   </div>
                 </div>
 

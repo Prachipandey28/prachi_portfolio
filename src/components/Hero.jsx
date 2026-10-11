@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Send, Mail, Phone, Bot, Database, Brain, ArrowDown } from 'lucide-react';
+import { FileText, Send, Mail, Bot, Database, Brain, ArrowDown, Camera } from 'lucide-react';
+import { playSound } from '../utils/soundEffects';
 import prachiPhoto from '../assets/prachi.jpeg';
 
 const GithubIcon = (props) => (
@@ -25,7 +26,7 @@ const TITLES = [
   "Data Science & Analytics Engineer"
 ];
 
-export default function Hero({ onOpenResume }) {
+export default function Hero({ onOpenResume, onOpenGallery }) {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -137,15 +138,6 @@ export default function Hero({ onOpenResume }) {
               >
                 <Mail className="w-4 h-4" />
               </a>
-
-              <a
-                href="tel:+919352103753"
-                title="+91 93521 03753"
-                aria-label="Call Phone Number"
-                className="w-11 h-11 rounded-full bg-[#151a2e] border border-slate-700/80 flex items-center justify-center text-slate-300 hover:text-white hover:bg-[#6c63ff] hover:border-[#6c63ff] transition-all hover:scale-110 shadow-md"
-              >
-                <Phone className="w-4 h-4" />
-              </a>
             </motion.div>
 
             {/* Action Buttons */}
@@ -169,6 +161,17 @@ export default function Hero({ onOpenResume }) {
               >
                 <FileText className="w-4 h-4" />
                 <span>View CV / Resume</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  playSound('modalOpen');
+                  onOpenGallery?.();
+                }}
+                className="px-6 py-3.5 rounded-full bg-[#151a2e] hover:bg-[#1f2746] border border-[#2d385e] hover:border-[#6c63ff] text-[#cbd5e1] hover:text-white font-semibold text-sm flex items-center gap-2 transition-all hover:scale-105 shadow-md"
+              >
+                <Camera className="w-4 h-4 text-[#6c63ff]" />
+                <span>Moments Gallery</span>
               </button>
             </motion.div>
 

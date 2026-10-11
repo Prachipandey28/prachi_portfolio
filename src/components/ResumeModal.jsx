@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { X, FileText, Mail, MapPin, Phone, Printer, Code2 } from 'lucide-react';
+import { X, FileText, Mail, MapPin, Printer, Code2 } from 'lucide-react';
 
 const GithubIcon = (props) => (
   <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -84,10 +84,6 @@ export default function ResumeModal({ isOpen, onClose }) {
 
             <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-300">
               <span className="flex items-center gap-1.5">
-                <Phone className="w-3.5 h-3.5 text-sky-400" />
-                +91 93521 03753
-              </span>
-              <span className="flex items-center gap-1.5">
                 <Mail className="w-3.5 h-3.5 text-sky-400" />
                 prachipandey1528@gmail.com
               </span>
@@ -161,8 +157,19 @@ export default function ResumeModal({ isOpen, onClose }) {
             </h3>
             <div className="mt-3 space-y-4">
               <div>
-                <div className="flex justify-between items-center">
-                  <h4 className="font-bold text-white">AI-Based Bone Cancer Detection System</h4>
+                <div className="flex flex-wrap justify-between items-center gap-2">
+                  <div className="flex items-center gap-2">
+                    <h4 className="font-bold text-white">AI-Based Bone Cancer Detection System</h4>
+                    <a 
+                      href="https://bone-cancer-detection-cogbozwme-prachipandey28s-projects.vercel.app" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-emerald-400 hover:text-emerald-300 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30 transition-colors"
+                      title="Open Live Vercel Web App"
+                    >
+                      Live Demo ↗
+                    </a>
+                  </div>
                   <span className="text-xs font-mono text-slate-400">Python, YOLOv8, OpenCV, Flask, SQL</span>
                 </div>
                 <ul className="mt-1.5 space-y-1 text-xs text-slate-300 list-disc list-inside">

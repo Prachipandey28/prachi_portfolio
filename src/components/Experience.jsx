@@ -18,6 +18,7 @@ import {
   Eye,
   FileCheck
 } from 'lucide-react';
+import { playSound } from '../utils/soundEffects';
 
 export default function Experience() {
   const [selectedAward, setSelectedAward] = useState(null);
@@ -129,6 +130,16 @@ export default function Experience() {
   ];
 
   const achievements = [
+    {
+      title: 'Winner (₹5,000 Cash Prize) — Hack 4 Health',
+      issuer: 'Arya College Hackathon Arena',
+      date: '2024',
+      detail: 'Won ₹5,000 Cash Prize / Gift Coupon for presenting the "Hack 4 Health" Bone Cancer Detection Machine Learning system to jury evaluators.',
+      icon: Trophy,
+      badge: 'Winner ₹5,000',
+      image: '/gallery/hack-4-health-award-ceremony-prachi.jpg',
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/honors/'
+    },
     {
       title: 'Consolation Prize — National Project Expo',
       issuer: 'IEEE JECRC Student Branch',
@@ -378,7 +389,10 @@ export default function Experience() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.08 }}
-                    onClick={() => setSelectedAward(ach)}
+                    onClick={() => {
+                      playSound('modalOpen');
+                      setSelectedAward(ach);
+                    }}
                     className="p-5 rounded-2xl bg-[#121627]/90 border border-[#232d4b] hover:border-[#6c63ff]/60 flex items-start justify-between gap-3 transition-all duration-300 shadow-xl group cursor-pointer"
                   >
                     <div className="flex items-start gap-3.5">
@@ -438,7 +452,10 @@ export default function Experience() {
               className="bg-[#121627] border border-[#232d4b] rounded-2xl max-w-2xl w-full my-auto max-h-[92vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative text-white"
             >
               <button
-                onClick={() => setSelectedAward(null)}
+                onClick={() => {
+                  playSound('modalClose');
+                  setSelectedAward(null);
+                }}
                 className="absolute top-6 right-6 p-2 rounded-full bg-[#1a2038] border border-[#2d385e] text-[#94a3b8] hover:text-white hover:bg-[#232d4b] transition-all z-10"
                 aria-label="Close modal"
               >

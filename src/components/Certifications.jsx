@@ -1,10 +1,50 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, ExternalLink, CheckCircle, X, ShieldCheck } from 'lucide-react';
+import { 
+  Award, 
+  ExternalLink, 
+  CheckCircle, 
+  X, 
+  ShieldCheck, 
+  Maximize2, 
+  ZoomIn, 
+  Download, 
+  Eye, 
+  Sparkles,
+  FileCheck
+} from 'lucide-react';
 
 export default function Certifications() {
   const [activeTab, setActiveTab] = useState('All');
   const [selectedCert, setSelectedCert] = useState(null);
+  const [fullscreenImage, setFullscreenImage] = useState(null);
+
+  // Prevent background scrolling when modal or fullscreen lightbox is open
+  useEffect(() => {
+    if (selectedCert || fullscreenImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedCert, fullscreenImage]);
+
+  // Handle ESC key to close modal/lightbox
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        if (fullscreenImage) {
+          setFullscreenImage(null);
+        } else if (selectedCert) {
+          setSelectedCert(null);
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedCert, fullscreenImage]);
 
   const categories = ['All', 'GenAI & Machine Learning', 'Data Science & SQL', 'Web & Full-Stack', 'Hackathons & Quizzes'];
 
@@ -16,9 +56,58 @@ export default function Certifications() {
       credentialId: 'credly.com/go/8K8Xzhil',
       category: 'GenAI & Machine Learning',
       badge: 'Verified Credential',
-      description: 'Earned this credential from MongoDB by learning how to design and build Generative AI applications using MongoDB Atlas Vector Search and RAG.',
-      skills: ['Artificial Intelligence', 'RAG Pipelines', 'Atlas Vector Search'],
+      image: '/certificates/mongodb-genai.png',
+      description: 'Earned this credential from MongoDB by learning how to design and build Generative AI applications using MongoDB Atlas Vector Search and RAG pipelines.',
+      skills: ['Artificial Intelligence', 'RAG Pipelines', 'Atlas Vector Search', 'MongoDB'],
       link: 'https://www.credly.com/go/8K8Xzhil'
+    },
+    {
+      title: 'Deloitte Data Analytics Job Simulation',
+      issuer: 'Deloitte (Forage)',
+      date: 'Jun 2026',
+      credentialId: '6a2ef014c6c61a7ecac69e4f',
+      category: 'Data Science & SQL',
+      badge: 'Job Simulation',
+      image: '/certificates/deloitte-data-analytics.png',
+      description: "Successfully completed Deloitte's practical Data Analytics Job Simulation on Forage, solving enterprise cases in forensic data analysis and investigative analytics.",
+      skills: ['Data Analysis', 'Data Analytics', 'Forensic Technology', 'Deloitte Simulation'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
+    },
+    {
+      title: 'Generative AI & ML Workshop',
+      issuer: 'Arya College & Cipher Coding Club',
+      date: 'Oct 2024',
+      credentialId: 'Cipher Coding Club • Arya College',
+      category: 'GenAI & Machine Learning',
+      badge: 'Technical Workshop',
+      image: '/certificates/arya-genai-workshop.png',
+      description: 'Participated in a specialized hands-on workshop on Generative AI and Machine Learning organized by Arya College of Engineering & I.T. and Cipher Coding Club.',
+      skills: ['Generative AI', 'Machine Learning', 'Prompt Engineering', 'Deep Learning'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
+    },
+    {
+      title: 'How to Create Presentations using Canva',
+      issuer: 'Coursera',
+      date: 'Dec 2025',
+      credentialId: 'IM0EQ9Y0Q74B',
+      category: 'Web & Full-Stack',
+      badge: 'Coursera Project',
+      image: '/certificates/coursera-canva.png',
+      description: 'Completed authorized Coursera project training in presentation architecture, visual storytelling, brand typography, and interactive technical deck design.',
+      skills: ['Canva', 'Presentation Design', 'Visual Communication', 'UI Aesthetics'],
+      link: 'https://coursera.org/verify/IM0EQ9Y0Q74B'
+    },
+    {
+      title: 'QuizOff 2026 – India’s Biggest AI Quiz',
+      issuer: 'CampusCrew (Unstop)',
+      date: 'Jul 2026',
+      credentialId: 'CampusCrew • 525,000+ Students',
+      category: 'Hackathons & Quizzes',
+      badge: 'National AI Competition',
+      image: '/certificates/quizoff-2026-ai-quiz.png',
+      description: "Competed in QuizOff 2026: India's Biggest AI Quiz organized by CampusCrew and hosted on Unstop alongside 5,25,000+ students across 48,500+ institutions worldwide.",
+      skills: ['Artificial Intelligence', 'AI Quiz', 'Machine Learning', 'National Level'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
       title: 'SQL (Intermediate)',
@@ -43,17 +132,6 @@ export default function Certifications() {
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
-      title: 'Deloitte Data Analytics Job Simulation',
-      issuer: 'Deloitte (Forage)',
-      date: 'Jun 2026',
-      credentialId: '6a2ef014c6c61a7ecac69e4f',
-      category: 'Data Science & SQL',
-      badge: 'Job Simulation',
-      description: "Successfully completed Deloitte's Data Analytics Job Simulation on Forage, gaining practical experience in data analysis and forensic technology.",
-      skills: ['Data Analysis', 'Data Analytics', 'Forensic Technology'],
-      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
-    },
-    {
       title: 'Agentic AI Workshop',
       issuer: 'Grras Solutions (P) Ltd',
       date: 'Jun 2026',
@@ -73,17 +151,6 @@ export default function Certifications() {
       badge: 'AI Builder Program',
       description: 'Built an AI-powered Agentforce agent using Salesforce technologies, gaining practical experience in AI-driven automation, cloud solutions, and enterprise AI.',
       skills: ['AgentForce', 'AI Automation', 'Salesforce AI'],
-      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
-    },
-    {
-      title: 'Generative AI & ML Workshop',
-      issuer: 'Arya Cipher Coding Club',
-      date: 'Oct 2025',
-      credentialId: 'Arya Cipher Club',
-      category: 'GenAI & Machine Learning',
-      badge: 'Technical Workshop',
-      description: 'Participated in a workshop focused on Generative AI and Machine Learning, exploring AI models, prompt engineering, and real-world applications.',
-      skills: ['Artificial Intelligence', 'Machine Learning', 'Prompt Engineering'],
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
@@ -117,28 +184,6 @@ export default function Certifications() {
       badge: 'Design Certification',
       description: 'Hands-on design training covering User Interface Design, UX wireframing, and modern visual graphic design aesthetics.',
       skills: ['User Interface Design', 'UX Design', 'Visual Graphics'],
-      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
-    },
-    {
-      title: 'How to Create Presentations using Canva',
-      issuer: 'Coursera',
-      date: 'Dec 2025',
-      credentialId: 'Coursera Project',
-      category: 'Web & Full-Stack',
-      badge: 'Coursera Project',
-      description: 'Learned presentation design, Canva tools, visual communication, and design structure for technical presentations.',
-      skills: ['Canva', 'Presentation Design', 'Visual Communication'],
-      link: 'https://www.coursera.org/'
-    },
-    {
-      title: 'QuizOff 2026 – India’s Biggest AI Quiz',
-      issuer: 'CampusCrew',
-      date: 'Jul 2026',
-      credentialId: 'CampusCrew QuizOff',
-      category: 'Hackathons & Quizzes',
-      badge: 'National AI Competition',
-      description: "Participated and qualified in QuizOff 2026 — India's Biggest AI Quiz competition testing deep AI & ML domain knowledge.",
-      skills: ['Artificial Intelligence', 'AI Quiz', 'Domain Expertise'],
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
@@ -178,6 +223,16 @@ export default function Certifications() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#182038] border border-[#2d3a66] text-[#a78bfa] text-xs font-mono font-medium mb-4"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-[#6c63ff]" />
+            Official Credentials & Verification
+          </motion.div>
+
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -196,6 +251,9 @@ export default function Certifications() {
           >
             14 Verified Industry Certifications, Workshops & Credentials
           </motion.p>
+          <p className="text-xs text-[#6c63ff] font-mono mt-2">
+            Click on any certificate to inspect official document photos, credential IDs & verification links
+          </p>
         </div>
 
         {/* Filter Bar */}
@@ -231,17 +289,54 @@ export default function Certifications() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3, delay: idx * 0.05 }}
                 onClick={() => setSelectedCert(cert)}
-                className="p-6 sm:p-7 rounded-2xl bg-[#121627]/90 border border-[#232d4b] hover:border-[#6c63ff]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group hover:-translate-y-1 cursor-pointer"
+                className="p-5 sm:p-6 rounded-2xl bg-[#121627]/90 border border-[#232d4b] hover:border-[#6c63ff]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group hover:-translate-y-1 cursor-pointer relative overflow-hidden"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="p-3 rounded-xl bg-[#1a2038] text-[#6c63ff] border border-[#2d385e] group-hover:scale-110 transition-transform">
-                      <Award className="w-6 h-6" />
+                {/* Visual Certificate Photo Banner if available */}
+                {cert.image && (
+                  <div className="relative mb-4 rounded-xl overflow-hidden border border-[#232d4b] group-hover:border-[#6c63ff]/50 transition-colors bg-[#080b14] aspect-[16/10]">
+                    <img 
+                      src={cert.image} 
+                      alt={cert.title} 
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#121627] via-transparent to-black/30"></div>
+                    <div className="absolute top-2.5 right-2.5 px-2.5 py-1 rounded-full bg-[#0a0d18]/90 backdrop-blur-md border border-[#6c63ff]/50 text-[10px] font-mono font-semibold text-[#a78bfa] flex items-center gap-1.5 shadow-md">
+                      <Eye className="w-3 h-3 text-[#6c63ff]" />
+                      Certificate Photo
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-[#171d33] border border-[#252f52] text-[10px] font-mono font-bold text-[#a78bfa]">
-                      {cert.badge}
-                    </span>
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
+                      <span className="px-3.5 py-1.5 rounded-full bg-[#6c63ff] text-white text-xs font-semibold flex items-center gap-1.5 shadow-xl transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+                        <ZoomIn className="w-3.5 h-3.5" />
+                        Click to Open Photo
+                      </span>
+                    </div>
                   </div>
+                )}
+
+                <div>
+                  {/* Card Header when no photo banner */}
+                  {!cert.image && (
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="p-3 rounded-xl bg-[#1a2038] text-[#6c63ff] border border-[#2d385e] group-hover:scale-110 transition-transform">
+                        <Award className="w-6 h-6" />
+                      </div>
+                      <span className="px-3 py-1 rounded-full bg-[#171d33] border border-[#252f52] text-[10px] font-mono font-bold text-[#a78bfa]">
+                        {cert.badge}
+                      </span>
+                    </div>
+                  )}
+
+                  {cert.image && (
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#171d33] border border-[#252f52] text-[10px] font-mono font-bold text-[#a78bfa]">
+                        {cert.badge}
+                      </span>
+                      <span className="text-[10px] font-mono text-[#94a3b8]">
+                        {cert.date}
+                      </span>
+                    </div>
+                  )}
 
                   <h3 className="text-base font-bold text-white group-hover:text-[#a78bfa] transition-colors leading-snug">
                     {cert.title}
@@ -254,36 +349,51 @@ export default function Certifications() {
                   </div>
 
                   {cert.credentialId && (
-                    <div className="mt-1 text-[10px] font-mono text-[#94a3b8] truncate">
-                      ID: {cert.credentialId}
+                    <div className="mt-1 text-[10px] font-mono text-[#94a3b8] truncate flex items-center gap-1">
+                      <FileCheck className="w-3 h-3 text-[#6c63ff] shrink-0" />
+                      <span className="truncate">ID: {cert.credentialId}</span>
                     </div>
                   )}
 
-                  <p className="mt-3 text-xs text-[#94a3b8] leading-relaxed">
+                  <p className="mt-3 text-xs text-[#94a3b8] leading-relaxed line-clamp-3">
                     {cert.description}
                   </p>
 
                   {/* Skills tags */}
                   <div className="flex flex-wrap gap-1.5 mt-4">
-                    {cert.skills.map((skill, sIdx) => (
+                    {cert.skills.slice(0, 3).map((skill, sIdx) => (
                       <span key={sIdx} className="text-[10px] font-mono text-[#cbd5e1] bg-[#171d33] px-2.5 py-1 rounded-full border border-[#252f52] flex items-center gap-1">
                         <CheckCircle className="w-3 h-3 text-[#6c63ff]" />
                         {skill}
                       </span>
                     ))}
+                    {cert.skills.length > 3 && (
+                      <span className="text-[10px] font-mono text-[#a78bfa] bg-[#171d33] px-2 py-1 rounded-full border border-[#252f52]">
+                        +{cert.skills.length - 3}
+                      </span>
+                    )}
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#232d4b] flex items-center justify-between">
-                  <span className="text-[11px] font-semibold text-[#a78bfa] flex items-center gap-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#6c63ff]" />
-                    View Certificate Photo
+                <div className="mt-5 pt-4 border-t border-[#232d4b] flex items-center justify-between">
+                  <span className="text-[11px] font-semibold text-[#a78bfa] flex items-center gap-1.5">
+                    {cert.image ? (
+                      <>
+                        <Eye className="w-3.5 h-3.5 text-[#6c63ff]" />
+                        View Certificate Photo
+                      </>
+                    ) : (
+                      <>
+                        <ShieldCheck className="w-3.5 h-3.5 text-[#6c63ff]" />
+                        Inspect Credential
+                      </>
+                    )}
                   </span>
                   <div
-                    className="px-3 py-1.5 rounded-full text-xs font-semibold text-white flex items-center gap-1 transition-all shadow-md"
+                    className="px-3 py-1.5 rounded-full text-xs font-semibold text-white flex items-center gap-1 transition-all shadow-md group-hover:shadow-[#6c63ff]/25"
                     style={{ background: 'linear-gradient(135deg, #6c63ff 0%, #4d44db 100%)' }}
                   >
-                    Inspect
+                    {cert.image ? 'Open Photo' : 'Inspect'}
                     <ExternalLink className="w-3 h-3" />
                   </div>
                 </div>
@@ -294,108 +404,276 @@ export default function Certifications() {
 
       </div>
 
-      {/* Certificate Lightbox Photo Modal */}
-      {selectedCert && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            className="bg-[#121627] border border-[#232d4b] rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative text-white"
+      {/* Certificate Modal */}
+      <AnimatePresence>
+        {selectedCert && (
+          <div 
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setSelectedCert(null);
+            }}
           >
-            <button
-              onClick={() => setSelectedCert(null)}
-              className="absolute top-6 right-6 p-2 rounded-full bg-[#1a2038] border border-[#2d385e] text-[#94a3b8] hover:text-white"
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ duration: 0.2 }}
+              className="bg-[#121627] border border-[#232d4b] rounded-2xl max-w-3xl w-full my-auto max-h-[92vh] overflow-y-auto p-5 sm:p-7 shadow-2xl relative text-white"
             >
-              <X className="w-5 h-5" />
-            </button>
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedCert(null)}
+                className="absolute top-5 right-5 p-2 rounded-full bg-[#1a2038] border border-[#2d385e] text-[#94a3b8] hover:text-white hover:bg-[#232d4b] transition-all z-10"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
 
-            <span className="px-3 py-1 rounded-full bg-[#1a2038] border border-[#2d385e] text-[#a78bfa] font-mono text-xs font-semibold uppercase">
-              {selectedCert.category}
-            </span>
-
-            <h3 className="text-2xl font-bold text-white mt-3 leading-snug">
-              {selectedCert.title}
-            </h3>
-
-            <div className="flex items-center gap-2 text-xs font-mono text-[#6c63ff] font-bold mt-1">
-              <span>Issued by {selectedCert.issuer}</span>
-              <span>•</span>
-              <span>{selectedCert.date}</span>
-            </div>
-
-            {/* Simulated Official Certificate Card Document Image Preview */}
-            <div className="mt-5 p-6 rounded-2xl bg-gradient-to-br from-[#1a2038] to-[#0d101e] border-2 border-[#6c63ff]/40 relative overflow-hidden shadow-2xl text-center">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#6c63ff]/10 rounded-full blur-2xl pointer-events-none"></div>
-              
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#6c63ff]/20 border border-[#6c63ff]/50 text-[#a78bfa] text-xs font-mono font-bold uppercase mb-3">
-                <ShieldCheck className="w-4 h-4 text-[#6c63ff]" />
-                Official Verified Credential Document
+              {/* Category Badge & Status */}
+              <div className="flex flex-wrap items-center gap-2 pr-12">
+                <span className="px-3 py-1 rounded-full bg-[#1a2038] border border-[#2d385e] text-[#a78bfa] font-mono text-xs font-semibold uppercase">
+                  {selectedCert.category}
+                </span>
+                <span className="px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 font-mono text-xs font-semibold flex items-center gap-1.5">
+                  <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
+                  Verified Credential
+                </span>
               </div>
 
-              <h4 className="text-xl font-extrabold text-white tracking-wide">
-                CERTIFICATE OF COMPLETION & PARTICIPATION
-              </h4>
-              <p className="text-xs text-[#94a3b8] font-mono mt-1">This is proudly presented to</p>
-              
-              <div className="text-2xl font-bold text-[#a78bfa] my-2 font-serif tracking-wider">
-                PRACHI PANDEY
+              {/* Title & Metadata */}
+              <h3 className="text-xl sm:text-2xl font-bold text-white mt-3 leading-snug">
+                {selectedCert.title}
+              </h3>
+
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono text-[#6c63ff] font-bold mt-1.5">
+                <span>Issued by {selectedCert.issuer}</span>
+                <span>•</span>
+                <span>{selectedCert.date}</span>
+                {selectedCert.credentialId && (
+                  <>
+                    <span>•</span>
+                    <span className="text-[#cbd5e1] font-mono">ID: {selectedCert.credentialId}</span>
+                  </>
+                )}
               </div>
 
-              <p className="text-xs text-[#cbd5e1] max-w-lg mx-auto leading-relaxed mt-2">
-                For successfully demonstrating verified competency and completing <span className="text-white font-semibold">&quot;{selectedCert.title}&quot;</span> issued by <span className="text-white font-semibold">{selectedCert.issuer}</span>.
-              </p>
-
-              <div className="mt-6 pt-4 border-t border-[#2d385e] flex flex-wrap items-center justify-between gap-2 text-left">
-                <div>
-                  <div className="text-[10px] font-mono text-[#94a3b8] uppercase">Verification Credential ID:</div>
-                  <div className="text-xs font-mono text-[#a78bfa] font-bold">{selectedCert.credentialId || 'ACEIT-VERIFIED-2026'}</div>
+              {/* Certificate Image or Official Card */}
+              {selectedCert.image ? (
+                <div className="mt-5 space-y-3">
+                  <div className="relative group rounded-xl overflow-hidden border-2 border-[#6c63ff]/40 bg-[#070a13] shadow-2xl">
+                    {/* Actual certificate photo */}
+                    <img 
+                      src={selectedCert.image} 
+                      alt={selectedCert.title} 
+                      className="w-full max-h-[460px] object-contain bg-[#070a13] mx-auto cursor-pointer transition-transform duration-300 group-hover:scale-[1.01]"
+                      onClick={() => setFullscreenImage(selectedCert.image)}
+                    />
+                    
+                    {/* Overlay Action Bar */}
+                    <div className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black/90 via-black/60 to-transparent flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-xs font-mono text-[#cbd5e1] flex items-center gap-1.5">
+                        <ShieldCheck className="w-4 h-4 text-[#6c63ff]" />
+                        Official Certificate Document Photo
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => setFullscreenImage(selectedCert.image)}
+                          className="px-3 py-1.5 rounded-lg bg-[#1a2038]/90 hover:bg-[#252f52] border border-[#2d385e] text-xs font-semibold text-white flex items-center gap-1.5 transition-all shadow-md"
+                          title="View Fullscreen"
+                        >
+                          <Maximize2 className="w-3.5 h-3.5 text-[#6c63ff]" />
+                          Fullscreen
+                        </button>
+                        <a
+                          href={selectedCert.image}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="px-3 py-1.5 rounded-lg bg-[#1a2038]/90 hover:bg-[#252f52] border border-[#2d385e] text-xs font-semibold text-white flex items-center gap-1.5 transition-all shadow-md"
+                          title="Open original file in new tab"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5 text-[#6c63ff]" />
+                          Open File
+                        </a>
+                        <a
+                          href={selectedCert.image}
+                          download={`${selectedCert.title.replace(/[^a-zA-Z0-9]/g, '_')}.png`}
+                          className="px-3 py-1.5 rounded-lg bg-[#1a2038]/90 hover:bg-[#252f52] border border-[#2d385e] text-xs font-semibold text-white flex items-center gap-1.5 transition-all shadow-md"
+                          title="Download Image"
+                        >
+                          <Download className="w-3.5 h-3.5 text-[#6c63ff]" />
+                          Download
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-[11px] font-mono text-center text-[#94a3b8]">
+                    Click on the image above to open high-resolution fullscreen inspection
+                  </p>
                 </div>
-                <div>
-                  <div className="text-[10px] font-mono text-[#94a3b8] uppercase">Issue Status:</div>
-                  <div className="text-xs font-mono text-emerald-400 font-bold flex items-center gap-1">
-                    <CheckCircle className="w-3 h-3 text-emerald-400" />
-                    Verified & Active
+              ) : (
+                /* Fallback Official Digital Card when image is not yet uploaded */
+                <div className="mt-5 p-6 rounded-2xl bg-gradient-to-br from-[#1a2038] to-[#0d101e] border-2 border-[#6c63ff]/40 relative overflow-hidden shadow-2xl text-center">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#6c63ff]/10 rounded-full blur-2xl pointer-events-none"></div>
+                  
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#6c63ff]/20 border border-[#6c63ff]/50 text-[#a78bfa] text-xs font-mono font-bold uppercase mb-3">
+                    <ShieldCheck className="w-4 h-4 text-[#6c63ff]" />
+                    Official Verified Credential Document
+                  </div>
+
+                  <h4 className="text-xl font-extrabold text-white tracking-wide">
+                    CERTIFICATE OF COMPLETION & PARTICIPATION
+                  </h4>
+                  <p className="text-xs text-[#94a3b8] font-mono mt-1">This is proudly presented to</p>
+                  
+                  <div className="text-2xl font-bold text-[#a78bfa] my-2 font-serif tracking-wider">
+                    PRACHI PANDEY
+                  </div>
+
+                  <p className="text-xs text-[#cbd5e1] max-w-lg mx-auto leading-relaxed mt-2">
+                    For successfully demonstrating verified competency and completing <span className="text-white font-semibold">&quot;{selectedCert.title}&quot;</span> issued by <span className="text-white font-semibold">{selectedCert.issuer}</span>.
+                  </p>
+
+                  <div className="mt-6 pt-4 border-t border-[#2d385e] flex flex-wrap items-center justify-between gap-2 text-left">
+                    <div>
+                      <div className="text-[10px] font-mono text-[#94a3b8] uppercase">Verification Credential ID:</div>
+                      <div className="text-xs font-mono text-[#a78bfa] font-bold">{selectedCert.credentialId || 'ACEIT-VERIFIED-2026'}</div>
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-mono text-[#94a3b8] uppercase">Issue Status:</div>
+                      <div className="text-xs font-mono text-emerald-400 font-bold flex items-center gap-1">
+                        <CheckCircle className="w-3 h-3 text-emerald-400" />
+                        Verified & Active
+                      </div>
+                    </div>
                   </div>
                 </div>
+              )}
+
+              {/* Description */}
+              <p className="mt-5 text-[#cbd5e1] text-xs sm:text-sm leading-relaxed">
+                {selectedCert.description}
+              </p>
+
+              {/* Skills */}
+              <div className="mt-4">
+                <span className="text-xs font-mono text-[#94a3b8] uppercase tracking-wider font-semibold">
+                  Verified Competencies & Skills:
+                </span>
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {selectedCert.skills.map((s, idx) => (
+                    <span key={idx} className="px-3 py-1 rounded-full bg-[#171d33] border border-[#252f52] text-xs font-mono text-[#cbd5e1] flex items-center gap-1.5">
+                      <CheckCircle className="w-3 h-3 text-[#6c63ff]" />
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Actions Footer */}
+              <div className="mt-7 flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[#232d4b]">
+                <div className="text-xs font-mono text-[#94a3b8]">
+                  {selectedCert.image ? '📸 Photo Attached & Verified' : '🛡️ Official Digital Credential'}
+                </div>
+
+                <div className="flex items-center gap-3">
+                  {selectedCert.image && (
+                    <button
+                      onClick={() => setFullscreenImage(selectedCert.image)}
+                      className="px-4 py-2.5 rounded-full bg-[#171d33] hover:bg-[#232d4b] border border-[#252f52] text-white text-xs font-semibold flex items-center gap-2 transition-all"
+                    >
+                      <ZoomIn className="w-4 h-4 text-[#6c63ff]" />
+                      Zoom Photo
+                    </button>
+                  )}
+                  <a
+                    href={selectedCert.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-5 py-2.5 rounded-full text-white text-xs font-semibold flex items-center gap-2 transition-all shadow-lg hover:shadow-[#6c63ff]/30 hover:scale-[1.02]"
+                    style={{ background: 'linear-gradient(135deg, #6c63ff 0%, #4d44db 100%)' }}
+                  >
+                    Verify on Platform
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Dedicated High-Resolution Fullscreen Lightbox */}
+      <AnimatePresence>
+        {fullscreenImage && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[70] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center p-3 sm:p-6"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setFullscreenImage(null);
+            }}
+          >
+            {/* Top Toolbar */}
+            <div className="w-full max-w-6xl flex items-center justify-between mb-3 px-2 text-white">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-[#6c63ff]" />
+                <span className="text-xs sm:text-sm font-mono font-bold text-[#a78bfa]">
+                  Official Certificate Document Viewer
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <a
+                  href={fullscreenImage}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-3 py-1.5 rounded-lg bg-[#1a2038] hover:bg-[#252f52] border border-[#2d385e] text-xs font-semibold text-white flex items-center gap-1.5 transition-all"
+                >
+                  <ExternalLink className="w-3.5 h-3.5 text-[#6c63ff]" />
+                  Open Raw
+                </a>
+                <a
+                  href={fullscreenImage}
+                  download="certificate.png"
+                  className="px-3 py-1.5 rounded-lg bg-[#1a2038] hover:bg-[#252f52] border border-[#2d385e] text-xs font-semibold text-white flex items-center gap-1.5 transition-all"
+                >
+                  <Download className="w-3.5 h-3.5 text-[#6c63ff]" />
+                  Save
+                </a>
+                <button
+                  onClick={() => setFullscreenImage(null)}
+                  className="p-2 rounded-full bg-[#1a2038] hover:bg-[#252f52] border border-[#2d385e] text-[#94a3b8] hover:text-white transition-all ml-2"
+                  aria-label="Close fullscreen view"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
             </div>
 
-            <p className="mt-5 text-[#cbd5e1] text-xs leading-relaxed">
-              {selectedCert.description}
-            </p>
-
-            {/* Skills */}
-            <div className="mt-4">
-              <span className="text-xs font-mono text-[#94a3b8]">Verified Competencies:</span>
-              <div className="flex flex-wrap gap-1.5 mt-2">
-                {selectedCert.skills.map((s, idx) => (
-                  <span key={idx} className="px-3 py-1 rounded-full bg-[#171d33] border border-[#252f52] text-xs font-mono text-[#cbd5e1]">
-                    {s}
-                  </span>
-                ))}
-              </div>
+            {/* High Res Image Display */}
+            <div 
+              className="relative max-w-6xl max-h-[85vh] flex items-center justify-center overflow-auto p-2"
+              onClick={(e) => {
+                if (e.target === e.currentTarget) setFullscreenImage(null);
+              }}
+            >
+              <motion.img 
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                src={fullscreenImage} 
+                alt="Certificate full view" 
+                className="max-w-full max-h-[82vh] object-contain rounded-xl shadow-2xl border border-[#232d4b] bg-[#0c0f1c]"
+              />
             </div>
 
-            {/* Actions */}
-            <div className="mt-8 flex items-center justify-end gap-3 pt-4 border-t border-[#232d4b]">
-              <a
-                href={selectedCert.link}
-                target="_blank"
-                rel="noreferrer"
-                className="px-6 py-2.5 rounded-full text-white text-xs font-semibold flex items-center gap-2 transition-all shadow-lg"
-                style={{ background: 'linear-gradient(135deg, #6c63ff 0%, #4d44db 100%)' }}
-              >
-                Verify on LinkedIn / Credly
-                <ExternalLink className="w-4 h-4" />
-              </a>
+            <div className="mt-3 text-xs font-mono text-[#94a3b8] flex items-center gap-2">
+              <span>Press <kbd className="px-2 py-0.5 rounded bg-[#1a2038] border border-[#2d385e] text-[#a78bfa]">Esc</kbd> or click background to exit</span>
             </div>
           </motion.div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
 
     </section>
   );
 }
-
-

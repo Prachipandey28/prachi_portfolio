@@ -62,6 +62,18 @@ export default function Certifications() {
       link: 'https://www.credly.com/go/8K8Xzhil'
     },
     {
+      title: 'Agentic AI Workshop',
+      issuer: 'Grras Solutions (P) Ltd',
+      date: 'Jun 2026',
+      credentialId: '3c510ba827704',
+      category: 'GenAI & Machine Learning',
+      badge: 'Practical Workshop',
+      image: '/certificates/agentic-ai-grras.png',
+      description: 'Successfully completed the Agentic AI Workshop conducted by GRRAS Solutions. Gained hands-on practical knowledge of autonomous agents and Agentic AI workflows.',
+      skills: ['Agentic AI Development', 'Artificial Intelligence', 'Autonomous Agents', 'Agentic Workflows'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
+    },
+    {
       title: 'Deloitte Data Analytics Job Simulation',
       issuer: 'Deloitte (Forage)',
       date: 'Jun 2026',
@@ -83,6 +95,30 @@ export default function Certifications() {
       image: '/certificates/arya-genai-workshop.png',
       description: 'Participated in a specialized hands-on workshop on Generative AI and Machine Learning organized by Arya College of Engineering & I.T. and Cipher Coding Club.',
       skills: ['Generative AI', 'Machine Learning', 'Prompt Engineering', 'Deep Learning'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
+    },
+    {
+      title: 'AI for Beginners',
+      issuer: 'HP LIFE Foundation',
+      date: 'May 2025',
+      credentialId: 'ed6c6b52b-25b4-4e9b-9c1b-91b5b8f4b01acdc',
+      category: 'GenAI & Machine Learning',
+      badge: 'Official Training',
+      image: '/certificates/hp-ai-for-beginners.png',
+      description: 'Completed the HP LIFE online course on Artificial Intelligence, gaining foundational knowledge of AI concepts, business applications, and ethical machine learning.',
+      skills: ['Artificial Intelligence', 'Business AI', 'Machine Learning', 'Data Ethics'],
+      link: 'https://www.life-global.org/'
+    },
+    {
+      title: 'UI/UX with Graphic Design',
+      issuer: 'Grras Solutions (P) Ltd',
+      date: 'Jun 2026',
+      credentialId: '2026GRRAS12049',
+      category: 'Web & Full-Stack',
+      badge: 'Design Certification',
+      image: '/certificates/uiux-graphic-design.png',
+      description: 'Hands-on design training covering User Interface Design, UX wireframing, digital user experiences, and modern visual graphic design aesthetics.',
+      skills: ['User Interface Design', 'UX Design', 'Visual Graphics', 'Digital Experiences'],
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
@@ -110,6 +146,30 @@ export default function Certifications() {
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
+      title: 'Eureka Pitching Competition – Believe in Your Idea',
+      issuer: 'Arya College & E-CELL ACEIT',
+      date: 'Oct 2024',
+      credentialId: 'E-CELL ACEIT • National Entrepreneurship Challenge',
+      category: 'Hackathons & Quizzes',
+      badge: 'Pitching Competition',
+      image: '/certificates/eureka-pitching.png',
+      description: 'Participated in the Eureka Pitching Competition (Believe in Your Idea: Discover, Pitch, Thrive) organized by E-Cell ACEIT and Arya College of Engineering & IT in association with National Entrepreneurship Challenge.',
+      skills: ['Startup Pitching', 'Entrepreneurship', 'Idea Discovery', 'Presentation Skills'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
+    },
+    {
+      title: 'Internship Common Aptitude Test (1CAT)',
+      issuer: '1CAT (CIT)',
+      date: 'Apr 2026',
+      credentialId: 'CIT-P-3164539',
+      category: 'Hackathons & Quizzes',
+      badge: 'Aptitude Certification',
+      image: '/certificates/1cat-aptitude-test.png',
+      description: 'Earned Certificate of Participation in the nationwide Internship Common Aptitude Test (1CAT), demonstrating competitive analytical capability, problem solving, and aptitude skills.',
+      skills: ['Analytical Aptitude', 'Logical Reasoning', 'Problem Solving', 'Quantitative Analysis'],
+      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
+    },
+    {
       title: 'SQL (Intermediate)',
       issuer: 'HackerRank',
       date: 'Mar 2026',
@@ -132,17 +192,6 @@ export default function Certifications() {
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
-      title: 'Agentic AI Workshop',
-      issuer: 'Grras Solutions (P) Ltd',
-      date: 'Jun 2026',
-      credentialId: '3c510ba827704',
-      category: 'GenAI & Machine Learning',
-      badge: 'Practical Workshop',
-      description: 'Successfully completed the Agentic AI Workshop conducted by GRRAS Solutions. Gained practical knowledge of Agentic AI concepts and agentic development.',
-      skills: ['Agentic AI Development', 'Artificial Intelligence', 'Autonomous Agents'],
-      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
-    },
-    {
       title: 'Salesforce AI Builders Day',
       issuer: 'Salesforce',
       date: '2026',
@@ -154,17 +203,6 @@ export default function Certifications() {
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
-      title: 'AI for Beginners',
-      issuer: 'HP LIFE Foundation',
-      date: 'May 2025',
-      credentialId: 'HP LIFE Certificate',
-      category: 'GenAI & Machine Learning',
-      badge: 'Official Training',
-      description: 'Completed the HP LIFE online course on Artificial Intelligence, gaining foundational knowledge of AI concepts and real-world business applications.',
-      skills: ['Artificial Intelligence', 'Business AI', 'Machine Learning'],
-      link: 'https://www.life-global.org/'
-    },
-    {
       title: 'Stacks Fullstack Bootcamp Graduate',
       issuer: 'Rise in x Stacks (Arya College)',
       date: 'Sep 2025',
@@ -173,17 +211,6 @@ export default function Certifications() {
       badge: 'Bootcamp Graduate',
       description: 'Successfully graduated from the Stacks Fullstack Bootcamp conducted in association with Arya College of Engineering & IT, Jaipur.',
       skills: ['Full-Stack Development', 'Front-End Development', 'Web Engineering'],
-      link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
-    },
-    {
-      title: 'UI/UX with Graphic Design',
-      issuer: 'Grras Solutions (P) Ltd',
-      date: 'Jun 2026',
-      credentialId: '2026GRRAS12049',
-      category: 'Web & Full-Stack',
-      badge: 'Design Certification',
-      description: 'Hands-on design training covering User Interface Design, UX wireframing, and modern visual graphic design aesthetics.',
-      skills: ['User Interface Design', 'UX Design', 'Visual Graphics'],
       link: 'https://www.linkedin.com/in/prachi-pandey-0042a8328/details/certifications/'
     },
     {
@@ -230,7 +257,7 @@ export default function Certifications() {
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#182038] border border-[#2d3a66] text-[#a78bfa] text-xs font-mono font-medium mb-4"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#6c63ff]" />
-            Official Credentials & Verification
+            Official Credentials & Document Verification
           </motion.div>
 
           <motion.h2 
@@ -249,7 +276,7 @@ export default function Certifications() {
             transition={{ delay: 0.1 }}
             className="text-[#94a3b8] text-sm sm:text-base font-medium tracking-wide uppercase mt-4"
           >
-            14 Verified Industry Certifications, Workshops & Credentials
+            16 Verified Industry Certifications, Workshops & Competitions
           </motion.p>
           <p className="text-xs text-[#6c63ff] font-mono mt-2">
             Click on any certificate to inspect official document photos, credential IDs & verification links
@@ -287,7 +314,7 @@ export default function Certifications() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                transition={{ duration: 0.3, delay: idx * 0.04 }}
                 onClick={() => setSelectedCert(cert)}
                 className="p-5 sm:p-6 rounded-2xl bg-[#121627]/90 border border-[#232d4b] hover:border-[#6c63ff]/60 transition-all duration-300 shadow-xl flex flex-col justify-between group hover:-translate-y-1 cursor-pointer relative overflow-hidden"
               >

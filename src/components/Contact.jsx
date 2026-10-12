@@ -152,7 +152,7 @@ export default function Contact() {
                   <span>LinkedIn</span>
                 </a>
                 <a
-                  href="https://leetcode.com/prachipandey"
+                  href="https://leetcode.com/u/WkFud1X6jF/"
                   target="_blank"
                   rel="noreferrer"
                   className="p-3 rounded-xl bg-[#121627] border border-[#232d4b] text-[#cbd5e1] text-xs font-semibold flex items-center justify-center gap-2 hover:border-[#6c63ff] hover:text-[#a78bfa] transition-all shadow-md"

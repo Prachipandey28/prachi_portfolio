@@ -227,13 +227,13 @@ export default function Certifications() {
       title: 'LeetCode 50 Days Streak Badge 2026',
       issuer: 'LeetCode',
       date: '2026',
-      credentialId: 'LeetCode @prachi1528',
+      credentialId: 'LeetCode @WkFud1X6jF',
       category: 'Data Science & SQL',
       badge: '50 Days Badge',
       image: '/certificates/leetcode-50-days-badge-2026.png',
       description: 'Achieved the LeetCode 50 Days Badge 2026 for consistent problem-solving streak across 50+ days solving Data Structures & Algorithms challenges.',
       skills: ['Data Structures', 'Algorithms', 'LeetCode Streak', 'Problem Solving'],
-      link: 'https://leetcode.com/u/prachi1528/'
+      link: 'https://leetcode.com/u/WkFud1X6jF/'
     },
     {
       title: 'ISP 58 Trainings Contest',

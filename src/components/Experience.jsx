@@ -152,13 +152,13 @@ export default function Experience() {
     },
     {
       title: 'LeetCode 50 Days Streak Badge 2026',
-      issuer: 'LeetCode Platform (@prachi1528)',
+      issuer: 'LeetCode Platform (@WkFud1X6jF)',
       date: '2026',
       detail: 'Awarded LeetCode 50 Days Badge 2026 for consistent problem-solving streak across 50+ days solving algorithmic problems.',
       icon: Code2,
       badge: '50 Days Badge',
       image: '/certificates/leetcode-50-days-badge-2026.png',
-      link: 'https://leetcode.com/u/prachi1528/'
+      link: 'https://leetcode.com/u/WkFud1X6jF/'
     },
     {
       title: 'Certificate of Appreciation — India Is Innovating 2K25',

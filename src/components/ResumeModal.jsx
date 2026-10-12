@@ -102,9 +102,9 @@ export default function ResumeModal({ isOpen, onClose }) {
                 <GithubIcon className="w-3.5 h-3.5 text-sky-400" />
                 github.com/prachipandey28
               </a>
-              <a href="https://leetcode.com/prachipandey" target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-sky-400">
+              <a href="https://leetcode.com/u/WkFud1X6jF/" target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-sky-400">
                 <Code2 className="w-3.5 h-3.5 text-amber-400" />
-                leetcode.com/prachipandey
+                leetcode.com/u/WkFud1X6jF
               </a>
             </div>
           </div>

@@ -201,7 +201,7 @@ export default function AiLab() {
     if (q.includes('github') || q.includes('commit') || q.includes('activity') || q.includes('dashboard') || q.includes('dsa') || q.includes('leetcode') || q.includes('stats')) {
       return {
         text: "Prachi's Live Developer Dashboard tracks real-time evidence of engineering rigor:",
-        highlight: "• GitHub: 25 public repositories with 500+ commits (@Prachipandey28).\n• Primary Stack: Python (48%), JavaScript (26%), SQL (16%), HTML/CSS (10%).\n• Deployed Systems: Bone Cancer Detection (Live on Vercel) & Portfolio Web Hub.\n• DSA Credentials: 50 Days LeetCode Badge 2026 (@prachi1528), 5-Star HackerRank SQL Gold Badge, and 100+ CodeChef solutions.",
+        highlight: "• GitHub: 25 public repositories with 500+ commits (@Prachipandey28).\n• Primary Stack: Python (48%), JavaScript (26%), SQL (16%), HTML/CSS (10%).\n• Deployed Systems: Bone Cancer Detection (Live on Vercel) & Portfolio Web Hub.\n• DSA Credentials: 50 Days LeetCode Badge 2026 (@WkFud1X6jF), 5-Star HackerRank SQL Gold Badge, and 100+ CodeChef solutions.",
         actionLink: '#dashboard',
         actionLabel: 'Open Developer Dashboard'
       };

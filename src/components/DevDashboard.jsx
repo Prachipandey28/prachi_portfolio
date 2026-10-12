@@ -241,13 +241,13 @@ export default function DevDashboard() {
   const dsaStats = [
     {
       platform: 'LeetCode',
-      handle: '@prachi1528',
+      handle: '@WkFud1X6jF',
       headline: '50 Days Streak Badge 2026',
       badge: 'Streak Honor',
       metric: '50+ Days',
       metricLabel: 'Active Streak',
       details: 'Consistent daily problem-solving across core algorithms, arrays, strings, two pointers, and hashing.',
-      link: 'https://leetcode.com/u/prachi1528/',
+      link: 'https://leetcode.com/u/WkFud1X6jF/',
       color: '#f59e0b',
       icon: Flame
     },
